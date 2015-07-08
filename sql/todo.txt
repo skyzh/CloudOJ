@@ -7,3 +7,5 @@ Status:
 Status
 Discuss:
 Discuss, Discuss Detail
+Direct Message:
+DM

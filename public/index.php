@@ -1,43 +1,22 @@
 <?php
 
-use Phalcon\Loader;
-use Phalcon\Mvc\View;
+error_reporting(E_ALL);
+
 use Phalcon\Mvc\Application;
-use Phalcon\DI\FactoryDefault;
-use Phalcon\Mvc\Url as UrlProvider;
-use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
+use Phalcon\Config\Adapter\Ini as ConfigIni;
 
 try {
 
-    // Register an autoloader
-    $loader = new Loader();
-    $loader->registerDirs(array(
-        '../app/controllers/',
-        '../app/models/'
-    ))->register();
+    define('APP_PATH', realpath('..') . '/');
+    $config = new ConfigIni(APP_PATH . 'app/config/config.ini');
 
-    // Create a DI
-    $di = new FactoryDefault();
+    require APP_PATH . 'app/config/loader.php';
+    require APP_PATH . 'app/config/services.php';
 
-    // Setup the view component
-    $di->set('view', function(){
-        $view = new View();
-        $view->setViewsDir('../app/views/');
-        return $view;
-    });
-
-    // Setup a base URI so that all generated URIs include the "tutorial" folder
-    $di->set('url', function(){
-        $url = new UrlProvider();
-        $url->setBaseUri('/oj/');
-        return $url;
-    });
-
-    // Handle the request
     $application = new Application($di);
 
     echo $application->handle()->getContent();
 
-} catch (\Exception $e) {
-     echo "PhalconException: ", $e->getMessage();
+} catch (Exception $e){
+    echo $e->getMessage();
 }
