@@ -18,6 +18,7 @@ $di->set('url', function() use ($config){
     return $url;
 });
 
+
 $di->set('view', function() use ($config) {
 
     $view = new View();
@@ -53,4 +54,26 @@ $di->set('db', function() use ($config) {
         "password" => $config->database->password,
         "dbname"   => $config->database->name
     ));
+});
+
+$di->set('modelsMetadata', function() {
+    return new MetaData();
+});
+
+$di->set('session', function() {
+    $session = new SessionAdapter();
+    $session->start();
+    return $session;
+});
+
+$di->set('flash', function(){
+    return new FlashSession(array(
+        'error'   => 'alert alert-danger',
+        'success' => 'alert alert-success',
+        'notice'  => 'alert alert-info',
+    ));
+});
+
+$di->set('elements', function(){
+    return new Elements();
 });
