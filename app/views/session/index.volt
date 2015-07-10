@@ -26,7 +26,7 @@
                     {{ submit_button('Login', 'class': 'btn btn-primary btn-large') }}
                 </div>
             </fieldset>
-        </form>
+        {{ endform() }}
     </div>
 
     <div class="col-md-6">

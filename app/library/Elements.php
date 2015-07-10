@@ -47,10 +47,11 @@ class Elements extends Component
 
     public function getDropdown($menu) {
         echo '<li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menu[".text"].'<span class="caret"></span></a>
             <ul class="dropdown-menu">';
         foreach ($menu as $controller => $option) {
             if($controller == ".divider") echo '<li role="separator" class="divider"></li>';
+            elseif($controller[0]=='.') echo '';
             else {
                 echo '<li>';
                 echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
@@ -81,6 +82,7 @@ class Elements extends Component
         if ($auth) {
             $this->_headerMenu['navbar-right'] = array(
                 '.dropdown' => array(
+                    '.text' => $auth["name"],
                     'profile' => array(
                         'caption' => 'Profile',
                         'action' => 'index'

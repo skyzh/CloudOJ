@@ -10,5 +10,7 @@ class ProblemSetController extends ControllerBase
 
     public function indexAction()
     {
+        $problems = Problemset::find();
+        $this->view->problems = $problems;
     }
 }

@@ -55,4 +55,4 @@
         </div>
         <p class="help-block">By signing up, you accept terms of use and privacy policy.</p>
     </fieldset>
-</form>
+{{ endform() }}
