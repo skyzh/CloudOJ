@@ -35,9 +35,13 @@ class Elements extends Component
         ),
         'navbar-right' => array(
             'session' => array(
-                'caption' => 'Log In/Sign Up',
+                'caption' => 'Log In',
                 'action' => 'index'
             ),
+            'register' => array(
+                'caption' => 'Sign Up',
+                'action' => 'index'
+            )
         )
     );
 
@@ -46,9 +50,12 @@ class Elements extends Component
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
             <ul class="dropdown-menu">';
         foreach ($menu as $controller => $option) {
-            echo '<li>';
-            echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
-            echo '</li>';
+            if($controller == ".divider") echo '<li role="separator" class="divider"></li>';
+            else {
+                echo '<li>';
+                echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
+                echo '</li>';
+            }
         }
         echo '</ul></li>';
     }
@@ -82,6 +89,7 @@ class Elements extends Component
                         'caption' => 'Notification',
                         'action' => 'index'
                     ),
+                    '.divider',
                     'session' => array(
                         'caption' => 'Log Out',
                         'action' => 'end'

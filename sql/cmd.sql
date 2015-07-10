@@ -8,7 +8,8 @@ CREATE TABLE `user` (
     PRIMARY KEY (uid),
     UNIQUE username(username),
     UNIQUE email(email),
-    UNIQUE uid(uid)
+    UNIQUE uid(uid),
+    registertime DATETIME NOT null
 );
 
 # Create group table

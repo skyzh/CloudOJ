@@ -2,17 +2,14 @@
 
 use Phalcon\Mvc\Controller;
 
-class ControllerBase extends Controller
-{
+class ControllerBase extends Controller {
 
-    protected function initialize()
-    {
+    protected function initialize() {
         $this->tag->prependTitle('SNGOJ | ');
         $this->view->setTemplateAfter('main');
     }
 
-    protected function forward($uri)
-    {
+    protected function forward($uri) {
         $uriParts = explode('/', $uri);
         $params = array_slice($uriParts, 2);
         return $this->dispatcher->forward(

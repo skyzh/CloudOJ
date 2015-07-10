@@ -2,11 +2,9 @@
 
 use Phalcon\Mvc\Controller;
 
-class IndexController extends ControllerBase
-{
+class IndexController extends ControllerBase {
 
-    public function indexAction()
-    {
+    public function indexAction() {
         $this->tag->setTitle('Welcome');
         parent::initialize();
     }

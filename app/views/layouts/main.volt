@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">SNGOJ</a>
+            <a class="navbar-brand" href="/oj/">SNGOJ</a>
         </div>
         <div class="collapse navbar-collapse" id="oj-nav-collapse-main">
             {{ elements.getMenu() }}
@@ -20,6 +20,6 @@
     {{ content() }}
     <hr>
     <footer>
-        <p><a href="https://github.com/SkyZH/SNGOJ_MVC">SNGOJ</a>, an Online Judge under MIT License.</p>
+        <p>{{ link_to('about', 'SNGOJ') }}, an Online Judge under MIT License.</p>
     </footer>
 </div>
