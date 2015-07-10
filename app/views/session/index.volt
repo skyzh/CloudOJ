@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <div class="controls">
                         {{ text_field('email', 'class': "form-control",
-                        "placeholder" : "Username/Email/UserID") }}
+                        "placeholder" : "Username/Email") }}
                     </div>
                 </div>
                 <div class="form-group">

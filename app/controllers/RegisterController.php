@@ -24,7 +24,7 @@ class RegisterController extends ControllerBase {
             } else {
                 $user = new User();
                 $user->username = $username;
-                $user->password = $password;
+                $user->password = $this->security->hash($password);
                 $user->email = $email;
                 $user->registertime = new Phalcon\Db\RawValue('now()');
                 $user->groupid = 2;

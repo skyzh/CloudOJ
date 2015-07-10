@@ -3,23 +3,13 @@ CREATE TABLE `user` (
     uid int(11) AUTO_INCREMENT NOT null,
     username varchar(20) not null,
     email varchar(50) not null,
-    password varchar(20) not null,
+    password varchar(100) not null,
     groupid int(11) not null,
     PRIMARY KEY (uid),
     UNIQUE username(username),
     UNIQUE email(email),
     UNIQUE uid(uid),
     registertime DATETIME NOT null
-);
-
-# Create group table
-CREATE TABLE `group` (
-    gid int(11) NOT null,
-    UNIQUE gid(gid),
-    PRIMARY KEY (gid),
-    premission_admin boolean NOT null,
-    premission_submit boolean NOT null,
-    premission_discuss boolean NOT null
 );
 
 # Create user status table
@@ -30,6 +20,7 @@ CREATE TABLE `userstatus` (
     submit mediumtext NOT null,
     accepted mediumtext NOT null
 );
+
 CREATE TABLE `userprofile` (
     uid int(11) NOT null,
     PRIMARY KEY (uid),
@@ -42,21 +33,13 @@ CREATE TABLE `userprofile` (
     lastactive DATETIME not null
 );
 
-
 # Create problemset table
 CREATE TABLE `problemset` (
     pid int(11) NOT null AUTO_INCREMENT,
     PRIMARY KEY (pid),
     UNIQUE pid(pid),
     title text not null,
-    source text not null
-);
-
-# Create problem status table
-CREATE TABLE `problemstatus` (
-    pid int(11) NOT null,
-    PRIMARY KEY (pid),
-    UNIQUE (pid),
+    source text not null,
     submit int (11) NOT null,
     accepted int (11) NOT null
 );
@@ -72,8 +55,7 @@ CREATE TABLE `problemdetail` (
     sampleinput mediumtext NOT null,
     sampleoutput mediumtext NOT null,
     hint mediumtext NOT null,
-    title text NOT null,
-    source text NOT null
+    changetime DATETIME NOT null
 );
 
 # Create Status table
@@ -100,18 +82,18 @@ CREATE TABLE `discuss` (
     pid int(11) not null,
     uid int(11) not null,
     submittime DATETIME not null,
-    title text not null
+    title text not null,
+    detail mediumtext not null
 );
 
 CREATE TABLE `discussdetail` (
     did int(11) NOT null,
     tid int(11) NOT null AUTO_INCREMENT,
-    PRIMARY KEY (tid),
+    PRIMARY KEY (did, tid),
     UNIQUE did(did),
     UNIQUE tid(tid),
     uid int(11) not null,
     submittime DATETIME not null,
-    title text not null,
     detail mediumtext not null
 );
 
@@ -122,5 +104,6 @@ CREATE TABLE `directmessage` (
     ruid int(11) NOT null,
     PRIMARY KEY (suid, ruid),
     UNIQUE dmid(dmid),
-    message text NOT null
+    message text NOT null,
+    sendtime DATETIME NOT null
 );

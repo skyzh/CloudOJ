@@ -7,7 +7,6 @@
 </div>
 
 {{ form('register', 'id': 'registerForm', 'onbeforesubmit': 'return false') }}
-
     <fieldset>
 
         <div class="control-group">
