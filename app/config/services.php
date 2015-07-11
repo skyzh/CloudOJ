@@ -12,6 +12,18 @@ use Phalcon\Events\Manager as EventsManager;
 
 $di = new FactoryDefault();
 
+$di->set('dispatcher', function() use ($di) {
+
+    $eventsManager = new EventsManager;
+    
+    $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
+
+    $dispatcher = new Dispatcher;
+    $dispatcher->setEventsManager($eventsManager);
+
+    return $dispatcher;
+});
+
 $di->set('url', function() use ($config){
     $url = new UrlProvider();
     $url->setBaseUri($config->application->baseUri);

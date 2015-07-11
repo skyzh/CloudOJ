@@ -98,9 +98,11 @@ class Elements extends Component
                     )
                 )
             );
-        } else {
-            unset($this->_headerMenu['navbar-left']['admin']);
         }
+        if($auth)
+            if($auth["groupid"] <> 1) {
+                unset($this->_headerMenu['navbar-left']['admin']);
+            }
 
         $controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
