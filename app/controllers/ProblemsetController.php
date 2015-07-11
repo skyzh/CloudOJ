@@ -18,6 +18,10 @@ class ProblemSetController extends ControllerBase {
     }
 
     public function newAction() {
-        
+        $form = new ProblemForm(null, null);
+        if ($this->request->isPost()) {
+            $this->flash->success('<h5>Problem Submitted!</h5><h6>Now start submit!</h6>');
+        }
+        $this->view->form = $form;
     }
 }

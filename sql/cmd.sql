@@ -69,8 +69,8 @@ CREATE TABLE `status` (
     submittime DATETIME not null,
     path text not null,
     status int(11) not null,
-    memory int(11) not null,
-    time int(11) not null,
+    memlimit int(11) not null,
+    timelimit int(11) not null,
     codelength int(11) not null
 );
 

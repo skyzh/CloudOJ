@@ -1,17 +1,18 @@
 {{ content() }}
 
-<div class="page-header">
-    <h2>Problems</h2>
-</div>
-
-
 {% if isAdmin %}
 <div class = "row">
     <div align="right">
-        {{ link_to('problemset/new', '<span class="glyphicon glyphicon-pencil"></span> Create', 'class': 'btn btn-default btn-large')}}
+        <div class="col-xs-12">
+            {{ link_to('problemset/new', '<span class="glyphicon glyphicon-pencil"></span> Create', 'class': 'btn btn-default btn-large')}}
+        </div>
     </div>
 </div>
 {% endif %}
+
+<div class="page-header">
+    <h2>Problems</h2>
+</div>
 
 {% for problem in problems %}
     {% if loop.first %}

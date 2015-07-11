@@ -7,7 +7,7 @@
         {{ stylesheet_link('//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css') }}
         {{ stylesheet_link('css/main.css') }}
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="description" content="SNGOJ">
         <meta name="author" content="SkyZH">
     </head>

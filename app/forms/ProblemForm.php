@@ -2,6 +2,7 @@
 
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
+use Phalcon\Forms\Element\TextArea;
 use Phalcon\Forms\Element\Hidden;
 use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\PresenceOf;
@@ -9,14 +10,34 @@ use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Numericality;
 
 class ProblemForm extends Form {
+    private function addNumber($objName, $objLabel) {
+        $obj = new Text($objName);
+        $obj->setLabel($objLabel);
+        $obj->setFilters(array('int'));
+        $obj->addValidators(array(
+            new PresenceOf(array(
+                'message' => $objLabel.' is required'
+            )),
+            new Numericality(array(
+                'message' => $objLabel.' is required'
+            ))
+        ));
+        $this->add($obj);
+    }
+    private function addStringArea($objName, $objLabel) {
+        $obj= new TextArea($objName);
+        $obj->setLabel($objLabel);
+        $obj->setFilters(array('string'));
+        $obj->addValidators(array(
+            new PresenceOf(array(
+                'message' => $objLabel.' is required'
+            )),
+        ));
+        $this->add($obj);
+    }
     public function initialize($entity = null, $options = array()) {
 
-        if (!isset($options['edit'])) {
-            $element = new Text("id");
-            $this->add($element->setLabel("Id"));
-        } else {
-            $this->add(new Hidden("id"));
-        }
+        $this->add(new Hidden("pid"));
 
         $title = new Text("title");
         $title->setLabel("Title");
@@ -28,30 +49,24 @@ class ProblemForm extends Form {
         ));
         $this->add($title);
 
-        $memlimit = new Text("memlimit");
-        $memlimit->setLabel("Memory Limit");
-        $memlimit->setFilters(array('int'));
-        $memlimit->addValidators(array(
-            new PresenceOf(array(
-                'message' => 'Memory Limit is required'
-            )),
-            new Numericality(array(
-                'message' => 'Memory Limit is required'
-            ))
-        ));
-        $this->add($memlimit);
+        $this->addNumber("memlimit", "Memory Limit");
+        $this->addNumber("timelimit", "Time Limit");
 
-        $timelimit = new Text("memlimit");
-        $timelimit->setLabel("Memory Limit");
-        $timelimit->setFilters(array('int'));
-        $timelimit->addValidators(array(
+        $source= new Text("source");
+        $source->setLabel("Source");
+        $source->setFilters(array('string'));
+        $source->addValidators(array(
             new PresenceOf(array(
-                'message' => 'Memory Limit is required'
+                'message' => 'Source is required'
             )),
-            new Numericality(array(
-                'message' => 'Memory Limit is required'
-            ))
         ));
-        $this->add($timelimit);
+        $this->add($source);
+
+        $this->addStringArea("description", "Description");
+        $this->addStringArea("input", "Input");
+        $this->addStringArea("output", "Output");
+        $this->addStringArea("sampleinput", "Sample Input");
+        $this->addStringArea("sampleoutput", "Sample Output");
+        $this->addStringArea("hint", "Hint");
     }
 }

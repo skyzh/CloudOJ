@@ -28,6 +28,10 @@ class Elements extends Component
                 'caption' => 'Status',
                 'action' => 'index'
             ),
+            'discuss' => array(
+                'caption' => 'Discuss',
+                'action' => 'index'
+            ),
             'rank' => array(
                 'caption' => 'Rank',
                 'action' => 'index'
@@ -99,8 +103,8 @@ class Elements extends Component
                 )
             );
         }
-        if($auth)
-            if($auth["groupid"] <> 1) {
+        if(!$auth) unset($this->_headerMenu['navbar-left']['admin']);
+        elseif($auth["groupid"] <> 1) {
                 unset($this->_headerMenu['navbar-left']['admin']);
             }
 

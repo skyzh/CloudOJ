@@ -7,6 +7,13 @@ body {
   white-space: pre;
 }
 
+.row-margin {
+    height: 10px;
+    display: block;
+    clear: both;
+}
+
+
 #editor {
     margin: 0;
     position: relative;
