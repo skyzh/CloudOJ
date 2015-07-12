@@ -22,7 +22,7 @@
         <div class="control-group">
             <div class="controls">
                 {{ form.render('email', ['class': 'form-control', 'placeholder': 'Email']) }}
-                <p class="help-block">(Required)</p>
+                <p class="help-block">(Required, we will use this email to fetch avatar on Gravatar)</p>
                 <div class="alert alert-warning" id="email_alert">
                     <strong>Warning!</strong> Please enter your email
                 </div>
