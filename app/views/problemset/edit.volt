@@ -1,18 +1,18 @@
 {{ content() }}
 
 
-{{ form('problemset/new', 'id': 'createproblemForm') }}
+{{ form('problemset/save/' ~ problem.pid, 'id': 'createproblemForm') }}
     <div class="row">
         <div class="col-md-6" align="left">
-            {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
+            {{ link_to("problemset/view/" ~ problem.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
         </div>
         <div class="col-md-6" align="right">
-            {{ link_to("problemset/new", "class": "btn btn-default", "Reset") }}
+            {{ link_to("problemset/edit/" ~ problem.pid , "class": "btn btn-default", "Reset") }}
             {{ submit_button("Save", "class": "btn btn-primary") }}
         </div>
     </div>
     <div class="page-header">
-        <h2>Create Problem</h2>
+        <h2>Edit Problem</h2>
     </div>
     <fieldset>
         {{ form.render('pid') }}

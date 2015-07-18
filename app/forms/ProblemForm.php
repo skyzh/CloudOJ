@@ -38,6 +38,8 @@ class ProblemForm extends Form {
     public function initialize($entity = null, $options = array()) {
 
         $this->add(new Hidden("pid"));
+        $this->add(new Hidden("submit"));
+        $this->add(new Hidden("accepted"));
 
         $title = new Text("title");
         $title->setLabel("Title");
@@ -52,15 +54,15 @@ class ProblemForm extends Form {
         $this->addNumber("memlimit", "Memory Limit");
         $this->addNumber("timelimit", "Time Limit");
 
-        $source= new Text("source");
-        $source->setLabel("Source");
-        $source->setFilters(array('string'));
-        $source->addValidators(array(
+        $type = new Text("type");
+        $type->setLabel("Type");
+        $type->setFilters(array('string'));
+        $type->addValidators(array(
             new PresenceOf(array(
-                'message' => 'Source is required'
+                'message' => 'Type is required'
             )),
         ));
-        $this->add($source);
+        $this->add($type);
 
         $this->addStringArea("description", "Description");
         $this->addStringArea("input", "Input");

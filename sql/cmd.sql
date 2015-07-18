@@ -39,23 +39,18 @@ CREATE TABLE `problemset` (
     PRIMARY KEY (pid),
     UNIQUE pid(pid),
     title text not null,
-    source text not null,
+    type text not null,
     submit int (11) NOT null,
-    accepted int (11) NOT null
-);
-
-# Create problem detail table
-CREATE TABLE `problemdetail` (
-    pid int(11) NOT null,
-    PRIMARY KEY (pid),
-    UNIQUE pid(pid),
+    accepted int (11) NOT null,
     description mediumtext NOT null,
     input mediumtext NOT null,
     output mediumtext NOT null,
     sampleinput mediumtext NOT null,
     sampleoutput mediumtext NOT null,
     hint mediumtext NOT null,
-    changetime DATETIME NOT null
+    changetime DATETIME NOT null,
+    memlimit int(11) not null,
+    timelimit int(11) not null
 );
 
 # Create Status table
@@ -90,11 +85,12 @@ CREATE TABLE `discussdetail` (
     did int(11) NOT null,
     tid int(11) NOT null AUTO_INCREMENT,
     PRIMARY KEY (did, tid),
-    UNIQUE did(did),
     UNIQUE tid(tid),
+    UNIQUE did(did),
     uid int(11) not null,
     submittime DATETIME not null,
-    detail mediumtext not null
+    detail mediumtext not null,
+    foreign key(did) references discuss(did)
 );
 
 #Create Direct Message Table
