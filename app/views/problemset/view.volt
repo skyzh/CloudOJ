@@ -14,7 +14,7 @@
             {{ link_to('discuss/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-th-list"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
             {{ link_to('status/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-signal"></span> Status', 'class': 'btn btn-primary btn-large')}}
             {% if isAdmin %}
-            {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-pencil"></span> Edit', 'class': 'btn btn-default btn-large')}}
+            {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-edit"></span> Edit', 'class': 'btn btn-default btn-large')}}
             {{ link_to('problemset/remove/' ~ problem.pid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-large')}}
             {% endif %}
         </div>

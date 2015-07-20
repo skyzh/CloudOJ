@@ -8,17 +8,16 @@ class StatusController extends ControllerBase {
 
     public function indexAction() {
     }
-
     public function submitAction($pid) {
-        if (!$this->request->isPost()) {
-            $problem = Problemset::findFirst(array(
-                "pid = :pid:", 'bind' => array('pid' => $pid)));
-            if (!$problem) {
-                $this->flash->error("Problem was not found");
-                return $this->forward("problemset/index");
-            }
-            $this->view->problem = $problem;
+        $problem = Problemset::findFirst(array(
+            "pid = :pid:", 'bind' => array('pid' => $pid)));
+        if (!$problem) {
+            $this->flash->error("Problem was not found");
+            return $this->forward("status/index");
         }
+        if ($this->request->isPost()) {
+        }
+        $this->view->problem = $problem;
     }
 
 }

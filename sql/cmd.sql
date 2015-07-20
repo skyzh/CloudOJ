@@ -62,11 +62,17 @@ CREATE TABLE `status` (
     uid int(11) not null,
     lang int(11) not null,
     submittime DATETIME not null,
-    path text not null,
     status int(11) not null,
     memlimit int(11) not null,
     timelimit int(11) not null,
     codelength int(11) not null
+);
+
+CREATE TABLE `statuscode` (
+    sid int(11) NOT null,
+    foreign key(sid) references status(sid),
+    PRIMARY KEY (sid),
+    code mediumtext not null
 );
 
 # Create Discuss table

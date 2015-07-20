@@ -3,7 +3,7 @@
 <div class="page-header">
     <h2>Status</h2>
 </div>
-
+<!--
 {% for problem in problems %}
     {% if loop.first %}
         <div class = "row" style="line-height: 30px;">
@@ -14,6 +14,7 @@
         </div>
     {% endif %}
         <div class="row-margin"></div>
+
         <div class="row">
             <div class="col-md-2 col-xs-4">{{ problem.pid }}</div>
             <div class="col-md-4 col-xs-8">{{ link_to('problemset/view/' ~ problem.pid, problem.title) }}</div>
@@ -23,3 +24,4 @@
 {% else %}
     No submit is recorded
 {% endfor %}
+-->
