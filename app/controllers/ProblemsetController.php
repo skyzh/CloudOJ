@@ -1,23 +1,12 @@
 <?php
 
-class ProblemSetController extends ControllerBase {
+class ProblemsetController extends ControllerBase {
     public function initialize() {
         $this->tag->setTitle('Problems');
         parent::initialize();
     }
 
-    private function getAuth()
-    {
-        $auth = $this->session->get('auth');
-
-        $this->view->isAdmin = false;
-        if($auth)
-            if($auth["groupid"] == 1)
-                $this->view->isAdmin = true;
-    }
-
     public function indexAction() {
-        $this->getAuth();
         $problems = Problemset::find();
         $this->view->problems = $problems;
     }
@@ -109,7 +98,6 @@ class ProblemSetController extends ControllerBase {
     }
 
     public function viewAction($pid) {
-        $this->getAuth();
         $problem = Problemset::findFirst(array(
             "pid = :pid:", 'bind' => array('pid' => $pid)));
 

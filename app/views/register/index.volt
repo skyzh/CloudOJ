@@ -12,7 +12,7 @@
         <div class="control-group">
             <div class="controls">
                 {{ form.render('username', ['class': 'form-control', 'placeholder': 'Username']) }}
-                <p class="help-block">(Required, Minimum 5 characters)</p>
+                <p class="help-block">(Required, Minimum 5 characters, only a-z, A-Z, 0-9)</p>
                 <div class="alert alert-warning" id="username_alert">
                     <strong>Warning!</strong> Please enter your desired username
                 </div>

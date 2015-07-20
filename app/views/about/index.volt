@@ -3,7 +3,7 @@
 </div>
 
 <p>
-This is SNGOJ, an Online Judge under MIT License, which enables you to practise programming online.
+This is SNGOJ is an Online Judge under MIT License, which enables you to practise programming online.
 </p>
 <p>
 You can find SNGOJ on <a href="https://github.com/SkyZH/SNGOJ_MVC">Github</a>.

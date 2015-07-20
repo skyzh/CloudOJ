@@ -1,18 +1,27 @@
 {{ content() }}
 
-{% if isAdmin %}
+
 <div class = "row">
     <div align="right">
         <div class="col-md-6" align="left">
             {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
         </div>
+
         <div class="col-md-6" align="right">
+            {% if isUser %}
+            {{ link_to('status/submit/' ~ problem.pid, '<span class="glyphicon glyphicon-upload"></span> Submit', 'class': 'btn btn-primary btn-large')}}
+            {% endif %}
+            {{ link_to('discuss/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-th-list"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
+            {{ link_to('status/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-signal"></span> Status', 'class': 'btn btn-primary btn-large')}}
+            {% if isAdmin %}
             {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-pencil"></span> Edit', 'class': 'btn btn-default btn-large')}}
             {{ link_to('problemset/remove/' ~ problem.pid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-large')}}
+            {% endif %}
         </div>
+
     </div>
 </div>
-{% endif %}
+
 
 <div class="page-header">
     <h2>{{ problem.pid }} {{ problem.title }}</h2>
