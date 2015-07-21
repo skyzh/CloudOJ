@@ -72,7 +72,8 @@ CREATE TABLE `statuscode` (
     sid int(11) NOT null,
     foreign key(sid) references status(sid),
     PRIMARY KEY (sid),
-    code mediumtext not null
+    code mediumtext not null,
+    ret mediumtext
 );
 
 # Create Discuss table

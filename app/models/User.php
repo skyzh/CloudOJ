@@ -12,6 +12,9 @@ class User extends Model {
     public $groupid;
     public $registertime;
 
+    public $__title;
+    public $__username;
+
     public function validation()
     {
         $this->validate(new EmailValidator(array(
@@ -29,8 +32,11 @@ class User extends Model {
             return false;
         }
     }
-    public function beforeCreate()
-    {
+    public function beforeValidationOnCreate() {
         $this->registertime = new RawValue('now()');
+    }
+
+    public static function getAvatar($email) {
+        return "https://cdn.v2ex.com/gravatar/".md5(strtolower($email));
     }
 }

@@ -21,12 +21,10 @@ class Problemset extends Model {
     public $memlimit;
     public $timelimit;
 
-    public function validation()
+    public function beforeValidationOnCreate()
     {
-    }
-
-    public function beforeCreate()
-    {
+        $this->submit = 0;
+        $this->accepted = 0;
         $this->changetime = new RawValue('now()');
     }
 }

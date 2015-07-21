@@ -1,7 +1,7 @@
 {{ content() }}
 
 
-{{ form('problemset/new', 'id': 'createproblemForm') }}
+{{ form('problemset/save/0', 'id': 'createproblemForm') }}
     <div class="row">
         <div class="col-md-6" align="left">
             {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}

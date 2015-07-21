@@ -13,7 +13,9 @@ class SessionController extends ControllerBase {
         $this->session->set('auth', array(
             'id' => $user->uid,
             'name' => $user->username,
-            'groupid' => $user->groupid
+            'email' => $user->email,
+            'groupid' => $user->groupid,
+            'avatar' => User::getAvatar($user->email)
         ));
     }
 

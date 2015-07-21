@@ -13,37 +13,33 @@ class Elements extends Component
     private $_headerMenu = array(
         'navbar-left' => array(
             'index' => array(
-                'caption' => 'Home',
-                'action' => 'index'
-            ),
-            'admin' => array(
-                'caption' => 'Admin',
+                'caption' => '<span class="glyphicon glyphicon-home"></span> Home',
                 'action' => 'index'
             ),
             'problemset' => array(
-                'caption' => 'Problems',
+                'caption' => '<span class="glyphicon glyphicon-question-sign"></span> Problems',
                 'action' => 'index'
             ),
             'status' => array(
-                'caption' => 'Status',
+                'caption' => '<span class="glyphicon glyphicon-stats"></span> Status',
                 'action' => 'index'
             ),
             'discuss' => array(
-                'caption' => 'Discuss',
+                'caption' => '<span class="glyphicon glyphicon-comment"></span> Discuss',
                 'action' => 'index'
             ),
             'rank' => array(
-                'caption' => 'Rank',
+                'caption' => '<span class="glyphicon glyphicon-education"></span> Rank',
                 'action' => 'index'
             )
         ),
         'navbar-right' => array(
             'session' => array(
-                'caption' => 'Log In',
+                'caption' => '<span class="glyphicon glyphicon-log-in"></span> Log In',
                 'action' => 'index'
             ),
             'register' => array(
-                'caption' => 'Sign Up',
+                'caption' => '<span class="glyphicon glyphicon-new-window"></span> Sign Up',
                 'action' => 'index'
             )
         )
@@ -54,7 +50,8 @@ class Elements extends Component
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menu[".text"].'<span class="caret"></span></a>
             <ul class="dropdown-menu">';
         foreach ($menu as $controller => $option) {
-            if($controller == ".divider") echo '<li role="separator" class="divider"></li>';
+            if($controller == ".divider") echo '<li class="divider"></li>';
+            elseif($controller == ".disabled") echo '<li class="disabled"><a href="#">'.$option['caption'].'</a></li>';
             elseif($controller[0]=='.') echo '';
             else {
                 echo '<li>';
@@ -86,26 +83,29 @@ class Elements extends Component
         if ($auth) {
             $this->_headerMenu['navbar-right'] = array(
                 '.dropdown' => array(
-                    '.text' => $auth["name"],
+                    '.text' => "<img class='avatar' width='17px' height='17px' src='".$auth["avatar"]."'></img> ",
+                    '.disabled' => array(
+                        'caption' => "Signed in as <strong>".$auth["name"]."</strong>"
+                    ),
+                    '.divider' => array(),
                     'profile' => array(
-                        'caption' => 'Profile',
+                        'caption' => '<span class="glyphicon glyphicon-user"></span> Profile',
                         'action' => 'index'
                     ),
                     'notification' => array(
-                        'caption' => 'Notification',
+                        'caption' => '<span class="glyphicon glyphicon-inbox"></span> Notification',
                         'action' => 'index'
                     ),
-                    '.divider',
                     'session' => array(
-                        'caption' => 'Log Out',
+                        'caption' => '<span class="glyphicon glyphicon-log-out"></span> Log Out',
                         'action' => 'end'
                     )
                 )
             );
         }
-        if(!$auth) unset($this->_headerMenu['navbar-left']['admin']);
+        //if(!$auth) unset($this->_headerMenu['navbar-left']['admin']);
         elseif($auth["groupid"] <> 1) {
-                unset($this->_headerMenu['navbar-left']['admin']);
+                //unset($this->_headerMenu['navbar-left']['admin']);
             }
 
         $controllerName = $this->view->getControllerName();

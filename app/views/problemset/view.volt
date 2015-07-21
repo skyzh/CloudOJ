@@ -2,25 +2,27 @@
 
 
 <div class = "row">
-    <div align="right">
-        <div class="col-md-6" align="left">
-            {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
-        </div>
+    <div class="col-sm-6" align="left">
+        {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
+    </div>
 
-        <div class="col-md-6" align="right">
-            {% if isUser %}
-            {{ link_to('status/submit/' ~ problem.pid, '<span class="glyphicon glyphicon-upload"></span> Submit', 'class': 'btn btn-primary btn-large')}}
-            {% endif %}
-            {{ link_to('discuss/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-th-list"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
-            {{ link_to('status/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-signal"></span> Status', 'class': 'btn btn-primary btn-large')}}
-            {% if isAdmin %}
-            {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-edit"></span> Edit', 'class': 'btn btn-default btn-large')}}
-            {{ link_to('problemset/remove/' ~ problem.pid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-large')}}
-            {% endif %}
-        </div>
-
+    <div class="col-sm-6" align="right">
+        {% if isUser %}
+        {{ link_to('status/submit/' ~ problem.pid, '<span class="glyphicon glyphicon-upload"></span> Submit', 'class': 'btn btn-primary btn-large')}}
+        {% endif %}
+        {{ link_to('discuss/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-th-list"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
+        {{ link_to('status/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-stats"></span> Status', 'class': 'btn btn-primary btn-large')}}
     </div>
 </div>
+{% if isAdmin %}
+<div class = "row-margin"></div>
+<div class = "row">
+    <div class="col-xs-12" align="right">
+        {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-edit"></span> Edit', 'class': 'btn btn-default btn-large')}}
+        {{ link_to('problemset/remove/' ~ problem.pid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-large')}}
+    </div>
+</div>
+{% endif %}
 
 
 <div class="page-header">
@@ -29,18 +31,20 @@
 
 
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
         <h6>Type {{ problem.type }}</h6>
     </div>
-    <div class="col-sm-3">
+    <div class="col-md-2">
         <h6>Memory Limit {{ problem.memlimit }} KB</h6>
     </div>
-    <div class="col-sm-3">
+    <div class="col-md-2">
         <h6>Time Limit {{ problem.timelimit }} ms</h6>
     </div>
-    <div class="col-sm-3">
+    <div class="col-md-2">
         <h6>Accepted/Submit {{ problem.accepted }}/{{ problem.submit }}</h6>
     </div>
+    <div class="col-md-2"></div>
 </div>
 <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
     <div class="row">
@@ -90,7 +94,7 @@
 <script>
     $(document).ready(function(){
         $(".prob_desc").each(function(){
-            $(this).html(markdown.toHTML($(this).html()));
+            $(this).html(markdown.toHTML($(this).text()));
         });
     });
 </script>

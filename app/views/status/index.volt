@@ -3,25 +3,79 @@
 <div class="page-header">
     <h2>Status</h2>
 </div>
-<!--
-{% for problem in problems %}
+
+{% for st in status %}
     {% if loop.first %}
-        <div class = "row" style="line-height: 30px;">
-            <div class="col-md-2 col-xs-4"><h6>ID</h6></div>
-            <div class="col-md-4 col-xs-8"><h6>Title</h6></div>
-            <div class="col-md-3 hidden-sm hidden-xs"><h6>Type</h6></div>
-            <div class="col-md-3 hidden-sm hidden-xs"><h6>Submit/Accepted</h6></div>
+        <div class = "row">
+            <div class="col-md-2 col-xs-2"><h6>Problem</h6></div>
+            <div class="col-md-2 col-xs-5"><h6>User</h6></div>
+            <div class="col-md-1 hidden-sm hidden-xs"><h6>Language</h6></div>
+            <div class="col-md-1 hidden-sm hidden-xs"><h6>Length</h6></div>
+            <div class="col-md-2 col-xs-5"><h6>Status</h6></div>
+            <div class="col-md-2 hidden-sm hidden-xs"><h6>Submit</h6></div>
+            <div class="col-md-1 hidden-sm hidden-xs"><h6>Time</h6></div>
+            <div class="col-md-1 hidden-sm hidden-xs"><h6>Memory</h6></div>
         </div>
     {% endif %}
         <div class="row-margin"></div>
-
         <div class="row">
-            <div class="col-md-2 col-xs-4">{{ problem.pid }}</div>
-            <div class="col-md-4 col-xs-8">{{ link_to('problemset/view/' ~ problem.pid, problem.title) }}</div>
-            <div class="col-md-3 hidden-sm hidden-xs">{{ problem.type }}</div>
-            <div class="col-md-3 hidden-sm hidden-xs">{{ problem.submit }}/{{ problem.accepted }}</div>
+                <div class="col-md-2 col-xs-2">{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</div>
+                <div class="col-md-2 col-xs-5">{{ st.__username }}</div>
+                <div class="col-md-1 hidden-sm hidden-xs">
+                    {% if st.lang == 0 %}
+                    C++
+                    {% elseif st.lang == 1 %}
+                    C
+                    {% elseif st.lang == 2 %}
+                    C++11
+                    {% elseif st.lang == 3 %}
+                    Python2
+                    {% elseif st.lang == 4 %}
+                    Python3
+                    {% elseif st.lang == 5 %}
+                    Java
+                    {% elseif st.lang == 6 %}
+                    Pascal
+                    {% elseif st.lang == 7 %}
+                    Ruby
+                    {% elseif st.lang == 8 %}
+                    Perl
+                    {% elseif st.lang == 9 %}
+                    Go
+                    {% elseif st.lang == 10 %}
+                    Lua
+                    {% elseif st.lang == 11 %}
+                    Haskell
+                    {% endif %}
+                </div>
+                <div class="col-md-1 hidden-sm hidden-xs">{{ link_to('status/view/' ~ st.sid, st.codelength ~ "B")}}</div>
+                <div class="col-md-2 col-xs-5">
+                    {% if st.status == 0 %}
+                    <label class='label label-default'>Pending</label>
+                    {% elseif st.status == 1 %}
+                    <label class='label label-default'>Queuing</label>
+                    {% elseif st.status == 2 %}
+                    <label class='label label-success'>Accepted</label>
+                    {% elseif st.status == 3 %}
+                    <label class='label label-danger'>Wrong Answer</label>
+                    {% elseif st.status == 4 %}
+                    <label class='label label-danger'>Memory Limit Excceed</label>
+                    {% elseif st.status == 5 %}
+                    <label class='label label-danger'>Time Limit Excceed</label>
+                    {% elseif st.status == 6 %}
+                    <label class='label label-danger'>Runtime Error</label>
+                    {% elseif st.status == 7 %}
+                    <label class='label label-warning'>Compile Error</label>
+                    {% elseif st.status == 8 %}
+                    <label class='label label-info'>Running</label>
+                    {% elseif st.status == 9 %}
+                    <label class='label label-warning'>Unknown</label>
+                    {% endif %}
+                </div>
+                <div class="col-md-2 hidden-sm hidden-xs">{{ st.submittime }}</div>
+                <div class="col-md-1 hidden-sm hidden-xs">{{ st.timelimit }} ms</div>
+                <div class="col-md-1 hidden-sm hidden-xs">{{ st.memlimit }} KB</div>
         </div>
 {% else %}
-    No submit is recorded
+    No status is recorded
 {% endfor %}
--->

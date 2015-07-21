@@ -27,7 +27,6 @@ class ProblemForm extends Form {
     private function addStringArea($objName, $objLabel) {
         $obj= new TextArea($objName);
         $obj->setLabel($objLabel);
-        $obj->setFilters(array('string'));
         $obj->addValidators(array(
             new PresenceOf(array(
                 'message' => $objLabel.' is required'

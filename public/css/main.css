@@ -46,3 +46,11 @@ body {
 .langselect {
 
 }
+
+.avatar {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 3px;
+}

@@ -21,16 +21,16 @@
                 <div class="list-group">
                     <option value="0" class="list-group-item active langselect lang_c" href="javascript:">C++</option>
                     <option value="1" class="list-group-item langselect lang_c" href="javascript:">C</option>
-                    <option value="11" class="list-group-item langselect lang_c" href="javascript:">C++11</option>
-                    <option value="2" class="list-group-item langselect lang_py" href="javascript:">Python2</option>
-                    <option value="3" class="list-group-item langselect lang_py" href="javascript:">Python3</option>
-                    <option value="4" class="list-group-item langselect lang_ja" href="javascript:">Java</option>
-                    <option value="5" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</option>
-                    <option value="6" class="list-group-item langselect lang_ruby" href="javascript:">Ruby</option>
-                    <option value="7" class="list-group-item langselect lang_perl" href="javascript:">Perl</option>
-                    <option value="8" class="list-group-item langselect lang_go" href="javascript:">Go</option>
-                    <option value="9" class="list-group-item langselect lang_lua" href="javascript:">Lua</option>
-                    <option value="10" class="list-group-item langselect lang_haskell" href="javascript:">Haskell</option>
+                    <option value="2" class="list-group-item langselect lang_c" href="javascript:">C++11</option>
+                    <option value="3" class="list-group-item langselect lang_py" href="javascript:">Python2</option>
+                    <option value="4" class="list-group-item langselect lang_py" href="javascript:">Python3</option>
+                    <option value="5" class="list-group-item langselect lang_ja" href="javascript:">Java</option>
+                    <option value="6" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</option>
+                    <option value="7" class="list-group-item langselect lang_ruby" href="javascript:">Ruby</option>
+                    <option value="8" class="list-group-item langselect lang_perl" href="javascript:">Perl</option>
+                    <option value="9" class="list-group-item langselect lang_go" href="javascript:">Go</option>
+                    <option value="10" class="list-group-item langselect lang_lua" href="javascript:">Lua</option>
+                    <option value="11" class="list-group-item langselect lang_haskell" href="javascript:">Haskell</option>
                 </div>
             </div>
         </div>

@@ -4,16 +4,18 @@ use Phalcon\Mvc\Controller;
 
 class ControllerBase extends Controller {
 
+    protected $auth;
+
     protected function getAuth()
     {
-        $auth = $this->session->get('auth');
+        $this->auth = $this->session->get('auth');
 
         $this->view->isUser = false;
         $this->view->isAdmin = false;
-        if($auth) {
-            if($auth["groupid"] == 1)
+        if($this->auth) {
+            if($this->auth["groupid"] == 1)
                 $this->view->isAdmin = true;
-            if($auth["groupid"] <> 0)
+            if($this->auth["groupid"] <> 0)
                 $this->view->isUser = true;
         }
     }

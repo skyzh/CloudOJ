@@ -26,7 +26,6 @@ class RegisterController extends ControllerBase {
                 $user->username = $username;
                 $user->password = $this->security->hash($password);
                 $user->email = $email;
-                $user->registertime = new Phalcon\Db\RawValue('now()');
                 $user->groupid = 2;
                 if ($user->save() == false) {
                     foreach ($user->getMessages() as $message) {

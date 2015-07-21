@@ -12,35 +12,7 @@ class ProblemsetController extends ControllerBase {
     }
 
     public function newAction() {
-        $form = new ProblemForm(null, null);
-
-        if ($this->request->isPost()) {
-            $problemset = new Problemset();
-
-            $problemset->title = $this->request->getPost("title");
-            $problemset->type = $this->request->getPost("type");
-            $problemset->submit = 0;
-            $problemset->accepted = 0;
-            $problemset->description = $this->request->getPost("description");
-            $problemset->input = $this->request->getPost("input");
-            $problemset->output = $this->request->getPost("output");
-            $problemset->sampleinput = $this->request->getPost("sampleinput");
-            $problemset->sampleoutput = $this->request->getPost("sampleoutput");
-            $problemset->memlimit = $this->request->getPost("memlimit");
-            $problemset->timelimit = $this->request->getPost("timelimit");
-            $problemset->hint = $this->request->getPost("hint");
-            $problemset->changetime = $this->request->getPost("hint");
-            $problemset->save();
-            if ($problemset->save() == false) {
-                foreach ($problemset->getMessages() as $message) {
-                    $this->flash->error((string) $message);
-                }
-            }
-            else {
-                $this->flash->success('<h5>Problem Submitted!</h5><h6>Now start submitting!</h6>');
-                return $this->forward('problemset/index');
-            }
-        }
+        $form = new ProblemForm();
         $this->view->form = $form;
     }
 
@@ -56,20 +28,24 @@ class ProblemsetController extends ControllerBase {
             $this->view->form = new ProblemForm($problem, array('edit' => true));
         }
     }
-    public function saveAction()
+    public function saveAction($pid)
     {
         if (!$this->request->isPost()) {
-            return $this->forward("products/index");
+            return $this->forward("problemset/index");
         }
 
-        $pid = $this->request->getPost("pid", "int");
+        if($pid != "0")
+        {
+            $problem = Problemset::findFirst(array(
+                "pid = :pid:", 'bind' => array('pid' => $pid)));
 
-        $problem = Problemset::findFirst(array(
-            "pid = :pid:", 'bind' => array('pid' => $pid)));
-
-        if (!$problem) {
-            $this->flash->error("Problem does not exist");
-            return $this->forward("problemset/index");
+            if (!$problem) {
+                $this->flash->error("Problem does not exist");
+                return $this->forward("problemset/index");
+            }
+        }
+        else {
+            $problem = new Problemset();
         }
 
         $form = new ProblemForm ;
@@ -81,20 +57,22 @@ class ProblemsetController extends ControllerBase {
             foreach ($form->getMessages() as $message) {
                 $this->flash->error($message);
             }
-            return $this->forward('problemset/edit/' . $pid);
+            if($pid == "0") return $this->forward('problemset/new/');
+            else return $this->forward('problemset/edit/' . $problem->pid);
         }
 
         if ($problem->save() == false) {
             foreach ($problem->getMessages() as $message) {
                 $this->flash->error($message);
             }
-            return $this->forward('problemset/edit/' . $pid);
+            if($pid == "0") return $this->forward('problemset/new/');
+            else return $this->forward('problemset/edit/' . $problem->pid);
         }
 
         $form->clear();
 
         $this->flash->success("Problem was updated successfully");
-        return $this->forward('problemset/view/' . $pid);
+        return $this->forward('problemset/view/' . $problem->pid);
     }
 
     public function viewAction($pid) {
