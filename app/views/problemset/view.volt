@@ -10,7 +10,7 @@
         {% if isUser %}
         {{ link_to('status/submit/' ~ problem.pid, '<span class="glyphicon glyphicon-upload"></span> Submit', 'class': 'btn btn-primary btn-large')}}
         {% endif %}
-        {{ link_to('discuss/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-th-list"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
+        {{ link_to('discuss/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-comment"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
         {{ link_to('status/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-stats"></span> Status', 'class': 'btn btn-primary btn-large')}}
     </div>
 </div>

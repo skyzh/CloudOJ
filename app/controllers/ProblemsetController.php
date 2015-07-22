@@ -1,4 +1,7 @@
 <?php
+use Phalcon\Paginator\Adapter\Model as PaginatorModel;
+use Phalcon\Paginator\Adapter\NativeArray as PaginatorArray;
+use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 
 class ProblemsetController extends ControllerBase {
     public function initialize() {
@@ -7,7 +10,19 @@ class ProblemsetController extends ControllerBase {
     }
 
     public function indexAction() {
-        $problems = Problemset::find();
+        $currentPage = (int) $this->request->getQuery('page');
+        if( $currentPage == 0) $currentPage = 1;
+
+        $data = Problemset::find();
+
+        $paginator = new PaginatorModel(
+            array(
+                "data"  => $data,
+                "limit" => 20,
+                "page"  => $currentPage
+            )
+        );
+        $problems = $paginator->getPaginate();
         $this->view->problems = $problems;
     }
 

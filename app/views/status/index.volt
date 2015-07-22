@@ -4,7 +4,7 @@
     <h2>Status</h2>
 </div>
 
-{% for st in status %}
+{% for st in status.items %}
     {% if loop.first %}
         <div class = "row">
             <div class="col-md-2 col-xs-2"><h6>Problem</h6></div>
@@ -53,7 +53,7 @@
                     {% if st.status == 0 %}
                     <label class='label label-default'>Pending</label>
                     {% elseif st.status == 1 %}
-                    <label class='label label-default'>Queuing</label>
+                    <label class='label label-default'>Compiling</label>
                     {% elseif st.status == 2 %}
                     <label class='label label-success'>Accepted</label>
                     {% elseif st.status == 3 %}
@@ -76,6 +76,42 @@
                 <div class="col-md-1 hidden-sm hidden-xs">{{ st.timelimit }} ms</div>
                 <div class="col-md-1 hidden-sm hidden-xs">{{ st.memlimit }} KB</div>
         </div>
+    {% if loop.last %}
+        <div class = "row">
+            <div class="col-xs-12" align="middle">
+                <nav>
+                    <ul class="pagination">
+                        {% if status.current == status.before %}
+                        <li class="disabled">
+                            {{ link_to("status/index?page=" ~ status.before,"<span>&laquo;</span>")}}
+                        {% else %}
+                        <li>
+                            {{ link_to("status/index?page=" ~ status.before,"<span>&laquo;</span>")}}
+                        {% endif %}
+                        </li>
+                        <?php
+                        $__start_page =  $status->current - 2;
+                        $__end_page = $status->current + 2;
+                        list($__start_page, $__end_page) = getPage($__start_page, $__end_page, $status->total_pages);
+
+                        for($__p = $__start_page; $__p <= $__end_page; $__p++) { ?>
+                        <li>
+                            {{ link_to("status/index?page=" ~ __p,"<span>"~ __p ~"</span>")}}
+                        </li>
+                        <?php } ?>
+                        {% if status.current == status.next %}
+                        <li class="disabled">
+                            {{ link_to("status/index?page=" ~ status.next,"<span>&raquo;</span>")}}
+                        {% else %}
+                        <li>
+                            {{ link_to("status/index?page=" ~ status.next,"<span>&raquo;</span>")}}
+                        {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    {% endif %}
 {% else %}
     No status is recorded
 {% endfor %}

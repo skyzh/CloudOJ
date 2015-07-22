@@ -39,4 +39,18 @@ class User extends Model {
     public static function getAvatar($email) {
         return "https://cdn.v2ex.com/gravatar/".md5(strtolower($email));
     }
+
+    public static function findUserByName($username) {
+        $user = User::findFirst(array(
+            "(email = :email: OR username = :email:)",
+            'bind' => array('email' => $username)
+        ));
+        if(!$user) return -1;
+        return $user->uid;
+    }
+    public static function findUserByID($uid) {
+        $user = User::findFirst(array(
+            "uid = :uid:", 'bind' => array('uid' => $uid)));
+        return $user->username;
+    }
 }

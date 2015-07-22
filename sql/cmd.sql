@@ -105,7 +105,7 @@ CREATE TABLE `directmessage` (
     dmid int(11) NOT null AUTO_INCREMENT,
     suid int(11) NOT null,
     ruid int(11) NOT null,
-    PRIMARY KEY (suid, ruid),
+    PRIMARY KEY (dmid),
     UNIQUE dmid(dmid),
     message text NOT null,
     sendtime DATETIME NOT null

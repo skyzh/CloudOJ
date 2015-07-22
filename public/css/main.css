@@ -3,50 +3,42 @@ body {
     margin-top: 80px;
 }
 .sampledata {
-  font-family: Monospace;
-  white-space: pre;
-}
+    font-family: Monospace;
+    white-space: pre;
 
+}
+.dmmessage {
+    word-wrap: break-word;
+    word-break: normal; 
+}
+.monotext {
+    font-family: Monospace;
+}
 .row-margin {
     height: 10px;
     display: block;
     clear: both;
 }
-
-.prob_desc {
-}
-
+.prob_desc {}
 #editor {
     margin: 0;
     position: relative;
     width: 100%;
     height: 100%;
 }
-
 #editor-container {
     position: relative;
-    top:  0px;
+    top: 0px;
     left: 0px;
     width: 100%;
     height: 590px;
 }
-
-.hrefPlaceholder {
-  position: absolute;
-  display:block;
-  width:100px;
-  height:50px;
-  top: -50px;
-}
-
 .target {
-  position: relative;
+    position: relative;
 }
-
 .langselect {
 
 }
-
 .avatar {
     display: inline-block;
     overflow: hidden;

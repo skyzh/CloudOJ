@@ -4,16 +4,18 @@ use Phalcon\Mvc\Model\Validator\Email as EmailValidator;
 use Phalcon\Mvc\Model\Validator\Uniqueness as UniquenessValidator;
 use Phalcon\Db\RawValue;
 
-class Statuscode extends Model {
-    public $sid;
-    public $code;
-    public $ret;
-    
+class Directmessage extends Model {
+    public $dmid;
+    public $suid;
+    public $ruid;
+    public $message;
+    public $sendtime;
+
+    public $__susername;
+    public $__rusername;
+
     public function beforeValidationOnCreate()
     {
-        $this->ret = " ";
-    }
-    public function beforeCreate()
-    {
+        $this->sendtime = new RawValue('now()');
     }
 }
