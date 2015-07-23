@@ -2,7 +2,7 @@
 {{ content() }}
 
 <div class="page-header">
-    <h2>Register</h2>
+    <h2>Sign Up</h2>
     <h5>The whole new Advanture.</h5>
 </div>
 
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-actions">
-            {{ submit_button('Register', 'class': 'btn btn-primary', 'onclick': 'return SignUp.validate();') }}
+            {{ submit_button('Sign Up', 'class': 'btn btn-primary', 'onclick': 'return SignUp.validate();') }}
         </div>
         <p class="help-block">By signing up, you accept terms of use and privacy policy.</p>
     </fieldset>

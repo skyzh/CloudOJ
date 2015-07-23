@@ -67,13 +67,12 @@
     </div>
 </div>
 
-
-<script src="//cdn.bootcss.com/ace/1.1.9/ace.js" type="text/javascript" charset="utf-8"></script>
+{{ javascript_include('//cdn.bootcss.com/ace/1.1.9/ace.js') }}
 <script>
     var editor;
     $(document).ready(function() {
         editor = ace.edit("editor");
-        editor.setTheme("ace/theme/clouds");
+        editor.setTheme("ace/theme/xcode");
         editor.getSession().setMode("ace/mode/c_cpp");
     })
 

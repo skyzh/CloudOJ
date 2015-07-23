@@ -20,6 +20,10 @@ class Elements extends Component
                 'caption' => '<span class="glyphicon glyphicon-question-sign"></span> Problems',
                 'action' => 'index'
             ),
+            'contest' => array(
+                'caption' => '<span class="glyphicon glyphicon-list-alt"></span> Contest',
+                'action' => 'index'
+            ),
             'status' => array(
                 'caption' => '<span class="glyphicon glyphicon-stats"></span> Status',
                 'action' => 'index'

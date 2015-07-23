@@ -20,7 +20,7 @@
         <div class="row-margin"></div>
         <div class="row">
                 <div class="col-md-2 col-xs-2">{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</div>
-                <div class="col-md-2 col-xs-5">{{ st.__username }}</div>
+                <div class="col-md-2 col-xs-5">{{ link_to("profile/view/" ~ st.uid, st.__username)}} </div>
                 <div class="col-md-1 hidden-sm hidden-xs">
                     {% if st.lang == 0 %}
                     C++

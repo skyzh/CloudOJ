@@ -20,14 +20,22 @@ class StatusController extends ControllerBase {
             "uid = :uid:", 'bind' => array('uid' => $uid)));
         return $problem->username;
     }
-
+    
     public function indexAction() {
         $currentPage = (int) $this->request->getQuery('page');
         if( $currentPage == 0) $currentPage = 1;
 
-        $data = Status::find(array(
-            "order" => "sid DESC",
-        ));
+        $this->request->getQuery("page", "int");
+
+
+        $bindArr = array("pid" => 1, "uid"=> 1);
+
+        $para = Status::query();
+        if($this->request->hasQuery("pid")) {
+            $para = $para->where("pid = :pid:")->bind(array("pid" => $this->request->getQuery("pid", "int")));
+        }
+        $para = $para->orderBy("sid DESC");
+        $data = Status::find($para->getParams());
 
         $paginator = new PaginatorModel(
             array(

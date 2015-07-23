@@ -96,4 +96,18 @@ class ProblemsetController extends ControllerBase {
 
         $this->view->problem = $problem;
     }
+
+    public function removeAction($pid) {
+        $problem = Problemset::findFirst(array(
+            "pid = :pid:", 'bind' => array('pid' => $pid)));
+
+        if (!$problem) {
+            $this->flash->error("Problem does not exist");
+            return $this->forward("problemset/index");
+        }
+
+        $problem->delete();
+        $this->flash->error("Problem was deleted successfully");
+        return $this->forward("problemset/index");
+    }
 }

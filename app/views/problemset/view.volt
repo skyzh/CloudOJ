@@ -9,9 +9,11 @@
     <div class="col-sm-6" align="right">
         {% if isUser %}
         {{ link_to('status/submit/' ~ problem.pid, '<span class="glyphicon glyphicon-upload"></span> Submit', 'class': 'btn btn-primary btn-large')}}
+        {% else %}
+        <p class = "btn btn-primary btn-large disabled" data-toggle="tooltip" data-placement="bottom" title="Log In to Submit"><span class="glyphicon glyphicon-upload"></span> Submit</p>
         {% endif %}
-        {{ link_to('discuss/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-comment"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
-        {{ link_to('status/search/pid/' ~ problem.pid, '<span class="glyphicon glyphicon-stats"></span> Status', 'class': 'btn btn-primary btn-large')}}
+        {{ link_to('discuss/index/?pid=' ~ problem.pid, '<span class="glyphicon glyphicon-comment"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
+        {{ link_to('status/index/?pid=' ~ problem.pid, '<span class="glyphicon glyphicon-stats"></span> Status', 'class': 'btn btn-primary btn-large')}}
     </div>
 </div>
 {% if isAdmin %}
@@ -36,7 +38,7 @@
         <h6>Type {{ problem.type }}</h6>
     </div>
     <div class="col-md-2">
-        <h6>Memory Limit {{ problem.memlimit }} KB</h6>
+        <h6>Memory Limit {{ problem.memlimit/1024 }} MB</h6>
     </div>
     <div class="col-md-2">
         <h6>Time Limit {{ problem.timelimit }} ms</h6>
@@ -96,5 +98,6 @@
         $(".prob_desc").each(function(){
             $(this).html(markdown.toHTML($(this).text()));
         });
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>

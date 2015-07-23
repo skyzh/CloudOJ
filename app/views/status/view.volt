@@ -1,5 +1,12 @@
 {{ content() }}
 
+
+<div class = "row">
+    <div class="col-xs-12" align="left">
+        {{ link_to("status", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
+    </div>
+</div>
+
 <div class="page-header">
     <h2>View Status</h2>
 </div>
@@ -21,7 +28,7 @@
 </div>
 <div class="row">
         <div class="col-md-2 col-xs-2">{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</div>
-        <div class="col-md-2 col-xs-5">{{ st.__username }}</div>
+        <div class="col-md-2 col-xs-5">{{ link_to("profile/view/" ~ st.uid, st.__username)}} </div>
         <div class="col-md-1 hidden-sm hidden-xs">
             {% if st.lang == 0 %}
             C++
@@ -49,7 +56,7 @@
             Haskell
             {% endif %}
         </div>
-        <div class="col-md-1 hidden-sm hidden-xs">{{ link_to('status/view/' ~ st.sid, st.codelength ~ "B")}}</div>
+        <div class="col-md-1 hidden-sm hidden-xs">{{ st.codelength ~ "B" }}</div>
         <div class="col-md-2 col-xs-5">
             {% if st.status == 0 %}
             <label class='label label-default'>Pending</label>
@@ -71,6 +78,8 @@
             <label class='label label-info'>Running</label>
             {% elseif st.status == 9 %}
             <label class='label label-warning'>Unknown</label>
+            {% elseif st.status == 10 %}
+            <label class='label label-warning'>Presentation Error</label>
             {% endif %}
         </div>
         <div class="col-md-2 hidden-sm hidden-xs">{{ st.submittime }}</div>
@@ -80,7 +89,7 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <h3>Return</h3>
+        <h3>Detail</h3>
     </div>
 </div>
 <div class="row">
@@ -99,11 +108,19 @@
         <h3>Code</h3>
     </div>
 </div>
+{{ javascript_include('//cdn.bootcss.com/highlight.js/8.6/highlight.min.js') }}
+{{ stylesheet_link('//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css') }}
+
 <div class="row">
     <div class="col-xs-12">
-
-        <div class = "panel panel-default">
-            <span class="sampledata">{{ code.code|e }}</span>
-        </div>
+        <pre><code class="sampledata">{{ code.code|e }}</code></pre>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+});
+</script>

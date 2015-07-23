@@ -11,3 +11,6 @@ You can find SNGOJ on <a href="https://github.com/SkyZH/SNGOJ_MVC">Github</a>.
 <p>
 This is a test version of SNGOJ, depolyed on the server of CCCCWI.
 </p>
+<p>
+Thanks <a href="https://www.v2ex.com/">V2EX</a> for its Gravatar CDN.
+</p>
