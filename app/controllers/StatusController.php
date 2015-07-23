@@ -20,7 +20,7 @@ class StatusController extends ControllerBase {
             "uid = :uid:", 'bind' => array('uid' => $uid)));
         return $problem->username;
     }
-    
+
     public function indexAction() {
         $currentPage = (int) $this->request->getQuery('page');
         if( $currentPage == 0) $currentPage = 1;
@@ -40,7 +40,7 @@ class StatusController extends ControllerBase {
         $paginator = new PaginatorModel(
             array(
                 "data"  => $data,
-                "limit" => 20,
+                "limit" => 50,
                 "page"  => $currentPage
             )
         );

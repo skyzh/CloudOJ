@@ -11,11 +11,16 @@
         <meta name="description" content="SNGOJ">
         <meta name="author" content="SkyZH">
     </head>
+
     <body>
+        <div id="pjax-container">
         {{ javascript_include('//cdn.bootcss.com/jquery/2.1.4/jquery.min.js') }}
         {{ javascript_include('//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js') }}
+        {{ javascript_include('//cdn.bootcss.com/jquery.pjax/1.9.6/jquery.pjax.min.js') }}
         {{ javascript_include('js/utils.js') }}
-
         {{ content() }}
+        </div>
     </body>
+
+
 </html>

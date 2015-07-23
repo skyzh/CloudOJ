@@ -2,11 +2,12 @@
 
 
 <div class = "row">
-    <div class="col-sm-6" align="left">
+    <div class="col-sm-6" align="left"><p>
         {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
-    </div>
+    </p></div>
 
     <div class="col-sm-6" align="right">
+        <p>
         {% if isUser %}
         {{ link_to('status/submit/' ~ problem.pid, '<span class="glyphicon glyphicon-upload"></span> Submit', 'class': 'btn btn-primary btn-large')}}
         {% else %}
@@ -14,14 +15,16 @@
         {% endif %}
         {{ link_to('discuss/index/?pid=' ~ problem.pid, '<span class="glyphicon glyphicon-comment"></span> Discuss', 'class': 'btn btn-primary btn-large')}}
         {{ link_to('status/index/?pid=' ~ problem.pid, '<span class="glyphicon glyphicon-stats"></span> Status', 'class': 'btn btn-primary btn-large')}}
+        </p>
     </div>
 </div>
 {% if isAdmin %}
-<div class = "row-margin"></div>
 <div class = "row">
     <div class="col-xs-12" align="right">
+        <p>
         {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-edit"></span> Edit', 'class': 'btn btn-default btn-large')}}
         {{ link_to('problemset/remove/' ~ problem.pid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-large')}}
+        </p>
     </div>
 </div>
 {% endif %}
@@ -92,7 +95,15 @@
     </div>
 </div>
 {{ javascript_include('//cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js') }}
-
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+        }
+    });
+</script>
+{{ javascript_include('//cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML') }}
 <script>
     $(document).ready(function(){
         $(".prob_desc").each(function(){

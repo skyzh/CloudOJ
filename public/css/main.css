@@ -9,7 +9,7 @@ body {
 }
 .dmmessage {
     word-wrap: break-word;
-    word-break: normal; 
+    word-break: normal;
 }
 .monotext {
     font-family: Monospace;
@@ -26,6 +26,7 @@ body {
     width: 100%;
     height: 100%;
 }
+
 #editor-container {
     position: relative;
     top: 0px;

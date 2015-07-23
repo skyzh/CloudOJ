@@ -2,7 +2,7 @@
 
 class SessionController extends ControllerBase {
     public function initialize() {
-        $this->tag->setTitle('Sign In');
+        $this->tag->setTitle('Log In');
         parent::initialize();
     }
 

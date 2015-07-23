@@ -5,7 +5,7 @@ use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 
 class ProfileController extends ControllerBase {
     public function initialize() {
-        $this->tag->setTitle('Problems');
+        $this->tag->setTitle('Profile');
         parent::initialize();
     }
 

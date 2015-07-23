@@ -52,7 +52,18 @@ var SignUp = {
     }
 }
 
+jQuery.fn.slideLeftHide = function( speed, callback ) { this.animate( { width: "hide", paddingLeft: "hide", paddingRight: "hide", marginLeft: "hide", marginRight: "hide" }, speed, callback ); }
+jQuery.fn.slideLeftShow = function( speed, callback ) { this.animate( { width: "show", paddingLeft: "show", paddingRight: "show", marginLeft: "show", marginRight: "show" }, speed, callback ); }
+
 $(document).ready(function () {
     $("#registerForm .alert").hide();
     $("div.profile .alert").hide();
+    $(document).pjax('a', '#pjax-container');
+    $(document).on('pjax:send', function() {
+        $('#pjax-loading').slideLeftShow(500);
+    });
+    $(document).on('pjax:complete', function() {
+        $('#pjax-loading').fadeOut(500);
+    });
+    $('#pjax-loading').fadeOut(500);
 });

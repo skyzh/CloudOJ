@@ -1,5 +1,14 @@
 {{ content() }}
 
+<div class = "row">
+    <div class="col-xs-12" align="right">
+        <p>
+            <a href="javascript:reload_stat()" class="btn btn-primary"><span class="
+glyphicon glyphicon-refresh"></span> Reload</a>
+        </p>
+    </div>
+</div>
+
 <div class="page-header">
     <h2>Status</h2>
 </div>
@@ -17,11 +26,10 @@
             <div class="col-md-1 hidden-sm hidden-xs"><h6>Memory</h6></div>
         </div>
     {% endif %}
-        <div class="row-margin"></div>
         <div class="row">
-                <div class="col-md-2 col-xs-2">{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</div>
-                <div class="col-md-2 col-xs-5">{{ link_to("profile/view/" ~ st.uid, st.__username)}} </div>
-                <div class="col-md-1 hidden-sm hidden-xs">
+                <div class="col-md-2 col-xs-2"><p>{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</p></div>
+                <div class="col-md-2 col-xs-5"><p>{{ link_to("profile/view/" ~ st.uid, st.__username)}}</p></div>
+                <div class="col-md-1 hidden-sm hidden-xs"><p>
                     {% if st.lang == 0 %}
                     C++
                     {% elseif st.lang == 1 %}
@@ -71,10 +79,10 @@
                     {% elseif st.status == 9 %}
                     <label class='label label-warning'>Unknown</label>
                     {% endif %}
-                </div>
-                <div class="col-md-2 hidden-sm hidden-xs">{{ st.submittime }}</div>
-                <div class="col-md-1 hidden-sm hidden-xs">{{ st.timelimit }} ms</div>
-                <div class="col-md-1 hidden-sm hidden-xs">{{ st.memlimit }} KB</div>
+                </p></div>
+                <div class="col-md-2 hidden-sm hidden-xs"><p>{{ st.submittime }}</p></div>
+                <div class="col-md-1 hidden-sm hidden-xs"><p>{{ st.timelimit }} ms</p></div>
+                <div class="col-md-1 hidden-sm hidden-xs"><p>{{ st.memlimit }} KB</p></div>
         </div>
     {% if loop.last %}
         <div class = "row">
@@ -115,3 +123,9 @@
 {% else %}
     No status is recorded
 {% endfor %}
+
+<script>
+function reload_stat() {
+    $.pjax.reload('#pjax-container', {});
+}
+</script>

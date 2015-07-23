@@ -14,7 +14,12 @@
         </div>
     </div>
 </nav>
-
+<div id="pjax-loading" style="position: fixed; top: 50px; width: 100%; z-index:999;">
+    <div class="progress" style="height:10px">
+        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width: 100%;">
+        </div>
+    </div>
+</div>
 <div class="container">
     {{ flash.output() }}
     {{ content() }}
@@ -22,4 +27,5 @@
     <footer>
         <p>{{ link_to('about', 'SNGOJ') }}, an Online Judge under MIT License.</p>
     </footer>
+</div>
 </div>
