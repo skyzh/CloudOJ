@@ -35,10 +35,10 @@
             </div>
         </div>
         <div class="row-margin"></div>
-        {{ form('status/submit/' ~ problem.pid, 'id': 'submitForm', 'onbeforesubmit': "return false;") }}
+        {{ form('status/submit/' ~ problem.pid, 'id': 'submitForm', 'onsubmit': "return __processSubmit()") }}
         <div class="row">
             <div class="col-xs-12">
-                {{ submit_button("Submit", "class": "btn btn-primary btn-block",'onclick': 'return __processSubmit();') }}
+                {{ submit_button("Submit", "class": "btn btn-primary btn-block") }}
                 {{ link_to('status/submit/' ~ problem.pid, 'Reset', 'class': 'btn btn-default btn-block')}}
             </div>
             <div style="display:none">
@@ -93,7 +93,6 @@
     function __processSubmit() {
         $("select[name=lang]").val($("option[class*=active]").attr("value"));
         $("textarea[name=code]").val(editor.getValue());
-        $("#submitForm")[0].submit();
         return true;
     }
 </script>

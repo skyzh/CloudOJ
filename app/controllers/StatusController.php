@@ -22,6 +22,7 @@ class StatusController extends ControllerBase {
     }
 
     public function indexAction() {
+
         $currentPage = (int) $this->request->getQuery('page');
         if( $currentPage == 0) $currentPage = 1;
 
@@ -40,7 +41,7 @@ class StatusController extends ControllerBase {
         $paginator = new PaginatorModel(
             array(
                 "data"  => $data,
-                "limit" => 50,
+                "limit" => 15,
                 "page"  => $currentPage
             )
         );
@@ -77,6 +78,7 @@ class StatusController extends ControllerBase {
                     foreach ($stcode->getMessages() as $message) {
                         $this->flash->error((string) $message);
                     }
+                    $status->delete();
                 } else {
                     $prob = Problemset::findFirst(array(
                         "pid = :pid:", 'bind' => array('pid' => $status->pid)));

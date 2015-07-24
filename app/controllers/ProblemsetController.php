@@ -10,6 +10,7 @@ class ProblemsetController extends ControllerBase {
     }
 
     public function indexAction() {
+        if($this->request->isAjax()) echo "AJAX!";
         $currentPage = (int) $this->request->getQuery('page');
         if( $currentPage == 0) $currentPage = 1;
 
@@ -45,6 +46,7 @@ class ProblemsetController extends ControllerBase {
     }
     public function saveAction($pid)
     {
+        if($this->request->isAjax()) echo "AJAX!";
         if (!$this->request->isPost()) {
             return $this->forward("problemset/index");
         }

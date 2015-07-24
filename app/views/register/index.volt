@@ -53,5 +53,6 @@
             {{ submit_button('Sign Up', 'class': 'btn btn-primary', 'onclick': 'return SignUp.validate();') }}
         </div>
         <p class="help-block">By signing up, you accept terms of use and privacy policy.</p>
+        <h5>Your password won't be encrypted while transfering to the server, but will be safely stored in the database. Take notice!</h5>
     </fieldset>
 {{ endform() }}

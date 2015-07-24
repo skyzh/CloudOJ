@@ -66,4 +66,13 @@ $(document).ready(function () {
         $('#pjax-loading').fadeOut(500);
     });
     $('#pjax-loading').fadeOut(500);
+    twemoji.parse(
+        document.body,
+        {
+            callback: function(icon, options) {
+            return '//cdn.bootcss.com/twemoji/1.4.1/' + options.size + '/' + icon + '.png';
+            },
+            size: 16
+        }
+    );
 });
