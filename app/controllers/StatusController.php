@@ -71,7 +71,7 @@ class StatusController extends ControllerBase {
                     $this->flash->error((string) $message);
                 }
             } else {
-                $stcode = new StatusCode;
+                $stcode = new Statuscode;
                 $stcode->sid = $status->sid;
                 $stcode->code = $__code;
                 if ($stcode->save() == false) {
