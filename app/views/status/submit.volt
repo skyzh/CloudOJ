@@ -19,10 +19,10 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="list-group">
-                    <option value="0" class="list-group-item active langselect lang_c" href="javascript:">C++</option>
-                    <option value="1" class="list-group-item langselect lang_c" href="javascript:">C</option>
-                    <option value="2" class="list-group-item langselect lang_c" href="javascript:">C++11</option>
-                    <option value="3" class="list-group-item langselect lang_py" href="javascript:">Python2</option>
+                    <p value="0" class="list-group-item active langselect lang_c" href="javascript:">GNU C++</li>
+                    <p value="1" class="list-group-item langselect lang_c" href="javascript:">GNU C</li>
+                    <p value="2" class="list-group-item langselect lang_c" href="javascript:">GNU C++11</li>
+                    <!--<option value="3" class="list-group-item langselect lang_py" href="javascript:">Python2</option>
                     <option value="4" class="list-group-item langselect lang_py" href="javascript:">Python3</option>
                     <option value="5" class="list-group-item langselect lang_ja" href="javascript:">Java</option>
                     <option value="6" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</option>
@@ -30,31 +30,31 @@
                     <option value="8" class="list-group-item langselect lang_perl" href="javascript:">Perl</option>
                     <option value="9" class="list-group-item langselect lang_go" href="javascript:">Go</option>
                     <option value="10" class="list-group-item langselect lang_lua" href="javascript:">Lua</option>
-                    <option value="11" class="list-group-item langselect lang_haskell" href="javascript:">Haskell</option>
+                    <option value="11" class="list-group-item langselect lang_haskell" href="javascript:">Haskell</option>-->
                 </div>
             </div>
         </div>
-        <div class="row-margin"></div>
         {{ form('status/submit/' ~ problem.pid, 'id': 'submitForm', 'onsubmit': "return __processSubmit()") }}
         <div class="row">
             <div class="col-xs-12">
-                {{ submit_button("Submit", "class": "btn btn-primary btn-block") }}
-                {{ link_to('status/submit/' ~ problem.pid, 'Reset', 'class': 'btn btn-default btn-block')}}
+                <p>{{ submit_button("Submit", "class": "btn btn-primary btn-block") }}</p>
+                <p>{{ link_to('status/submit/' ~ problem.pid, 'Reset', 'class': 'btn btn-default btn-block')}}</p>
             </div>
             <div style="display:none">
                 <textarea name = "code"></textarea>
                 <select name="lang" class="form-control">
-                    <option value = "0">C++(g++)</option>
-                    <option value = "1">C(gcc)</option>
-                    <option value = "2">Python2</option>
-                    <option value = "3">Python3</option>
-                    <option value = "4">Java</option>
-                    <option value = "5">Pascal</option>
-                    <option value = "6">Ruby</option>
-                    <option value = "7">Perl</option>
-                    <option value = "8">Go</option>
-                    <option value = "9">Lua</option>
-                    <option value = "10">Haskell</option>
+                    <option value = "0"></option>
+                    <option value = "1"></option>
+                    <option value = "2"></option>
+                    <option value = "3"></option>
+                    <option value = "4"></option>
+                    <option value = "5"></option>
+                    <option value = "6"></option>
+                    <option value = "7"></option>
+                    <option value = "8"></option>
+                    <option value = "9"></option>
+                    <option value = "10"></option>
+                    <option value = "11"></option>
                 </select>
             </div>
         </div>
@@ -62,7 +62,7 @@
     </div>
     <div class="col-sm-9" style="height: 600px;">
         <div id="editor-container">
-            <pre id="editor">//Put your code here!</pre>
+            <p><pre id="editor">//Put your code here!</pre></p>
         </div>
     </div>
 </div>
@@ -91,7 +91,7 @@
     });
 
     function __processSubmit() {
-        $("select[name=lang]").val($("option[class*=active]").attr("value"));
+        $("select[name=lang]").val($(".langselect[class*=active]").attr("value"));
         $("textarea[name=code]").val(editor.getValue());
         return true;
     }

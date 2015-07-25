@@ -15,7 +15,7 @@ $di = new FactoryDefault();
 $di->set('dispatcher', function() use ($di) {
 
     $eventsManager = new EventsManager;
-    
+
     $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
 
     $dispatcher = new Dispatcher;
@@ -82,7 +82,7 @@ $di->set('flash', function(){
     return new FlashSession(array(
         'error'   => 'alert alert-danger',
         'success' => 'alert alert-success',
-        'notice'  => 'alert alert-info',
+        'notice'  => 'alert alert-info'
     ));
 });
 

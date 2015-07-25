@@ -21,11 +21,14 @@
     </div>
 </div>
 <div class="container">
-    {{ flash.output() }}
+    <div id="flashcontainer">
+        {{ flash.output() }}
+    </div>
+    <br/>
     {{ content() }}
     <hr>
     <footer>
-        <p>{{ link_to('about', 'SNGOJ') }}, an Online Judge under MIT License.</p>
+        <p>{{ link_to('about', 'CloudOJ') }}, an Online Judge under MIT License.</p>
     </footer>
 </div>
 </div>

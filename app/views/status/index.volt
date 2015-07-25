@@ -17,8 +17,8 @@ glyphicon glyphicon-refresh"></span> Reload</a>
     {% if loop.first %}
         <div class = "row">
             <div class="col-md-2 col-xs-2"><h6>Problem</h6></div>
-            <div class="col-md-2 col-xs-5"><h6>User</h6></div>
-            <div class="col-md-1 hidden-sm hidden-xs"><h6>Language</h6></div>
+            <div class="col-md-1 col-xs-5"><h6>User</h6></div>
+            <div class="col-md-2 hidden-sm hidden-xs"><h6>Language</h6></div>
             <div class="col-md-1 hidden-sm hidden-xs"><h6>Length</h6></div>
             <div class="col-md-2 col-xs-5"><h6>Status</h6></div>
             <div class="col-md-2 hidden-sm hidden-xs"><h6>Submit</h6></div>
@@ -28,14 +28,14 @@ glyphicon glyphicon-refresh"></span> Reload</a>
     {% endif %}
         <div class="row">
                 <div class="col-md-2 col-xs-2"><p>{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</p></div>
-                <div class="col-md-2 col-xs-5"><p>{{ link_to("profile/view/" ~ st.uid, st.__username)}}</p></div>
-                <div class="col-md-1 hidden-sm hidden-xs"><p>
+                <div class="col-md-1 col-xs-5"><p>{{ link_to("profile/view/" ~ st.uid, st.__username)}}</p></div>
+                <div class="col-md-2 hidden-sm hidden-xs"><p>
                     {% if st.lang == 0 %}
-                    C++
+                    GNU C++
                     {% elseif st.lang == 1 %}
-                    C
+                    GNU C
                     {% elseif st.lang == 2 %}
-                    C++11
+                    GNU C++11
                     {% elseif st.lang == 3 %}
                     Python2
                     {% elseif st.lang == 4 %}

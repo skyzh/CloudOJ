@@ -58,11 +58,11 @@ jQuery.fn.slideLeftShow = function( speed, callback ) { this.animate( { width: "
 $(document).ready(function () {
     $("#registerForm .alert").hide();
     $("div.profile .alert").hide();
-    $(document).pjax('a', '#pjax-container');
+    $(document).pjax('a', 'html');
     $(document).on('pjax:send', function() {
-        $('#pjax-loading').slideLeftShow(500);
+        $('#pjax-loading').slideLeftShow(300);
     });
-    $(document).on('pjax:complete', function() {
+    $(document).on('pjax:success', function() {
         $('#pjax-loading').fadeOut(500);
     });
     $('#pjax-loading').fadeOut(500);
@@ -75,4 +75,7 @@ $(document).ready(function () {
             size: 16
         }
     );
+    setTimeout(function() {
+        $("#flashcontainer").slideUp(500);
+    }, 2000);
 });

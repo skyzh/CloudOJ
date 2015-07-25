@@ -17,25 +17,25 @@
     </div>
 </div>
 <div class = "row">
-    <div class="col-md-2 col-xs-2"><h6>Problem</h6></div>
-    <div class="col-md-2 col-xs-5"><h6>User</h6></div>
+    <div class="col-md-2 col-xs-4"><h6>Problem</h6></div>
+    <div class="col-md-2 col-xs-4"><h6>User</h6></div>
     <div class="col-md-1 hidden-sm hidden-xs"><h6>Language</h6></div>
     <div class="col-md-1 hidden-sm hidden-xs"><h6>Length</h6></div>
-    <div class="col-md-2 col-xs-5"><h6>Status</h6></div>
+    <div class="col-md-2 col-xs-4"><h6>Status</h6></div>
     <div class="col-md-2 hidden-sm hidden-xs"><h6>Submit</h6></div>
     <div class="col-md-1 hidden-sm hidden-xs"><h6>Time</h6></div>
     <div class="col-md-1 hidden-sm hidden-xs"><h6>Memory</h6></div>
 </div>
 <div class="row">
-        <div class="col-md-2 col-xs-2">{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</div>
-        <div class="col-md-2 col-xs-5">{{ link_to("profile/view/" ~ st.uid, st.__username)}} </div>
+        <div class="col-md-2 col-xs-4">{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</div>
+        <div class="col-md-2 col-xs-4">{{ link_to("profile/view/" ~ st.uid, st.__username)}} </div>
         <div class="col-md-1 hidden-sm hidden-xs">
             {% if st.lang == 0 %}
-            C++
+            GNU C++
             {% elseif st.lang == 1 %}
-            C
+            GNU C
             {% elseif st.lang == 2 %}
-            C++11
+            GNU C++11
             {% elseif st.lang == 3 %}
             Python2
             {% elseif st.lang == 4 %}
@@ -57,7 +57,7 @@
             {% endif %}
         </div>
         <div class="col-md-1 hidden-sm hidden-xs">{{ st.codelength ~ "B" }}</div>
-        <div class="col-md-2 col-xs-5">
+        <div class="col-md-2 col-xs-4">
             {% if st.status == 0 %}
             <label class='label label-default'>Pending</label>
             {% elseif st.status == 1 %}
@@ -94,13 +94,11 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <div class = "panel panel-default">
         {% if code.ret != " " %}
-            <span id = "retdat" class="monotext">{{ code.ret }}</span>
+        <pre><code class="sampledata">{{ code.ret | e }}</code></pre>
         {% else %}
-            <span id = "retdat" class="monotext">No Return Data</span>
+        <pre><code class="sampledata">No Data</code></pre>
         {% endif %}
-        </div>
     </div>
 </div>
 <div class="row">
@@ -113,13 +111,13 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <pre><code class="sampledata">{{ code.code|e }}</code></pre>
+        <pre><code class="sampledata code">{{ code.code|e }}</code></pre>
     </div>
 </div>
 
 <script>
 $(document).ready(function() {
-    $('pre code').each(function(i, block) {
+    $('.code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
 });
