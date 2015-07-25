@@ -3,7 +3,7 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <h3>CloudOJ</h3>
+        <h3>CloudOJ Beta</h3>
         <p>
         <strong>CloudOJ</strong> is an Online Judge under MIT License, which enables you to practise programming online.
         </p>
