@@ -4,7 +4,7 @@
     <div align="right">
         <div class="col-md-6" align="left">
             {{ link_to("problemset/view/" ~ problem.pid, "class": "btn btn-default", "
-            <span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
+            <span class='glyphicon glyphicon-chevron-left'></span> " ~ problem.title) }}
         </div>
     </div>
 </div>

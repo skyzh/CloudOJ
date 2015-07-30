@@ -10,7 +10,6 @@ class ProblemsetController extends ControllerBase {
     }
 
     public function indexAction() {
-        if($this->request->isAjax()) echo "AJAX!";
         $currentPage = (int) $this->request->getQuery('page');
         if( $currentPage == 0) $currentPage = 1;
 
@@ -28,17 +27,34 @@ class ProblemsetController extends ControllerBase {
     }
 
     public function newAction() {
-        $form = new ProblemForm();
-        $this->view->form = $form;
+        return $this->forward('problemset/edit/0');
     }
 
-    public function editAction($pid) {
+    public function dataAction($pid) {
         if (!$this->request->isPost()) {
             $problem = Problemset::findFirst(array(
                 "pid = :pid:", 'bind' => array('pid' => $pid)));
             if (!$problem) {
                 $this->flash->error("Problem was not found");
                 return $this->forward("problemset/index");
+            }
+            $this->view->problem = $problem;
+        }
+    }
+
+    public function editAction($pid) {
+        if (!$this->request->isPost()) {
+            if($pid != 0) {
+                $problem = Problemset::findFirst(array(
+                    "pid = :pid:", 'bind' => array('pid' => $pid)));
+                if (!$problem) {
+                    $this->flash->error("Problem was not found");
+                    return $this->forward("problemset/index");
+                }
+            }
+            else {
+                $problem = new Problemset;
+                $problem->pid = 0;
             }
             $this->view->problem = $problem;
             $this->view->form = new ProblemForm($problem, array('edit' => true));

@@ -4,7 +4,7 @@
 {{ form('notification/send', 'id': 'dmsendForm') }}
     <div class="row">
         <div class="col-md-6" align="left">
-            {{ link_to("notification", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Go Back") }}
+            {{ link_to("notification", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Notification") }}
         </div>
         <div class="col-md-6" align="right">
             {{ link_to("notification/send", "class": "btn btn-default", "Reset") }}
