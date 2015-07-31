@@ -61,7 +61,8 @@ CREATE TABLE `status` (
     status int(11) not null,
     memlimit int(11) not null,
     timelimit int(11) not null,
-    codelength int(11) not null
+    codelength int(11) not null,
+    hidden BOOLEAN not null
 );
 
 CREATE TABLE `statuscode` (

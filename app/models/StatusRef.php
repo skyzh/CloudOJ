@@ -9,6 +9,7 @@ class StatusRef {
     public $memlimit;
     public $timelimit;
     public $codelength;
+    public $hidden;
 
     public $code;
     public $ret;
@@ -24,6 +25,7 @@ class StatusRef {
         $this->memlimit = &$status->memlimit;
         $this->timelimit = &$status->timelimit;
         $this->codelength = &$status->codelength;
+        $this->hidden = &$status->hidden;
         $this->code = &$statuscode->code;
         $this->ret = &$statuscode->ret;
     }

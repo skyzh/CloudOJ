@@ -10,7 +10,9 @@
 <div class="page-header">
     <h2>View Status</h2>
 </div>
-
+{% if st.hidden == true %}
+    <h3>Hidden</h3>
+{% else %}
 <div class="row">
     <div class="col-xs-12">
         <h3>Basic</h3>
@@ -113,7 +115,7 @@
         <pre><code class="sampledata code">{{ code.code|e }}</code></pre>
     </div>
 </div>
-
+{% endif %}
 <script>
 $(document).on('pjax:end' ,function() {
     $('.code').each(function(i, block) {

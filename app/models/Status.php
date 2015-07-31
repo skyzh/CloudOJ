@@ -14,6 +14,7 @@ class Status extends Model {
     public $memlimit;
     public $timelimit;
     public $codelength;
+    public $hidden;
 
     public $__title;
     public $__username;
@@ -29,5 +30,6 @@ class Status extends Model {
         $this->memlimit = 0;
         $this->timelimit = 0;
         $this->status = 0;
+        $this->hidden = false;
     }
 }

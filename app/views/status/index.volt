@@ -55,9 +55,19 @@ glyphicon glyphicon-refresh"></span> Reload</a>
                     {% elseif st.lang == 11 %}
                     Haskell
                     {% endif %}
+
                 </div>
-                <div class="col-md-1 hidden-sm hidden-xs">{{ link_to('status/view/' ~ st.sid, st.codelength ~ "B")}}</div>
+                <div class="col-md-1 hidden-sm hidden-xs"><p>
+                    {% if st.hidden == true %}
+                        Hidden
+                    {% else %}
+                        {{ link_to('status/view/' ~ st.sid, st.codelength ~ "B")}}
+                    {% endif %}
+                </p></div>
                 <div class="col-md-2 col-xs-5">
+                {% if st.hidden == true %}
+                    <label class='label label-primary'>Hidden</label>
+                {% else %}
                     {% if st.status == 0 %}
                     <label class='label label-default'>Pending</label>
                     {% elseif st.status == 1 %}
@@ -79,10 +89,23 @@ glyphicon glyphicon-refresh"></span> Reload</a>
                     {% elseif st.status == 9 %}
                     <label class='label label-warning'>Unknown</label>
                     {% endif %}
+                {% endif %}
                 </p></div>
                 <div class="col-md-2 hidden-sm hidden-xs"><p>{{ st.submittime }}</p></div>
-                <div class="col-md-1 hidden-sm hidden-xs"><p>{{ st.timelimit }} ms</p></div>
-                <div class="col-md-1 hidden-sm hidden-xs"><p>{{ st.memlimit }} KB</p></div>
+                <div class="col-md-1 hidden-sm hidden-xs"><p>
+                    {% if st.hidden == true %}
+                        Hidden
+                    {% else %}
+                        {{ st.timelimit }} ms
+                    {% endif %}
+                </p></div>
+                <div class="col-md-1 hidden-sm hidden-xs"><p>
+                    {% if st.hidden == true %}
+                        Hidden
+                    {% else %}
+                        {{ st.memlimit }} ms
+                    {% endif %}
+                </p></div>
         </div>
     {% if loop.last %}
         <div class = "row">
