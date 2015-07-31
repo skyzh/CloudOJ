@@ -15,12 +15,13 @@ class Status extends Model {
     public $timelimit;
     public $codelength;
 
-    public function validation()
-    {
+    public function initialize() {
+        $this->hasOne("sid", "statuscode", "sid", array(
+            'reusable' => true
+        ));
     }
 
-    public function beforeValidationOnCreate()
-    {
+    public function beforeValidationOnCreate() {
         $this->submittime = new RawValue('now()');
         $this->memlimit = 0;
         $this->timelimit = 0;

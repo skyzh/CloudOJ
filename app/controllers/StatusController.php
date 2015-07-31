@@ -75,7 +75,7 @@ class StatusController extends ControllerBase {
                     $prob->submit = $prob->submit + 1;
                     $prob->save();
 
-                    $this->flash->success('<h5>Submit success</h5><h6>Now view your status</h6>');
+                    $this->flash->success('Submit success! Now view your status.');
                     return $this->forward('problemset/view/'.$pid);
                 }
             }
@@ -85,11 +85,15 @@ class StatusController extends ControllerBase {
     public function viewAction($sid) {
         $status = Status::findFirst(array(
             "sid = :sid:", 'bind' => array('sid' => $sid)));
-        $stcode = Statuscode::findFirst(array(
-            "sid = :sid:", 'bind' => array('sid' => $sid)));
+        if(!$status) {
+            $this->flash->error("Status was not found");
+            return $this->forward("status/index");
+        }
 
-        $status->__title = $this->findProblem($status->pid);
-        $status->__username = $this->findUser($status->uid);
+        $stcode = $status->statuscode;
+
+        $status->__title = Problemset::findProblemByID($status->pid)->title;
+        $status->__username = User::findUserByID($status->uid)->username;
 
         $this->view->st = $status;
         $this->view->code = $stcode;

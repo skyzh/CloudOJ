@@ -8,12 +8,14 @@ class Statuscode extends Model {
     public $sid;
     public $code;
     public $ret;
-    
-    public function beforeValidationOnCreate()
-    {
-        $this->ret = " ";
+
+    public function initialize() {
+        $this->belongsTo("sid", "status", "sid", array(
+            'reusable' => true
+        ));
     }
-    public function beforeCreate()
-    {
+
+    public function beforeValidationOnCreate() {
+        $this->ret = " ";
     }
 }

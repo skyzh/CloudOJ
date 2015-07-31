@@ -48,8 +48,13 @@
                         list($__start_page, $__end_page) = getPage($__start_page, $__end_page, $problems->total_pages);
 
                         for($__p = $__start_page; $__p <= $__end_page; $__p++) { ?>
+                            {% if problems.current == __p %}
+                        <li class="disabled">
+                            {{ link_to("problemset/index?page=" ~ __p,"<span>"~ __p ~"</span>")}}
+                            {% else %}
                         <li>
                             {{ link_to("problemset/index?page=" ~ __p,"<span>"~ __p ~"</span>")}}
+                            {% endif %}
                         </li>
                         <?php } ?>
                         {% if problems.current == problems.next %}
