@@ -58,14 +58,27 @@ jQuery.fn.slideLeftShow = function( speed, callback ) { this.animate( { width: "
 $(document).ready(function () {
     $("#registerForm .alert").hide();
     $("div.profile .alert").hide();
-    $(document).pjax('a', 'html');
+    $(document).pjax('a', '#pjax-container');
+
     $(document).on('pjax:send', function() {
         $('#pjax-loading').slideLeftShow(300);
     });
     $(document).on('pjax:success', function() {
         $('#pjax-loading').fadeOut(500);
     });
-    $('#pjax-loading').fadeOut(500);
+
+    setTimeout(function() {
+        $("#flashcontainer").slideUp(500);
+    }, 2000);
+
+    $(document).trigger('pjax:success');
+    $(document).trigger('pjax:end');
+});
+
+$(document).on('pjax:end' , function() {
+    $(".markdown_desc").each(function(){
+        $(this).html(markdown.toHTML($(this).text()));
+    });
     twemoji.parse(
         document.body,
         {
@@ -75,7 +88,6 @@ $(document).ready(function () {
             size: 16
         }
     );
-    setTimeout(function() {
-        $("#flashcontainer").slideUp(500);
-    }, 2000);
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    $('[data-toggle="tooltip"]').tooltip();
 });

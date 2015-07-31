@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid" style = "z-index:999;">
         <div class="navbar-header">
@@ -30,5 +31,4 @@
     <footer>
         <p>{{ link_to('about', 'CloudOJ') }}, an Online Judge under MIT License.</p>
     </footer>
-</div>
 </div>

@@ -3,7 +3,7 @@
 
 <div class = "row">
     <div class="col-sm-6" align="left"><p>
-        {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Problem Set") }}
+        {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Problems") }}
     </p></div>
 
     <div class="col-sm-6" align="right">
@@ -56,19 +56,19 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_description">Description</h3>
-            <p><span class="prob_desc">{{ problem.description }}</span></p>
+            <p><span class="markdown_desc">{{ problem.description }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_input">Input</h3>
-            <p><span class="prob_desc">{{ problem.input }}</span></p>
+            <p><span class="markdown_desc">{{ problem.input }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_output">Output</h3>
-            <p><span class="prob_desc">{{ problem.output }}</span></p>
+            <p><span class="markdown_desc">{{ problem.output }}</span></p>
         </div>
     </div>
     <div class="row">
@@ -91,25 +91,6 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_hint">Hint</h3>
-            <p><span class="prob_desc">{{ problem.hint }}</span></p>
+            <p><span class="markdown_desc">{{ problem.hint }}</span></p>
         </div>
     </div>
-</div>
-{{ javascript_include('//cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js') }}
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            processEscapes: true
-        }
-    });
-</script>
-{{ javascript_include('//cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML') }}
-<script>
-    $(document).ready(function(){
-        $(".prob_desc").each(function(){
-            $(this).html(markdown.toHTML($(this).text()));
-        });
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>

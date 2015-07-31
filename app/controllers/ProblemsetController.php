@@ -62,7 +62,6 @@ class ProblemsetController extends ControllerBase {
     }
     public function saveAction($pid)
     {
-        if($this->request->isAjax()) echo "AJAX!";
         if (!$this->request->isPost()) {
             return $this->forward("problemset/index");
         }

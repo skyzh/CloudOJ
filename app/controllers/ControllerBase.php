@@ -1,6 +1,7 @@
 <?php
 
 use Phalcon\Mvc\Controller;
+use Phalcon\Mvc\View;
 
 class ControllerBase extends Controller {
 
@@ -24,6 +25,12 @@ class ControllerBase extends Controller {
         $this->getAuth();
         $this->tag->prependTitle('SNGOJ | ');
         $this->view->setTemplateAfter('main');
+
+        if($this->request->isAjax()) {
+            $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
+        } else {
+            $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
+        }
     }
 
     protected function forward($uri) {

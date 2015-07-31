@@ -106,8 +106,7 @@
         <h3>Code</h3>
     </div>
 </div>
-{{ javascript_include('//cdn.bootcss.com/highlight.js/8.6/highlight.min.js') }}
-{{ stylesheet_link('//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css') }}
+
 
 <div class="row">
     <div class="col-xs-12">
@@ -116,7 +115,7 @@
 </div>
 
 <script>
-$(document).ready(function() {
+$(document).on('pjax:end' ,function() {
     $('.code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
