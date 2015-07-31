@@ -9,18 +9,6 @@ class StatusController extends ControllerBase {
         parent::initialize();
     }
 
-    private function findProblem($pid) {
-        $problem = Problemset::findFirst(array(
-            "pid = :pid:", 'bind' => array('pid' => $pid)));
-        return $problem->title;
-    }
-
-    private function findUser($uid) {
-        $problem = User::findFirst(array(
-            "uid = :uid:", 'bind' => array('uid' => $uid)));
-        return $problem->username;
-    }
-
     public function indexAction() {
 
         $currentPage = (int) $this->request->getQuery('page');
@@ -31,24 +19,26 @@ class StatusController extends ControllerBase {
 
         $bindArr = array("pid" => 1, "uid"=> 1);
 
-        $para = Status::query();
+        $para = $this->modelsManager->createBuilder()->from("status");
         if($this->request->hasQuery("pid")) {
-            $para = $para->where("pid = :pid:")->bind(array("pid" => $this->request->getQuery("pid", "int")));
+            $para = $para->where("pid = :pid:", array(
+                "pid" => $this->request->getQuery("pid", "int")
+            ));
         }
-        $para = $para->orderBy("sid DESC");
-        $data = Status::find($para->getParams());
+        $para = $para->orderBy("status.sid DESC");
 
-        $paginator = new PaginatorModel(
-            array(
-                "data"  => $data,
-                "limit" => 15,
-                "page"  => $currentPage
-            )
-        );
+        $currentPage = (int) $this->request->getQuery('page');
+        if($currentPage == 0) $currentPage = 1;
+
+        $paginator = new PaginatorQueryBuilder(array(
+            "builder" => $para,
+            "limit"=> 20,
+            "page" => $currentPage
+        ));
         $status = $paginator->getPaginate();
         foreach ($status->items as $item) {
-            $item->__title = $this->findProblem($item->pid);
-            $item->__username = $this->findUser($item->uid);
+            $item->__title = Problemset::findProblemByID($item->pid)->title;
+            $item->__username = User::findUserByID($item->uid)->username;
         }
         $this->view->status = $status;
     }

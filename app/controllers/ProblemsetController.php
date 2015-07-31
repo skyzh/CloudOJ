@@ -11,17 +11,13 @@ class ProblemsetController extends ControllerBase {
 
     public function indexAction() {
         $currentPage = (int) $this->request->getQuery('page');
-        if( $currentPage == 0) $currentPage = 1;
+        if($currentPage == 0) $currentPage = 1;
 
-        $data = Problemset::find();
-
-        $paginator = new PaginatorModel(
-            array(
-                "data"  => $data,
-                "limit" => 20,
-                "page"  => $currentPage
-            )
-        );
+        $paginator = new PaginatorQueryBuilder(array(
+            "builder" => $this->modelsManager->createBuilder()->from("problemset"),
+            "limit"=> 20,
+            "page" => $currentPage
+        ));
         $problems = $paginator->getPaginate();
         $this->view->problems = $problems;
     }

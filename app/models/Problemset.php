@@ -25,4 +25,10 @@ class Problemset extends Model {
         $this->accepted = 0;
         $this->changetime = new RawValue('now()');
     }
+
+    public static function findProblemByID($pid) {
+        $problem = Problemset::findFirst(array(
+            "pid = :pid:", 'bind' => array('pid' => $pid)));
+        return $problem;
+    }
 }
