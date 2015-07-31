@@ -13,6 +13,7 @@ class Problemset extends Model {
     public $changetime;
     public $memlimit;
     public $timelimit;
+    public $problemdetail;
 
     public function initialize() {
         $this->hasOne("pid", "problemdetail", "pid", array(

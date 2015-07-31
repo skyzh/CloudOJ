@@ -15,6 +15,7 @@ class Status extends Model {
     public $timelimit;
     public $codelength;
     public $hidden;
+    public $statuscode;
 
     public $__title;
     public $__username;

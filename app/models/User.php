@@ -11,6 +11,7 @@ class User extends Model {
     public $password;
     public $groupid;
     public $avatar;
+    public $userprofile;
 
     public function initialize() {
         $this->hasOne("uid", "userprofile", "uid", array(

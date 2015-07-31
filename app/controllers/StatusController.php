@@ -19,13 +19,13 @@ class StatusController extends ControllerBase {
 
         $bindArr = array("pid" => 1, "uid"=> 1);
 
-        $para = $this->modelsManager->createBuilder()->from("status");
+        $para = $this->modelsManager->createBuilder()->from("Status");
         if($this->request->hasQuery("pid")) {
             $para = $para->where("pid = :pid:", array(
                 "pid" => $this->request->getQuery("pid", "int")
             ));
         }
-        $para = $para->orderBy("status.sid DESC");
+        $para = $para->orderBy("Status.sid DESC");
 
         $currentPage = (int) $this->request->getQuery('page');
         if($currentPage == 0) $currentPage = 1;
