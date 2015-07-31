@@ -15,13 +15,12 @@ class Status extends Model {
     public $timelimit;
     public $codelength;
     public $hidden;
-    public $statuscode;
 
     public $__title;
     public $__username;
 
     public function initialize() {
-        $this->hasOne("sid", "statuscode", "sid", array(
+        $this->hasOne("sid", "Statuscode", "sid", array(
             'reusable' => true
         ));
     }

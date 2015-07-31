@@ -10,7 +10,7 @@ class Statuscode extends Model {
     public $ret;
 
     public function initialize() {
-        $this->belongsTo("sid", "status", "sid", array(
+        $this->belongsTo("sid", "Status", "sid", array(
             'reusable' => true
         ));
     }

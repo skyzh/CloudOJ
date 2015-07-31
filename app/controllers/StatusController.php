@@ -58,7 +58,7 @@ class StatusController extends ControllerBase {
         if ($this->request->isPost()) {
             $status = new Status;
             $status->statuscode = new Statuscode;
-
+            
             $data = $this->request->getPost();
             $_status = new StatusRef($status, $status->statuscode);
 
