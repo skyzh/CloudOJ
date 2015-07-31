@@ -15,7 +15,9 @@ $di = new FactoryDefault();
 $di->set('dispatcher', function() use ($di) {
 
     $eventsManager = new EventsManager;
-
+    
+    $eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
+    $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
 
     $dispatcher = new Dispatcher;
     $dispatcher->setEventsManager($eventsManager);
