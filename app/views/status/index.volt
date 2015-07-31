@@ -103,8 +103,13 @@ glyphicon glyphicon-refresh"></span> Reload</a>
                         list($__start_page, $__end_page) = getPage($__start_page, $__end_page, $status->total_pages);
 
                         for($__p = $__start_page; $__p <= $__end_page; $__p++) { ?>
+                            {% if status.current == __p %}
+                        <li class="disabled">
+                            {{ link_to("problemset/index?page=" ~ __p,"<span>"~ __p ~"</span>")}}
+                            {% else %}
                         <li>
-                            {{ link_to("status/index?page=" ~ __p,"<span>"~ __p ~"</span>")}}
+                            {{ link_to("problemset/index?page=" ~ __p,"<span>"~ __p ~"</span>")}}
+                            {% endif %}
                         </li>
                         <?php } ?>
                         {% if status.current == status.next %}

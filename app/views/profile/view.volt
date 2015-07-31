@@ -15,8 +15,10 @@
         </p>
     </div>
     <div class="col-sm-8">
-        <p>The {{user.uid}}# user of SNGOJ,</p>
-        <p>joined at {{user.userprofile.registertime}},</p>
-        <p>last active at {{user.userprofile.lastactive}}.</p>
+        <p>The <strong>{{user.uid}}#</strong> user of SNGOJ,</p>
+        <p><strong>Joined</strong> at {{user.userprofile.registertime}},</p>
+        <p><strong>Last active</strong> at {{user.userprofile.lastactive}}.</p>
+        <p><strong>Submission</strong> {{user.userprofile.submit}}</p>
+        <p><strong>Accepted</strong> {{user.userprofile.accepted}}</p>
     </div>
 </div>

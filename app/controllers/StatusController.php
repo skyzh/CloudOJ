@@ -36,10 +36,14 @@ class StatusController extends ControllerBase {
             "page" => $currentPage
         ));
         $status = $paginator->getPaginate();
-        foreach ($status->items as $item) {
-            $item->__title = Problemset::findProblemByID($item->pid)->title;
-            $item->__username = User::findUserByID($item->uid)->username;
-        }
+
+        $status->items = $status->items->filter(function($item) {
+            $__prob = Problemset::findProblemByID($item->pid);
+            $__user = User::findUserByID($item->uid);
+            $item->__title = $__prob->title;
+            $item->__username = $__user->username;
+            return $item;
+        });
         $this->view->status = $status;
     }
     public function submitAction($pid) {
@@ -49,37 +53,37 @@ class StatusController extends ControllerBase {
             $this->flash->error("Problem was not found");
             return $this->forward("status/index");
         }
+        $form = new StatusForm;
+
         if ($this->request->isPost()) {
             $status = new Status;
-            $status->pid = $pid;
-            $status->uid = $this->auth["id"];
-            $status->lang = $this->request->getPost('lang');
-            $__code = $this->request->getPost('code');
-            $status->codelength = strlen($__code);
-            if ($status->save() == false) {
-                foreach ($status->getMessages() as $message) {
-                    $this->flash->error((string) $message);
+            $status->statuscode = new Statuscode;
+
+            $data = $this->request->getPost();
+            $_status = new StatusRef($status, $status->statuscode);
+
+            if (!$form->isValid($data, $_status)) {
+                foreach ($form->getMessages() as $message) {
+                    $this->flash->error($message);
                 }
+                return $this->forward('status/submit/' . strval($pid));
             } else {
-                $stcode = new Statuscode;
-                $stcode->sid = $status->sid;
-                $stcode->code = $__code;
-                if ($stcode->save() == false) {
-                    foreach ($stcode->getMessages() as $message) {
+                $status->pid = $pid;
+                $status->uid = $this->auth["id"];
+                $status->codelength = strlen($status->statuscode->code);
+                if ($status->save() == false) {
+                    foreach ($status->getMessages() as $message) {
                         $this->flash->error((string) $message);
                     }
-                    $status->delete();
                 } else {
-                    $prob = Problemset::findFirst(array(
-                        "pid = :pid:", 'bind' => array('pid' => $status->pid)));
-                    $prob->submit = $prob->submit + 1;
-                    $prob->save();
-
+                    WatcherAction::SubmitProblem($status->uid, $status->pid);
                     $this->flash->success('Submit success! Now view your status.');
-                    return $this->forward('problemset/view/'.$pid);
+                    return $this->forward('problemset/view/' . $pid);
                 }
             }
         }
+
+        $this->view->form = $form;
         $this->view->problem = $problem;
     }
     public function viewAction($sid) {

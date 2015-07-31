@@ -15,6 +15,9 @@ class Status extends Model {
     public $timelimit;
     public $codelength;
 
+    public $__title;
+    public $__username;
+
     public function initialize() {
         $this->hasOne("sid", "statuscode", "sid", array(
             'reusable' => true
