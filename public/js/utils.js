@@ -41,5 +41,5 @@ $(document).on('pjax:end' , function() {
     clearTimeout(t);
     t = setTimeout(function() {
         $("#flashcontainer").slideUp(500);
-    }, 2000);
+    }, 5000);
 });

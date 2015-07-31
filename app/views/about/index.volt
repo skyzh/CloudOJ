@@ -8,7 +8,7 @@
         <strong>CloudOJ</strong> is an Online Judge under MIT License, which enables you to practise programming online.
         </p>
         <p>
-        You can find <strong>CloudOJ</strong> on <a href="https://github.com/SkyZH/SNGOJ_MVC">Github</a>.
+        You can find <strong>CloudOJ</strong> on <a href="https://github.com/SkyZH/CloudOJ">Github</a>.
         </p>
         <p>
         Thanks <a href="https://www.v2ex.com/">V2EX</a> for its Gravatar CDN.
@@ -17,7 +17,7 @@
         Thanks <a href="https://github.com/lodevil/Lo-runner">Lo-runner</a>, which provides a sandbox-like environment for Judger.
         </p>
         <p>
-        We also use Bootstrap, jQuery, markdown.js, twemoji, MathJax,ACE Editor and Pjax on frontend.
+        We also use Bootstrap, jQuery, markdown.js, twemoji, MathJax, ACE Editor and Pjax on frontend.
         </p>
         <p>This website is made with PHP C-Extension PhalconPHP</p>
         <p>Judger is made with Python</p>
