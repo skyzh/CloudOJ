@@ -21,7 +21,7 @@ class StatusController extends ControllerBase {
 
         $para = $this->modelsManager->createBuilder()->from("status");
         if($this->request->hasQuery("pid")) {
-            $para = $para->where("pid = :pid:", array(
+            $para = $para->where("status.pid = :pid:", array(
                 "pid" => $this->request->getQuery("pid", "int")
             ));
         }

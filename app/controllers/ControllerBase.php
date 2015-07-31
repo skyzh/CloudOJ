@@ -23,7 +23,7 @@ class ControllerBase extends Controller {
 
     protected function initialize() {
         $this->getAuth();
-        $this->tag->prependTitle('SNGOJ | ');
+        $this->tag->prependTitle('SNGOJ::');
         $this->view->setTemplateAfter('main');
 
         if($this->request->isAjax()) {

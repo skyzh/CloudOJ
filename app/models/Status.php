@@ -30,6 +30,6 @@ class Status extends Model {
         $this->memlimit = 0;
         $this->timelimit = 0;
         $this->status = 0;
-        $this->hidden = false;
+        $this->hidden = 0;
     }
 }

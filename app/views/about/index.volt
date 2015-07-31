@@ -17,10 +17,9 @@
         Thanks <a href="https://github.com/lodevil/Lo-runner">Lo-runner</a>, which provides a sandbox-like environment for Judger.
         </p>
         <p>
-        We also use Bootstrap, jQuery, markdown.js, twemoji, MathJax, ACE Editor and Pjax on frontend.
+        We also use Bootstrap, jQuery, markdown.js, twemoji, MathJax, ACE Editor, SyntaxHighLighter.js and Pjax on frontend.
         </p>
-        <p>This website is made with PHP C-Extension PhalconPHP</p>
-        <p>Judger is made with Python</p>
+        <p>This website is made with PHP C-Extension <a href="https://phalconphp.com">PhalconPHP</a></p>
     </div>
     <div class="col-md-6">
         <h3>Hosted on CCCCWI Server</h3>
