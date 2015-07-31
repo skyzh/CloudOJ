@@ -14,7 +14,7 @@ class ProblemsetController extends ControllerBase {
         if($currentPage == 0) $currentPage = 1;
 
         $paginator = new PaginatorQueryBuilder(array(
-            "builder" => $this->modelsManager->createBuilder()->from("problemset"),
+            "builder" => $this->modelsManager->createBuilder()->from("Problemset"),
             "limit"=> 20,
             "page" => $currentPage
         ));

@@ -14,7 +14,7 @@ class Problemdetail extends Model {
     public $hint;
 
     public function initialize() {
-        $this->belongsTo("pid", "problemset", "pid", array(
+        $this->belongsTo("pid", "Problemset", "pid", array(
             'reusable' => true
         ));
     }

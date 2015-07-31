@@ -15,7 +15,7 @@ class Problemset extends Model {
     public $timelimit;
 
     public function initialize() {
-        $this->hasOne("pid", "problemdetail", "pid", array(
+        $this->hasOne("pid", "Problemdetail", "pid", array(
             'reusable' => true
         ));
     }
