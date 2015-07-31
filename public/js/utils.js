@@ -2,11 +2,13 @@ jQuery.fn.slideLeftHide = function( speed, callback ) { this.animate( { width: "
 jQuery.fn.slideLeftShow = function( speed, callback ) { this.animate( { width: "show", paddingLeft: "show", paddingRight: "show", marginLeft: "show", marginRight: "show" }, speed, callback ); }
 
 $(document).ready(function () {
-    $(document).pjax('a', '#pjax-container');
-    $(document).on('submit', 'form', function(event) {
-        event.preventDefault();
-        $.pjax.submit(event, '#pjax-container');
-    })
+    if($.support.pjax) {
+        $(document).pjax('a', '#pjax-container');
+        $(document).on('submit', 'form', function(event) {
+            event.preventDefault();
+            $.pjax.submit(event, '#pjax-container');
+        });
+    }
 
     $(document).on('pjax:send', function() {
         $('#pjax-loading').slideLeftShow(300);

@@ -15,7 +15,10 @@ class ProfileController extends ControllerBase {
     public function viewAction($uid) {
     $user = User::findFirst(array(
         "uid = :uid:", 'bind' => array('uid' => $uid)));
-        $user->avatar = User::getAvatar($user->email);
-        $this->view->user = $user;
+    if(!$user) {
+        $this->flash->error("User not found");
+        return $this->forward("index/index");
+    }
+    $this->view->user = $user;
     }
 }

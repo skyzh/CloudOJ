@@ -1,4 +1,5 @@
 <?php
+use Phalcon\Db\RawValue;
 
 class SessionController extends ControllerBase {
     public function initialize() {
@@ -17,6 +18,8 @@ class SessionController extends ControllerBase {
             'groupid' => $user->groupid,
             'avatar' => $user->avatar
         ));
+        $user->userprofile->lastactive = new RawValue('now()');
+        $user->save();
     }
 
     public function startAction() {

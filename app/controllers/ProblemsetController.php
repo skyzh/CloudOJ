@@ -44,7 +44,7 @@ class ProblemsetController extends ControllerBase {
 
     public function editAction($pid) {
         if (!$this->request->isPost()) {
-            if($pid != 0) {
+            if(intval($pid) != 0) {
                 $problem = Problemset::findFirst(array(
                     "pid = :pid:", 'bind' => array('pid' => $pid)));
                 if (!$problem) {
@@ -54,10 +54,12 @@ class ProblemsetController extends ControllerBase {
             }
             else {
                 $problem = new Problemset;
+                $problem->problemdetail = new Problemdetail;
                 $problem->pid = 0;
             }
-            $this->view->problem = $problem;
-            $this->view->form = new ProblemForm($problem, array('edit' => true));
+            $_problem = new ProblemRef($problem, $problem->problemdetail);
+            $this->view->problem = $_problem;
+            $this->view->form = new ProblemForm($_problem);
         }
     }
     public function saveAction($pid)
@@ -66,7 +68,7 @@ class ProblemsetController extends ControllerBase {
             return $this->forward("problemset/index");
         }
 
-        if($pid != "0")
+        if(intval($pid) != 0)
         {
             $problem = Problemset::findFirst(array(
                 "pid = :pid:", 'bind' => array('pid' => $pid)));
@@ -77,28 +79,29 @@ class ProblemsetController extends ControllerBase {
             }
         }
         else {
-            $problem = new Problemset();
+            $problem = new Problemset;
+            $problem->problemdetail = new Problemdetail;
+            $problem->pid = 0;
         }
+        $_problem = new ProblemRef($problem, $problem->problemdetail);
+        $this->view->problem = $_problem;
 
-        $form = new ProblemForm ;
+        $form = new ProblemForm;
+
         $this->view->form = $form;
 
         $data = $this->request->getPost();
 
-        if (!$form->isValid($data, $problem)) {
+        if (!$form->isValid($data, $_problem)) {
             foreach ($form->getMessages() as $message) {
                 $this->flash->error($message);
             }
-            if($pid == "0") return $this->forward('problemset/new/');
-            else return $this->forward('problemset/edit/' . $problem->pid);
-        }
-
-        if ($problem->save() == false) {
+            return $this->forward('problemset/edit/' . strval($pid));
+        } elseif ($problem->save() == false) {
             foreach ($problem->getMessages() as $message) {
                 $this->flash->error($message);
             }
-            if($pid == "0") return $this->forward('problemset/new/');
-            else return $this->forward('problemset/edit/' . $problem->pid);
+            return $this->forward('problemset/edit/' . strval($pid));
         }
 
         $form->clear();
@@ -114,7 +117,8 @@ class ProblemsetController extends ControllerBase {
             $this->flash->error("Problem does not exist");
             return $this->forward("problemset/index");
         }
-        $this->view->problem = $problem;
+        $_problem = new ProblemRef($problem, $problem->problemdetail);
+        $this->view->problem = $_problem;
     }
 
     public function removeAction($pid) {
@@ -127,7 +131,7 @@ class ProblemsetController extends ControllerBase {
         }
 
         $problem->delete();
-        $this->flash->error("Problem was deleted successfully");
+        $this->flash->success("Problem was deleted successfully");
         return $this->forward("problemset/index");
     }
 }

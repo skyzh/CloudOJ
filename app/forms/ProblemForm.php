@@ -11,7 +11,9 @@ use Phalcon\Validation\Validator\Numericality;
 
 class ProblemForm extends Form {
     private function addNumber($objName, $objLabel) {
-        $obj = new Text($objName);
+        $obj = new Text($objName, array(
+            'placeholder' => $objLabel
+        ));
         $obj->setLabel($objLabel);
         $obj->setFilters(array('int'));
         $obj->addValidators(array(
@@ -25,7 +27,9 @@ class ProblemForm extends Form {
         $this->add($obj);
     }
     private function addStringArea($objName, $objLabel) {
-        $obj= new TextArea($objName);
+        $obj= new TextArea($objName, array(
+            'placeholder' => $objLabel
+        ));
         $obj->setLabel($objLabel);
         $obj->addValidators(array(
             new PresenceOf(array(
@@ -35,12 +39,9 @@ class ProblemForm extends Form {
         $this->add($obj);
     }
     public function initialize($entity = null, $options = array()) {
-
-        $this->add(new Hidden("pid"));
-        $this->add(new Hidden("submit"));
-        $this->add(new Hidden("accepted"));
-
-        $title = new Text("title");
+        $title = new Text("title", array(
+            'placeholder' => "Title"
+        ));
         $title->setLabel("Title");
         $title->setFilters(array('striptags', 'string'));
         $title->addValidators(array(
@@ -49,11 +50,13 @@ class ProblemForm extends Form {
             ))
         ));
         $this->add($title);
-
+        
         $this->addNumber("memlimit", "Memory Limit");
         $this->addNumber("timelimit", "Time Limit");
 
-        $type = new Text("type");
+        $type = new Text("type", array(
+            'placeholder' => "Type"
+        ));
         $type->setLabel("Type");
         $type->setFilters(array('string'));
         $type->addValidators(array(

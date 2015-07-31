@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-6" align="left">
             <p>{% if problem.pid == 0 %}
-            {{ link_to("problemset/index", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Problem Set") }}
+            {{ link_to("problemset/index", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Problems") }}
             {% else %}
             {{ link_to("problemset/view/" ~ problem.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> " ~ problem.title) }}
             {% endif %}</p>
@@ -23,10 +23,6 @@
         {% endif %}</h2>
     </div>
     <fieldset>
-        {{ form.render('pid') }}
-        {{ form.render('submit') }}
-        {{ form.render('accepted') }}
-
         <div class="row">
             <div class="col-xs-12">
                 <p>{{ form.render('title', ['class': 'form-control', 'placeholder': 'Title']) }}</p>

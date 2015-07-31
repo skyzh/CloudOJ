@@ -10,19 +10,17 @@ class Problemset extends Model {
     public $type;
     public $submit;
     public $accepted;
-
-    public $description;
-    public $input;
-    public $output;
-    public $sampleinput;
-    public $sampleoutput;
-    public $hint;
     public $changetime;
     public $memlimit;
     public $timelimit;
 
-    public function beforeValidationOnCreate()
-    {
+    public function initialize() {
+        $this->hasOne("pid", "problemdetail", "pid", array(
+            'reusable' => true
+        ));
+    }
+
+    public function beforeValidationOnCreate() {
         $this->submit = 0;
         $this->accepted = 0;
         $this->changetime = new RawValue('now()');
