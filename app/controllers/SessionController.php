@@ -15,7 +15,7 @@ class SessionController extends ControllerBase {
             'name' => $user->username,
             'email' => $user->email,
             'groupid' => $user->groupid,
-            'avatar' => User::getAvatar($user->email)
+            'avatar' => $user->avatar
         ));
     }
 
@@ -32,8 +32,7 @@ class SessionController extends ControllerBase {
             if ($user) {
                 if ($this->security->checkHash($password, $user->password)) {
                     $this->_registerSession($user);
-                    $this->flash->success('<h5>Log in successfully</h5><h6>Welcome, ' . $user->username .
-                    '</h6>');
+                    $this->flash->success('Log in successfully! Welcome, ' . $user->username);
                     return $this->forward('index/index');
                 }
             }
@@ -44,7 +43,7 @@ class SessionController extends ControllerBase {
 
     public function endAction() {
         $this->session->remove('auth');
-        $this->flash->success('<h5>Log out successfully</h5><h6>Goodbye!</h6>');
+        $this->flash->success('Log out successfully! Goodbye.');
         return $this->forward('index/index');
     }
 }

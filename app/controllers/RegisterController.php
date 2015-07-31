@@ -11,32 +11,32 @@ class RegisterController extends ControllerBase {
         $form = new RegisterForm;
 
         if ($this->request->isPost()) {
-            $username = $this->request->getPost('username', 'alphanum');
-            $email = $this->request->getPost('email', 'email');
-            $password = $this->request->getPost('password');
-            $repeatPassword = $this->request->getPost('repeatPassword');
-
-            if (strlen($username) < 5) {
-                $this->flash->error('<h5>Username too short</h5>');
-            } elseif ($password != $repeatPassword) {
-                $this->flash->error('<h5>Passwords are different</h5>');
-                return $this;
+            $password = $this->request->getPost("password");
+            $repeatPassword = $this->request->getPost("repeatPassword");
+            if ($password != $repeatPassword) {
+                $this->flash->error('Passwords are different');
             } else {
                 $user = new User();
-                $user->username = $username;
-                $user->password = $this->security->hash($password);
-                $user->email = $email;
-                $user->groupid = 2;
-                if ($user->save() == false) {
-                    foreach ($user->getMessages() as $message) {
+                $form->bind($_POST, $user);
+
+                if (!$form->isValid()) {
+                    foreach ($form->getMessages() as $message) {
                         $this->flash->error((string) $message);
                     }
                 } else {
-                    $this->tag->setDefault('email', '');
-                    $this->tag->setDefault('password', '');
+                    $user->password = $this->security->hash($user->password);
+                    $user->userprofile = new Userprofile;
+                    if ($user->save() == false) {
+                        foreach ($user->getMessages() as $message) {
+                            $this->flash->error((string) $message);
+                        }
+                    } else {
+                        $this->tag->setDefault('email', '');
+                        $this->tag->setDefault('password', '');
 
-                    $this->flash->success('<h5>Thanks for sign-up</h5><h6>Log in to start Advanture</h6>');
-                    return $this->forward('session/index');
+                        $this->flash->success('Thanks for sign-up! Log in to start Advanture</h6>');
+                        return $this->forward('session/index');
+                    }
                 }
             }
         }

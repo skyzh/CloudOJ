@@ -9,16 +9,7 @@ CREATE TABLE `user` (
     UNIQUE username(username),
     UNIQUE email(email),
     UNIQUE uid(uid),
-    registertime DATETIME NOT null
-);
-
-# Create user status table
-CREATE TABLE `userstatus` (
-    uid int(11) NOT null,
-    PRIMARY KEY (uid),
-    UNIQUE uid (uid),
-    submit mediumtext NOT null,
-    accepted mediumtext NOT null
+    avatar text not null
 );
 
 CREATE TABLE `userprofile` (
@@ -28,7 +19,6 @@ CREATE TABLE `userprofile` (
     submit int(11) NOT null,
     accepted int(11) NOT null,
     score int(11) NOT null,
-    avatar text not null,
     registertime DATETIME not null,
     lastactive DATETIME not null
 );
@@ -42,15 +32,21 @@ CREATE TABLE `problemset` (
     type text not null,
     submit int (11) NOT null,
     accepted int (11) NOT null,
+    changetime DATETIME NOT null,
+    memlimit int(11) not null,
+    timelimit int(11) not null
+);
+
+CREATE TABLE `problemdetail` (
+    pid int(11) NOT null,
+    PRIMARY KEY (pid),
+    UNIQUE pid(pid),
     description mediumtext NOT null,
     input mediumtext NOT null,
     output mediumtext NOT null,
     sampleinput mediumtext NOT null,
     sampleoutput mediumtext NOT null,
-    hint mediumtext NOT null,
-    changetime DATETIME NOT null,
-    memlimit int(11) not null,
-    timelimit int(11) not null
+    hint mediumtext NOT null
 );
 
 # Create Status table
@@ -70,7 +66,6 @@ CREATE TABLE `status` (
 
 CREATE TABLE `statuscode` (
     sid int(11) NOT null,
-    foreign key(sid) references status(sid),
     PRIMARY KEY (sid),
     code mediumtext not null,
     ret mediumtext
@@ -106,6 +101,8 @@ CREATE TABLE `directmessage` (
     suid int(11) NOT null,
     ruid int(11) NOT null,
     PRIMARY KEY (dmid),
+    INDEX suid (suid),
+    INDEX ruid (ruid),
     UNIQUE dmid(dmid),
     message text NOT null,
     sendtime DATETIME NOT null

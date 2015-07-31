@@ -110,7 +110,10 @@ class ProblemsetController extends ControllerBase {
     public function viewAction($pid) {
         $problem = Problemset::findFirst(array(
             "pid = :pid:", 'bind' => array('pid' => $pid)));
-
+        if (!$problem) {
+            $this->flash->error("Problem does not exist");
+            return $this->forward("problemset/index");
+        }
         $this->view->problem = $problem;
     }
 
