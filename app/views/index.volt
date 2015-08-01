@@ -30,7 +30,7 @@
         {{ javascript_include('//cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML') }}
         {{ javascript_include('//cdn.bootcss.com/ace/1.1.9/ace.js') }}
         {{ javascript_include('//cdn.bootcss.com/highlight.js/8.6/highlight.min.js') }}
-
+        
         <div id="pjax-container">
             {{ content() }}
         </div>

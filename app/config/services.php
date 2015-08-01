@@ -12,12 +12,18 @@ use Phalcon\Events\Manager as EventsManager;
 
 $di = new FactoryDefault();
 
+$di->set('__watcherapi', function() use ($config) {
+    return array(
+        "apikey" => $config->watcher->apikey
+    );
+});
+
 $di->set('dispatcher', function() use ($di) {
 
     $eventsManager = new EventsManager;
-    
+
     $eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
-    $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
+    //$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
 
     $dispatcher = new Dispatcher;
     $dispatcher->setEventsManager($eventsManager);

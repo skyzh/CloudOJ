@@ -49,6 +49,18 @@ CREATE TABLE `problemdetail` (
     hint mediumtext NOT null
 );
 
+CREATE TABLE `problemdata` (
+    pdid int(11) NOT null AUTO_INCREMENT,
+    PRIMARY KEY(pdid),
+    UNIQUE pdid(pdid),
+    pid int(11) NOT null,
+    INDEX pid(pid),
+    isSample BOOLEAN NOT null,
+    dat_in mediumtext NOT null,
+    dat_out mediumtext NOT null,
+    dat_name varchar(20) NOT null
+);
+
 # Create Status table
 CREATE TABLE `status` (
     sid int(11) NOT null AUTO_INCREMENT,

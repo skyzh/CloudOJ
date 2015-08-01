@@ -18,6 +18,9 @@ class Problemset extends Model {
         $this->hasOne("pid", "Problemdetail", "pid", array(
             'reusable' => true
         ));
+        $this->hasMany("pid", "Problemdata", "pid", array(
+            'reusable' => true
+        ));
     }
 
     public function beforeValidationOnCreate() {

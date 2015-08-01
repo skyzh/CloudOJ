@@ -28,7 +28,8 @@ class SecurityPlugin extends Plugin
 
             $aclResources = array(
                 'admin' => array(
-                    'problemset'    => array("new", "edit", "data", "save", "remove")
+                    'problemset'    => array("new", "edit", "data", "save", "remove"),
+                    'data'          => array("index", "new", "edit", "save")
                 ),
                 'user' => array(
                     'notification'  => array("index", "send"),
@@ -43,7 +44,8 @@ class SecurityPlugin extends Plugin
                     'errors'     => array('show401', 'show404', 'show500'),
                     'session'    => array('index', 'start', 'end'),
                     'problemset' => array("index", "view"),
-                    'status'     => array("index", "view")
+                    'status'     => array("index", "view"),
+                    'watcherapi' => array("task", "data", "code", "verify", "status")
                 )
             );
 
