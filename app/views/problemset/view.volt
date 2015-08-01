@@ -56,19 +56,19 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_description">Description</h3>
-            <p><span class="markdown_desc">{{ problem.description }}</span></p>
+            <p><span class="markdown_desc">{{ problem.description | e }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_input">Input</h3>
-            <p><span class="markdown_desc">{{ problem.input }}</span></p>
+            <p><span class="markdown_desc">{{ problem.input | e }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_output">Output</h3>
-            <p><span class="markdown_desc">{{ problem.output }}</span></p>
+            <p><span class="markdown_desc">{{ problem.output | e }}</span></p>
         </div>
     </div>
     <div class="row">
@@ -100,6 +100,6 @@
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_hint">Hint</h3>
-            <p><span class="markdown_desc">{{ problem.hint }}</span></p>
+            <p><span class="markdown_desc">{{ problem.hint | e }}</span></p>
         </div>
     </div>

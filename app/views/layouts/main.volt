@@ -28,7 +28,7 @@
     {{ content() }}
     <hr>
     <footer>
-        <p>Powered by {{ link_to('about', 'CloudOJ') }}, an Online Judge under MIT License.</p>
+        <p>Powered by {{ link_to('about', 'CloudOJ') }}, an Online Judge under Apache License.</p>
     </footer>
 </div>
 <head>

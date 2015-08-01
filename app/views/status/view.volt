@@ -97,9 +97,9 @@
 <div class="row">
     <div class="col-xs-12">
         {% if code.ret != " " %}
-        <pre><code class="sampledata">{{ code.ret | e }}</code></pre>
+        <pre class="sampledata">{{ code.ret | e }}</pre>
         {% else %}
-        <pre><code class="sampledata">No Data</code></pre>
+        <pre class="sampledata">No Data</pre>
         {% endif %}
     </div>
 </div>
@@ -112,14 +112,7 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <pre><code class="sampledata code">{{ code.code|e }}</code></pre>
+        <pre><code class="sampledata">{{ code.code|e }}</code></pre>
     </div>
 </div>
 {% endif %}
-<script>
-$(document).on('pjax:end' ,function() {
-    $('.code').each(function(i, block) {
-        hljs.highlightBlock(block);
-    });
-});
-</script>
