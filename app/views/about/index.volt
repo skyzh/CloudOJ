@@ -5,7 +5,7 @@
     <div class="col-md-6">
         <h3>CloudOJ Beta</h3>
         <p>
-        <strong>CloudOJ</strong> is an Online Judge under MIT License, which enables you to practise programming online.
+        <strong>CloudOJ</strong> is an Online Judge under Apache License, which enables you to practise programming online.
         </p>
         <p>
         You can find <strong>CloudOJ</strong> on <a href="https://github.com/SkyZH/CloudOJ">Github</a>.
@@ -17,9 +17,18 @@
         Thanks <a href="https://github.com/lodevil/Lo-runner">Lo-runner</a>, which provides a sandbox-like environment for Judger.
         </p>
         <p>
-        We also use Bootstrap, jQuery, markdown.js, twemoji, MathJax, ACE Editor, SyntaxHighLighter.js and Pjax on frontend.
+        We also use
+        <a href="https://github.com/twbs/bootstrap">Bootstrap</a>,
+        <a href="https://github.com/jquery/jquery">jQuery</a>,
+        <a href="https://github.com/evilstreak/markdown-js">markdown.js</a>,
+        <a href="https://github.com/twitter/twemoji">twemoji</a>,
+        <a href="https://github.com/mathjax/MathJax">MathJax</a>,
+        <a href="https://github.com/ajaxorg/ace-builds">ACE</a>,
+        <a href="https://github.com/isagalaev/highlight.js">highlight.js</a> and
+        <a href="https://github.com/defunkt/jquery-pjax">jquery.Pjax</a> on frontend.
         </p>
         <p>This website is made with PHP C-Extension <a href="https://phalconphp.com">PhalconPHP</a></p>
+        <p>All static data are from <a href="http://www.bootcdn.com">bootcdn.com</a></p>
     </div>
     <div class="col-md-6">
         <h3>Hosted on CCCCWI Server</h3>
