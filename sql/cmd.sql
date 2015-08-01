@@ -44,8 +44,6 @@ CREATE TABLE `problemdetail` (
     description mediumtext NOT null,
     input mediumtext NOT null,
     output mediumtext NOT null,
-    sampleinput mediumtext NOT null,
-    sampleoutput mediumtext NOT null,
     hint mediumtext NOT null
 );
 

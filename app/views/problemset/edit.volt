@@ -60,11 +60,8 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6">
-                    <p>{{ form.render('sampleinput', ['class': 'form-control', 'placeholder': 'Sample Input', 'style': 'height: 200px; resize: none;']) }}</p>
-            </div>
-            <div class="col-sm-6">
-                    <p>{{ form.render('sampleoutput', ['class': 'form-control', 'placeholder': 'Sample Output', 'style': 'height: 200px; resize: none;']) }}</p>
+            <div class="col-sm-12">
+                <p>You can edit sample later in Data tab</p>
             </div>
         </div>
 

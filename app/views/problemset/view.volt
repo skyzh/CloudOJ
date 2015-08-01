@@ -76,18 +76,27 @@
             <h3 id="_sample">Sample</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class = "panel panel-default">
-                <span class="sampledata">{{ problem.sampleinput }}</span>
+    {% for data in problem.problemdata %}
+        {% if data.isSample == 1 %}
+        <div class="row">
+            <div class="col-md-12">
+                <h4>{{ data.dat_name }}</h4>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class = "panel panel-default">
-                <span class="sampledata">{{ problem.sampleoutput }}</span>
+        <div class="row">
+            <div class="col-md-6">
+                <div class = "panel panel-default">
+                    <span class="sampledata">{{ data.dat_in }}</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class = "panel panel-default">
+                    <span class="sampledata">{{ data.dat_out }}</span>
+                </div>
             </div>
         </div>
-    </div>
+        {% endif %}
+    {% endfor %}
     <div class="row">
         <div class="col-xs-12">
             <h3 id="_hint">Hint</h3>

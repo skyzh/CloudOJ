@@ -50,7 +50,7 @@ class ProblemForm extends Form {
             ))
         ));
         $this->add($title);
-        
+
         $this->addNumber("memlimit", "Memory Limit");
         $this->addNumber("timelimit", "Time Limit");
 
@@ -69,8 +69,6 @@ class ProblemForm extends Form {
         $this->addStringArea("description", "Description");
         $this->addStringArea("input", "Input");
         $this->addStringArea("output", "Output");
-        $this->addStringArea("sampleinput", "Sample Input");
-        $this->addStringArea("sampleoutput", "Sample Output");
         $this->addStringArea("hint", "Hint");
     }
 }

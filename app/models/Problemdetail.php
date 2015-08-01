@@ -9,8 +9,6 @@ class Problemdetail extends Model {
     public $description;
     public $input;
     public $output;
-    public $sampleinput;
-    public $sampleoutput;
     public $hint;
 
     public function initialize() {
