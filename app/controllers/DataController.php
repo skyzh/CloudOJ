@@ -48,7 +48,7 @@ class DataController extends ControllerBase {
         }
 
         if($pdid == 0) {
-            $probdata = new ProblemData;
+            $probdata = new Problemdata;
             $probdata->pid = $pid;
         } else {
             $probdata = Problemdata::findProblemDataByDID($pdid);
@@ -66,7 +66,10 @@ class DataController extends ControllerBase {
                 $this->flash->error($message);
             }
             return $this->forward('data/edit/' . strval($pid) . '/' . strval($pdid));
-        } elseif ($probdata->save() == false) {
+        }
+        $probdata->dat_out = str_replace("\r", "", $probdata->dat_out);
+        $probdata->dat_in = str_replace("\r", "", $probdata->dat_in);
+        if ($probdata->save() == false) {
             foreach ($probdata->getMessages() as $message) {
                 $this->flash->error($message);
             }

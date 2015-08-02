@@ -13,7 +13,7 @@ class User extends Model {
     public $avatar;
 
     public function initialize() {
-        $this->hasOne("uid", "userprofile", "uid", array(
+        $this->hasOne("uid", "Userprofile", "uid", array(
             'reusable' => true
         ));
     }
