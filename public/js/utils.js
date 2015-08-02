@@ -37,7 +37,7 @@ $(document).on('pjax:end' , function() {
             size: 16
         }
     );
-    $('code').each(function(i, block) {
+    $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
     MathJax.Hub.Queue(["Typeset",MathJax.Hub]);

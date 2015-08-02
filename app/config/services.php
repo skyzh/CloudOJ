@@ -80,7 +80,9 @@ $di->set('modelsMetadata', function() {
 });
 
 $di->set('session', function() {
-    $session = new SessionAdapter();
+    $session = new SessionAdapter(array(
+        'uniqueId' => 'cloudoj'
+    ));
     $session->start();
     return $session;
 });

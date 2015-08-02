@@ -45,7 +45,7 @@ class SecurityPlugin extends Plugin
                     'session'    => array('index', 'start', 'end'),
                     'problemset' => array("index", "view"),
                     'status'     => array("index", "view"),
-                    'watcherapi' => array("task", "data", "code", "verify", "status")
+                    'watcherapi' => array("task", "data", "code", "verify", "status", "post")
                 )
             );
 
@@ -106,7 +106,6 @@ class SecurityPlugin extends Plugin
                 'controller' => 'errors',
                 'action'     => 'show401'
             ));
-            $this->session->destroy();
             return false;
         }
     }
