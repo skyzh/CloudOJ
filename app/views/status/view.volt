@@ -82,6 +82,10 @@
             <label class='label label-warning'>Unknown</label>
             {% elseif st.status == 10 %}
             <label class='label label-warning'>Presentation Error</label>
+            {% elseif st.status == 11 %}
+            <label class='label label-warning'>Output Limit Excceed</label>
+            {% elseif st.status == 12 %}
+            <label class='label label-warning'>System Error</label>
             {% endif %}
         </div>
         <div class="col-md-2 hidden-sm hidden-xs">{{ st.submittime }}</div>
