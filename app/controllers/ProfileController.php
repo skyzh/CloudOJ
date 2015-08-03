@@ -13,12 +13,14 @@ class ProfileController extends ControllerBase {
         return $this->forward("profile/view/".$this->auth["id"]);
     }
     public function viewAction($uid) {
-    $user = User::findFirst(array(
-        "uid = :uid:", 'bind' => array('uid' => $uid)));
-    if(!$user) {
-        $this->flash->error("User not found");
-        return $this->forward("index/index");
-    }
-    $this->view->user = $user;
+        $user = User::findFirst(array(
+            "uid = :uid:", 'bind' => array('uid' => $uid)));
+        if(!$user) {
+            $this->flash->error("User not found");
+            return $this->forward("index/index");
+        }
+        $this->view->user = $user;
+        $this->view->usergroup = $user->userprofile->getGroup();
+        $this->view->nusergroup = $user->userprofile->getNextGroup();
     }
 }

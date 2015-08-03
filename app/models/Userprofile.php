@@ -25,4 +25,19 @@ class Userprofile extends Model {
         $this->submit = 0;
         $this->accepted = 0;
     }
+
+    public function getGroup() {
+        return Group::findFirst(array(
+            "conditions" => ":score: >= scorerequired",
+            "order"      => "scorerequired DESC",
+            "bind"       => array("score" => $this->score)
+        ));
+    }
+    public function getNextGroup() {
+        return Group::findFirst(array(
+            "conditions" => ":score: < scorerequired",
+            "order"      => "scorerequired",
+            "bind"       => array("score" => $this->score)
+        ));
+    }
 }

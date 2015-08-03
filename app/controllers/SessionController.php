@@ -16,7 +16,8 @@ class SessionController extends ControllerBase {
             'name' => $user->username,
             'email' => $user->email,
             'groupid' => $user->groupid,
-            'avatar' => $user->avatar
+            'avatar' => $user->avatar,
+            'score'  => $user->userprofile->score
         ));
         $user->userprofile->lastactive = new RawValue('now()');
         $user->save();

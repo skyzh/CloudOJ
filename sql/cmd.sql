@@ -20,7 +20,8 @@ CREATE TABLE `userprofile` (
     accepted int(11) NOT null,
     score int(11) NOT null,
     registertime DATETIME not null,
-    lastactive DATETIME not null
+    lastactive DATETIME not null,
+    INDEX score(score)
 );
 
 # Create problemset table
@@ -58,6 +59,16 @@ CREATE TABLE `problemdata` (
     dat_out mediumtext NOT null,
     dat_name varchar(20) NOT null
 );
+
+CREATE TABLE `problempremission` (
+    ppid int(11) NOT null AUTO_INCREMENT,
+    PRIMARY KEY(ppid),
+    UNIQUE ppid(ppid),
+    pid int(11) NOT null,
+    type int(11) NOT null,
+    INDEX pid(pid, type),
+    data int(11) NOT null
+)
 
 # Create Status table
 CREATE TABLE `status` (
@@ -117,4 +128,14 @@ CREATE TABLE `directmessage` (
     UNIQUE dmid(dmid),
     message text NOT null,
     sendtime DATETIME NOT null
+);
+
+#Create Group Table
+CREATE TABLE `group` (
+    gid int(11) NOT null AUTO_INCREMENT,
+    PRIMARY KEY (gid),
+    UNIQUE gid(gid),
+    scorerequired int(11) NOT null,
+    name varchar(50) NOT null,
+    INDEX scorerequired(scorerequired)
 );

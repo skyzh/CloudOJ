@@ -18,7 +18,14 @@
         <p>The <strong>{{user.uid}}#</strong> user of SNGOJ,</p>
         <p><strong>Joined</strong> at {{user.userprofile.registertime}},</p>
         <p><strong>Last active</strong> at {{user.userprofile.lastactive}}.</p>
-        <p><strong>Submission</strong> {{user.userprofile.submit}}</p>
-        <p><strong>Accepted</strong> {{user.userprofile.accepted}}</p>
+        <p><strong>Submission</strong> {{user.userprofile.submit}} times</p>
+        <p><strong>Accepted</strong> {{user.userprofile.accepted}} times</p>
+        <p><strong>Level</strong> {{ usergroup.name }},
+            {{ nusergroup.scorerequired - user.userprofile.score}} Points to {{ nusergroup.name }} </p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: {{ user.userprofile.score / nusergroup.scorerequired * 100 }}%">
+                {{ user.userprofile.score }} / {{ nusergroup.scorerequired }}
+            </div>
+        </div>
     </div>
 </div>

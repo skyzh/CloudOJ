@@ -78,11 +78,11 @@ class StatusController extends ControllerBase {
                 } else {
                     WatcherAction::SubmitProblem($status->uid, $status->pid);
                     $this->flash->success('Submit success! Now view your status.');
+                    $form->clear();
                     return $this->forward('problemset/view/' . $pid);
                 }
             }
         }
-
         $this->view->form = $form;
         $this->view->problem = $problem;
     }

@@ -53,10 +53,9 @@ class Elements extends Component
         echo '<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$menu[".text"].'<span class="caret"></span></a>
             <ul class="dropdown-menu">';
+        unset($menu[".text"]);
         foreach ($menu as $controller => $option) {
-            if($controller == ".divider") echo '<li class="divider"></li>';
-            elseif($controller == ".disabled") echo '<li class="disabled"><a href="#">'.$option['caption'].'</a></li>';
-            elseif($controller[0]=='.') echo '';
+            if($controller[0] == '.') echo '<li class="'. $option["class"] .'"><a href = "#">'.$option['caption'].'</a></li>';
             else {
                 echo '<li>';
                 echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
@@ -88,10 +87,14 @@ class Elements extends Component
             $this->_headerMenu['navbar-right'] = array(
                 '.dropdown' => array(
                     '.text' => "<img class='avatar' width='17px' height='17px' src='".$auth["avatar"]."'></img> ",
-                    '.disabled' => array(
-                        'caption' => "Signed in as <strong>".$auth["name"]."</strong>"
+                    '.0' => array(
+                        'class' => 'disabled',
+                        'caption' => "Signed in as <strong>". $auth["name"] ."</strong>"
                     ),
-                    '.divider' => array(),
+                    '.2' => array(
+                        'class' => 'divider',
+                        'caption' => ''
+                    ),
                     'profile' => array(
                         'caption' => '<span class="glyphicon glyphicon-user"></span> Profile',
                         'action' => 'index'
