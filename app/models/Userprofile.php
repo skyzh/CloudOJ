@@ -13,7 +13,7 @@ class Userprofile extends Model {
     public $lastactive;
 
     public function initialize() {
-        $this->belongsTo("uid", "user", "uid", array(
+        $this->belongsTo("uid", "User", "uid", array(
             'reusable' => true
         ));
     }

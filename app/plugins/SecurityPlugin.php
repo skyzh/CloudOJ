@@ -45,6 +45,7 @@ class SecurityPlugin extends Plugin
                     'session'    => array('index', 'start', 'end'),
                     'problemset' => array("index", "view"),
                     'status'     => array("index", "view"),
+                    'rank'       => array("index"),
                     'watcherapi' => array("task", "data", "code", "verify", "status", "post")
                 )
             );
@@ -99,7 +100,6 @@ class SecurityPlugin extends Plugin
         $action = $dispatcher->getActionName();
 
         $acl = $this->getAcl();
-
         $allowed = $acl->isAllowed($role, $controller, $action);
         if ($allowed != Acl::ALLOW) {
             $dispatcher->forward(array(

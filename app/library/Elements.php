@@ -91,7 +91,7 @@ class Elements extends Component
                         'class' => 'disabled',
                         'caption' => "Signed in as <strong>". $auth["name"] ."</strong>"
                     ),
-                    '.2' => array(
+                    '.1' => array(
                         'class' => 'divider',
                         'caption' => ''
                     ),
@@ -103,6 +103,10 @@ class Elements extends Component
                         'caption' => '<span class="glyphicon glyphicon-inbox"></span> Notification',
                         'action' => 'index'
                     ),
+                    '.2' => array(
+                        'class' => 'divider',
+                        'caption' => ''
+                    ),
                     'session' => array(
                         'caption' => '<span class="glyphicon glyphicon-log-out"></span> Log Out',
                         'action' => 'end'
@@ -110,10 +114,6 @@ class Elements extends Component
                 )
             );
         }
-        //if(!$auth) unset($this->_headerMenu['navbar-left']['admin']);
-        elseif($auth["groupid"] <> 1) {
-                //unset($this->_headerMenu['navbar-left']['admin']);
-            }
 
         $controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
