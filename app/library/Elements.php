@@ -20,18 +20,18 @@ class Elements extends Component
                 'caption' => '<span class="glyphicon glyphicon-question-sign"></span> Problems',
                 'action' => 'index'
             ),
-            'contest' => array(
+            /*'contest' => array(
                 'caption' => '<span class="glyphicon glyphicon-list-alt"></span> Contest',
                 'action' => 'index'
-            ),
+            ),*/
             'status' => array(
                 'caption' => '<span class="glyphicon glyphicon-stats"></span> Status',
                 'action' => 'index'
             ),
-            'discuss' => array(
+            /*'discuss' => array(
                 'caption' => '<span class="glyphicon glyphicon-comment"></span> Discuss',
                 'action' => 'index'
-            ),
+            ),*/
             'rank' => array(
                 'caption' => '<span class="glyphicon glyphicon-education"></span> Rank',
                 'action' => 'index'

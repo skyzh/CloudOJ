@@ -2,8 +2,14 @@
 
 
 <div class = "row">
-    <div class="col-xs-12" align="left">
+    <div class="col-xs-6" align="left">
         {{ link_to("status", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Status") }}
+    </div>
+    <div class="col-xs-6" align="right">
+        <p>
+            <a href="javascript:reload_stat()" class="btn btn-primary"><span class="
+glyphicon glyphicon-refresh"></span> Reload</a>
+        </p>
     </div>
 </div>
 
@@ -120,3 +126,9 @@
     </div>
 </div>
 {% endif %}
+
+<script>
+function reload_stat() {
+    $.pjax.reload('#pjax-container', {});
+}
+</script>

@@ -4,7 +4,7 @@
 <div class = "row">
     <div align="right">
         <div class="col-xs-12">
-            <p>{{ link_to('problemset/new', '<span class="glyphicon glyphicon-plus"></span> Create', 'class': 'btn btn-default btn-large')}}</p>
+            <p>{{ link_to('problemset/new', '<span class="glyphicon glyphicon-plus"></span> Create', 'class': 'btn btn-default')}}</p>
         </div>
     </div>
 </div>

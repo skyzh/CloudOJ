@@ -68,7 +68,7 @@ CREATE TABLE `problempremission` (
     type int(11) NOT null,
     INDEX pid(pid, type),
     data int(11) NOT null
-)
+);
 
 # Create Status table
 CREATE TABLE `status` (

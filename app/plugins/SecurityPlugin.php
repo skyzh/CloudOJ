@@ -38,7 +38,7 @@ class SecurityPlugin extends Plugin
                 'public' => array(
                     'about'      => array("index"),
                     'profile'    => array("index", "view"),
-                    'index'      => array('index'),
+                    'index'      => array('index', 'welcome'),
                     'about'      => array('index'),
                     'register'   => array('index'),
                     'errors'     => array('show401', 'show404', 'show500'),

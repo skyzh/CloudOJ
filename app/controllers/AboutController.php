@@ -10,5 +10,6 @@ class AboutController extends ControllerBase
 
     public function indexAction()
     {
+        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
     }
 }

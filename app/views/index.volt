@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         {{ get_title() }}
         {{ stylesheet_link('//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css') }}
-        {{ stylesheet_link('//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css') }}
         {{ stylesheet_link('//cdn.bootcss.com/highlight.js/8.6/styles/github.min.css') }}
         {{ stylesheet_link('css/main.css') }}
 
@@ -30,7 +29,7 @@
         {{ javascript_include('//cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML') }}
         {{ javascript_include('//cdn.bootcss.com/ace/1.1.9/ace.js') }}
         {{ javascript_include('//cdn.bootcss.com/highlight.js/8.6/highlight.min.js') }}
-        
+
         <div id="pjax-container">
             {{ content() }}
         </div>

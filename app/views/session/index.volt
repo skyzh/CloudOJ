@@ -12,13 +12,13 @@
                 <div class="form-group">
                     <div class="controls">
                         {{ text_field('email', 'class': "form-control",
-                        "placeholder" : "Username/Email") }}
+                        "placeholder" : "Username/Email", "required": "") }}
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
                         {{ password_field('password', 'class': "form-control",
-                        "placeholder" : "Password") }}
+                        "placeholder" : "Password", "required": "") }}
                     </div>
                 </div>
                 <div class="form-group">
