@@ -4,7 +4,7 @@ jQuery.fn.slideLeftShow = function( speed, callback ) { this.animate( { width: "
 $(document).ready(function () {
 
     if($.support.pjax) {
-        $(document).pjax('a', '#pjax-container');
+        $(document).pjax('a', '#pjax-container', {timeout: 5000});
         $(document).on('submit', 'form', function(event) {
             event.preventDefault();
             $.pjax.submit(event, '#pjax-container');

@@ -17,7 +17,7 @@ function doAce(obj, mode) {
     $(obj).hide();
 }
 
-$(document).ready(function() {
+$(document).on('pjax:end', function() {
     $("form.aceeditor").attr("onsubmit", "return __processSubmit()");
     $("textarea.aceeditor.markdownarea").each(function(index, obj) {
         doAce(obj, "ace/mode/markdown");
