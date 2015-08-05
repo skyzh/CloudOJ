@@ -1,7 +1,7 @@
 {{ content() }}
 
 
-{{ form('problemset/save/' ~ problem.pid, 'id': 'createproblemForm') }}
+{{ form('problemset/save/' ~ problem.pid, 'id': 'createproblemForm', "class": "aceeditor") }}
     <div class="row">
         <div class="col-md-6" align="left">
             <p>{% if problem.pid == 0 %}
@@ -43,19 +43,19 @@
 
         <div class="row">
             <div class="col-xs-12">
-                    <p>{{ form.render('description', ['class': 'form-control markdownarea', 'placeholder': 'Description', 'style': 'height: 200px; resize: none;']) }}</p>
+                    <p>{{ form.render('description', ['class': 'form-control markdownarea aceeditor', 'placeholder': 'Description', 'style': 'height: 200px; resize: none;']) }}</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-12">
-                    <p>{{ form.render('input', ['class': 'form-control markdownarea', 'placeholder': 'Input', 'style': 'height: 200px; resize: none;']) }}</p>
+                    <p>{{ form.render('input', ['class': 'form-control markdownarea aceeditor', 'placeholder': 'Input', 'style': 'height: 200px; resize: none;']) }}</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-12">
-                    <p>{{ form.render('output', ['class': 'form-control markdownarea', 'placeholder': 'Output', 'style': 'height: 200px; resize: none;']) }}</p>
+                    <p>{{ form.render('output', ['class': 'form-control markdownarea aceeditor', 'placeholder': 'Output', 'style': 'height: 200px; resize: none;']) }}</p>
             </div>
         </div>
 
@@ -67,8 +67,38 @@
 
         <div class="row">
             <div class="col-xs-12">
-                    <p>{{ form.render('hint', ['class': 'form-control markdownarea', 'placeholder': 'Hint', 'style': 'height: 200px; resize: none;']) }}</p>
+                    <p>{{ form.render('hint', ['class': 'form-control markdownarea aceeditor', 'placeholder': 'Hint', 'style': 'height: 200px; resize: none;']) }}</p>
             </div>
         </div>
     </fieldset>
 {{ endform() }}
+
+<script>
+
+var aeditors = {};
+
+$(document).ready(function() {
+    $("form.aceeditor").attr("onsubmit", "return __processSubmit()");
+    $("textarea.aceeditor.markdownarea").each(function(index, obj) {
+        __p = document.createElement("p");
+        aceelememt = document.createElement("pre");
+        $(__p).append($(aceelememt));
+        $(obj).after(__p);
+        $(aceelememt).text($(obj).val());
+        editor = ace.edit(aceelememt);
+        editor.setTheme("ace/theme/github");
+        editor.getSession().setMode("ace/mode/markdown");
+
+        $(aceelememt).css("height", $(obj).css("height"));
+        aeditors[$(obj).attr("name")] = editor;
+        $(obj).hide();
+    });
+});
+
+function __processSubmit() {
+    for (key in aeditors) {
+        val = aeditors[key];
+        $("textarea[name=" + key + "]").val(val.getValue());
+    }
+}
+</script>
