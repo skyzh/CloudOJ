@@ -1,7 +1,7 @@
 {{ content() }}
 
 
-{{ form('data/save/' ~ problem.pid ~ '/' ~ probdata.pdid) }}
+{{ form('data/save/' ~ problem.pid ~ '/' ~ probdata.pdid, "class": "aceeditor")}}
     <div class="row">
         <div class="col-md-6" align="left">
             <p>{{ link_to('data/index/' ~ problem.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Data") }}
@@ -33,11 +33,13 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                    <p>{{ form.render('dat_in', ['class': 'form-control', 'style': 'height: 200px; resize: none;']) }}</p>
+                    <p>{{ form.render('dat_in', ['class': 'form-control aceeditor textarea', 'style': 'height: 200px; resize: none;']) }}</p>
             </div>
             <div class="col-sm-6">
-                    <p>{{ form.render('dat_out', ['class': 'form-control', 'style': 'height: 200px; resize: none;']) }}</p>
+                    <p>{{ form.render('dat_out', ['class': 'form-control aceeditor textarea', 'style': 'height: 200px; resize: none;']) }}</p>
             </div>
         </div>
     </fieldset>
 {{ endform() }}
+
+{{ partial("partials/aceall") }}
