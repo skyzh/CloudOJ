@@ -23,7 +23,7 @@ See [CloudOJWatcher](https://github.com/SkyZH/CloudOJWatcher) for Watcher
 0. git clone ...
 1. Setup PHP and install [Phalcon](https://phalconphp.com)
 2. Goto MySQL Database, excute [SQL Script](https://github.com/SkyZH/CloudOJ/blob/master/sql/cmd.sql), Then add oj user in database
-3. Clone CloudOJ into <apache htdocs>/oj
+3. Clone CloudOJ into \<apache htdocs\>/oj
 4. Make config file at oj/app/config/config.ini
 5. Edit database (For example, add Groups)
 6. Start using OJ at localhost/oj, and then register a user
@@ -42,7 +42,9 @@ then select type of File, type <file>.in in the dat_in textarea and <file>.out i
 We will filter '\r' in your input.
 
 ## Problem Data Cache
+
 CloudOJ's Status Watcher will automatically cache data file. To refresh data, you can:
+
 1. Goto /CloudOJWatcher/data/prob and `rm *`
 2. Change the data's name after it is edited
 
@@ -83,3 +85,4 @@ You must have a group whose score is 0, as well as a group whose score is LARGE 
 * Contest System
 * Change Password, Change Username
 * Github OAuth Login
+* Avatar System
