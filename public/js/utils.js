@@ -1,6 +1,8 @@
 jQuery.fn.slideLeftHide = function( speed, callback ) { this.animate( { width: "hide", paddingLeft: "hide", paddingRight: "hide", marginLeft: "hide", marginRight: "hide" }, speed, callback ); }
 jQuery.fn.slideLeftShow = function( speed, callback ) { this.animate( { width: "show", paddingLeft: "show", paddingRight: "show", marginLeft: "show", marginRight: "show" }, speed, callback ); }
 
+
+
 $(document).ready(function () {
 
     if($.support.pjax) {
@@ -16,6 +18,10 @@ $(document).ready(function () {
     });
     $(document).on('pjax:success', function() {
         $('#pjax-loading').fadeOut(500);
+    });
+
+    $(document).on('pjax:popstate', function() {
+        $.pjax.reload('#pjax-container', {});
     });
 
     $(document).trigger('pjax:success');

@@ -1,6 +1,6 @@
 <script>
 
-var aeditors = {};
+var aeditors;
 
 function doAce(obj, mode) {
     __p = document.createElement("p");
@@ -8,6 +8,7 @@ function doAce(obj, mode) {
     $(__p).append($(aceelememt));
     $(obj).after(__p);
     $(aceelememt).text($(obj).val());
+
     editor = ace.edit(aceelememt);
     editor.setTheme("ace/theme/github");
     editor.getSession().setMode(mode);
@@ -17,13 +18,19 @@ function doAce(obj, mode) {
     $(obj).hide();
 }
 
-$(document).on('pjax:end', function() {
+$(document).one('pjax:send', function() {
+
+});
+
+$(document).one('pjax:end', function() {
+    aeditors = new Array();
     $("form.aceeditor").attr("onsubmit", "return __processSubmit()");
     $("textarea.aceeditor.markdownarea").each(function(index, obj) {
         doAce(obj, "ace/mode/markdown");
     });
     $("textarea.aceeditor.textarea").each(function(index, obj) {
         doAce(obj, "ace/mode/plain_text");
+        console.log("OK");
     });
 });
 
