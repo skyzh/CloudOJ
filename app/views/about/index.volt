@@ -34,7 +34,7 @@
         <h3>Hosting</h3>
         <p><strong>CloudOJ Frontend</strong> is running on a Windows PC with Windows Server 2012.</p>
         <p><strong>CloudOJ Judger</strong> is running on the same server as CloudOJ Frontend, but in a virtual machine with Ubuntu Desktop.</p>
-        <p>Supported Programming Language: GNU C++, GNU C and GNU C++11</p>
+        <p>Supported Programming Language: GNU C++, GNU C, GNU C++11 and Pascal</p>
         <p>
         This is a test version of <strong>CloudOJ</strong>, named SNGOJ, which is hosted on the server of <a href="http://www.kids.org.cn">CCCCWI</a>.
         </p>

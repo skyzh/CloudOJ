@@ -32,7 +32,7 @@ class NotificationController extends ControllerBase {
     }
 
     public function sendAction() {
-        $dm = new DirectMessage;
+        $dm = new Directmessage;
         $dm->ruser = $this->request->getQuery("ruser");
         $form = new DirectMessageForm($dm);
 
