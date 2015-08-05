@@ -3,7 +3,7 @@
 </div>
 <div class="row">
     <div class="col-sm-4">
-        <img class='avatar' width='100%' src='{{ user.avatar }}'></img>
+        <img class='img-responsive img-circle center-block' style="width: 100%" src='{{ user.avatar }}'></img>
         <h3>{{user.username}}</h3>
         <h5>{{user.email}}</h5>
         <p>
@@ -23,7 +23,7 @@
         <p><strong>Level</strong> {{ usergroup.name }},
             {{ nusergroup.scorerequired - user.userprofile.score}} Points to {{ nusergroup.name }} </p>
         <div class="progress">
-            <div class="progress-bar progress-bar-success" style="width: {{ user.userprofile.score / nusergroup.scorerequired * 100 }}%">
+            <div class="progress-bar progress-bar-success" style="width: {{ user.userprofile.score / nusergroup.scorerequired * 100 }}%; min-width: 5%; overflow: visible; white-space: nowrap;">
                 {{ user.userprofile.score }} / {{ nusergroup.scorerequired }}
             </div>
         </div>

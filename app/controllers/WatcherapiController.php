@@ -36,8 +36,8 @@ class WatcherapiController extends Controller {
                 if(!$probdata) {
                     $this->json_error("data not found");
                 } else {
-                    if($request->ext == "in") echo $probdata->dat_in;
-                    elseif($request->ext == "out") echo $probdata->dat_out;
+                    if($request->ext == "in") echo $probdata->getIn();
+                    elseif($request->ext == "out") echo $probdata->getOut();
                 }
             } else {
                 $this->json_error("invaild type");
@@ -61,6 +61,8 @@ class WatcherapiController extends Controller {
                         $this->json_error("invaild sid");
                     } else {
                         $status->status = $request->status;
+                        $status->memlimit = $request->memlimit;
+                        $status->timelimit = $request->timelimit;
                         $status->save();
                         if($status->status == 2) {
                             WatcherAction::AcceptProblem($status->uid, $status->pid);

@@ -21,10 +21,6 @@ class DirectMessageForm extends Form {
         $this->add($obj);
     }
     public function initialize($entity = null, $options = array()) {
-
-        $this->add(new Hidden("dmid"));
-        $this->add(new Hidden("suid"));
-
         $friend = new Text("ruser");
         $friend->setLabel("Friend");
         $friend->setFilters(array('striptags', 'string'));

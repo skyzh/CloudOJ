@@ -53,6 +53,14 @@ class StatusController extends ControllerBase {
             $this->flash->error("Problem was not found");
             return $this->forward("status/index");
         }
+
+        $premission = $problem->checkPremission($this->auth["id"]);
+
+        if(!$premission) {
+            $this->flash->error("Premission Denied!");
+            return $this->forward("problemset/view/" . $pid);
+        }
+
         $form = new StatusForm;
 
         if ($this->request->isPost()) {
@@ -79,7 +87,7 @@ class StatusController extends ControllerBase {
                     WatcherAction::SubmitProblem($status->uid, $status->pid);
                     $this->flash->success('Submit success! Now view your status.');
                     $form->clear();
-                    return $this->forward('problemset/view/' . $pid);
+                    return $this->forward('status/index/?pid=' . $pid);
                 }
             }
         }

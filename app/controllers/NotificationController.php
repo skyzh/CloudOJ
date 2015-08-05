@@ -28,33 +28,30 @@ class NotificationController extends ControllerBase {
         );
         $dms = $paginator->getPaginate();
 
-        foreach ($dms->items as $item) {
-            $item->__susername = User::findUserByID($item->suid);
-            $item->__rusername = User::findUserByID($item->ruid);
-        }
-
         $this->view->dms = $dms;
     }
 
     public function sendAction() {
-        $form = new DirectMessageForm();
+        $dm = new DirectMessage;
+        $dm->ruser = $this->request->getQuery("ruser");
+        $form = new DirectMessageForm($dm);
 
         if ($this->request->isPost()) {
-            $dm = new Directmessage();
+
             $data = $this->request->getPost();
 
-            $__id = User::findUserByName($data["ruser"]);
-            if($__id == -1) {
+            $user = User::findUserByName($data["ruser"]);
+            if(!$user) {
                 $this->flash->error("User not found!");
             } else {
-                $data["ruid"] = $__id;
+                $data["ruid"] = $user->uid;
                 if (!$form->isValid($data, $dm)) {
                     foreach ($form->getMessages() as $message) {
                         $this->flash->error($message);
                     }
                 }
                 else {
-                    $dm->ruid = $__id;
+                    $dm->ruid = $user->uid;
                     $dm->suid = $this->auth["id"];
                     $dm->message = $data["message"];
 

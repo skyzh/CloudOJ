@@ -103,6 +103,8 @@ class ProblemsetController extends ControllerBase {
         }
         $_problem = new ProblemRef($problem, $problem->problemdetail);
         $this->view->problem = $_problem;
+        $this->view->premission = $problem->checkPremission($this->auth["id"]);
+        if(!$this->view->premission) $this->view->premissioninfo = $problem->getPremissionInfo();
     }
 
     public function removeAction($pid) {

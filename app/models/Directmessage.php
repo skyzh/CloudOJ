@@ -11,8 +11,19 @@ class Directmessage extends Model {
     public $message;
     public $sendtime;
 
-    public $__susername;
-    public $__rusername;
+    public $suser;
+    public $ruser;
+
+    public function initialize() {
+        $this->hasOne("suid", "User", "uid", array(
+            'reusable' => true,
+            'alias' => 'sendUser'
+        ));
+        $this->hasOne("ruid", "User", "uid", array(
+            'reusable' => true,
+            'alias' => 'recvUser'
+        ));
+    }
 
     public function beforeValidationOnCreate()
     {

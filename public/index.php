@@ -12,7 +12,6 @@ try {
 
     require APP_PATH . 'app/config/loader.php';
     require APP_PATH . 'app/config/services.php';
-    require_once APP_PATH . "app/library/Public.php";
 
     $application = new Application($di);
 

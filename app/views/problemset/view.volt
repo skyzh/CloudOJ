@@ -32,10 +32,10 @@
 
 
 <div class="page-header">
-    <h2>{{ problem.pid }} {{ problem.title }}</h2>
+    <h2>{{ problem.pid }} {{ problem.title }} {% if !premission %}<small>Premission Denied{% endif %}</h2>
 </div>
 
-
+{% if premission %}
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-2">
@@ -86,12 +86,12 @@
         <div class="row">
             <div class="col-md-6">
                 <div class = "panel panel-default">
-                    <span class="sampledata">{{ data.dat_in }}</span>
+                    <span class="sampledata">{{ data.getIn() }}</span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class = "panel panel-default">
-                    <span class="sampledata">{{ data.dat_out }}</span>
+                    <span class="sampledata">{{ data.getOut() }}</span>
                 </div>
             </div>
         </div>
@@ -103,3 +103,7 @@
             <p><span class="markdown_desc">{{ problem.hint | e }}</span></p>
         </div>
     </div>
+{% else %}
+    <h3>Requirements</h3>
+    {{ premissioninfo }}
+{% endif %}

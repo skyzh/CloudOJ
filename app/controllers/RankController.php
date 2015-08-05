@@ -14,11 +14,13 @@ class RankController extends ControllerBase {
         if($currentPage <= 0) $currentPage = 1;
 
         $paginator = new PaginatorQueryBuilder(array(
-            "builder" => $this->modelsManager->createBuilder()->from("Userprofile"),
+            "builder" => $this->modelsManager->createBuilder()->from("Userprofile")
+            ->orderBy("Userprofile.score DESC"),
             "limit"=> 50,
             "page" => $currentPage
         ));
         $users = $paginator->getPaginate();
         $this->view->userprofile = $users;
+        $this->view->usertop = Userprofile::findFirst(array("order" => "score DESC"));
     }
 }

@@ -8,8 +8,6 @@ class AboutController extends ControllerBase
         parent::initialize();
     }
 
-    public function indexAction()
-    {
-        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
+    public function indexAction() {
     }
 }

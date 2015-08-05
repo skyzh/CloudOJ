@@ -24,8 +24,11 @@
             <div class="col-sm-8">
                 <p>{{ form.render('dat_name', ['class': 'form-control']) }}</p>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <p>{{ form.render('isSample', ['class': 'form-control']) }}</p>
+            </div>
+            <div class="col-sm-2">
+                <p>{{ form.render('isFile', ['class': 'form-control']) }}</p>
             </div>
         </div>
         <div class="row">

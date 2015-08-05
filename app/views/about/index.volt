@@ -28,7 +28,7 @@
         <a href="https://github.com/defunkt/jquery-pjax">jquery.Pjax</a> on frontend.
         </p>
         <p>This website is made with PHP C-Extension <a href="https://phalconphp.com">PhalconPHP</a></p>
-        <p>All static data are from <a href="http://www.bootcdn.com">bootcdn.com</a></p>
+        <p>All static data are from <a href="http://www.bootcdn.cn">bootcdn.cn</a></p>
     </div>
     <div class="col-md-6">
         <h3>Hosting</h3>

@@ -57,7 +57,8 @@ CREATE TABLE `problemdata` (
     isSample BOOLEAN NOT null,
     dat_in mediumtext NOT null,
     dat_out mediumtext NOT null,
-    dat_name varchar(20) NOT null
+    dat_name varchar(20) NOT null,
+    isFile BOOLEAN not null
 );
 
 CREATE TABLE `problempremission` (
@@ -66,7 +67,7 @@ CREATE TABLE `problempremission` (
     UNIQUE ppid(ppid),
     pid int(11) NOT null,
     type int(11) NOT null,
-    INDEX pid(pid, type),
+    INDEX pid(pid),
     data int(11) NOT null
 );
 

@@ -21,6 +21,9 @@ class Problemset extends Model {
         $this->hasMany("pid", "Problemdata", "pid", array(
             'reusable' => true
         ));
+        $this->hasMany("pid", "Problempremission", "pid", array(
+            'reusable' => true
+        ));
     }
 
     public function beforeValidationOnCreate() {
@@ -33,5 +36,24 @@ class Problemset extends Model {
         $problem = Problemset::findFirst(array(
             "pid = :pid:", 'bind' => array('pid' => $pid)));
         return $problem;
+    }
+
+    public function checkPremission($uid) {
+        $user = User::findUserByID($uid);
+        foreach($this->problempremission as $premission) {
+            if(!$user) return false;
+            if(!$premission->checkPremission($user)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function getPremissionInfo() {
+        $text = "";
+        foreach($this->problempremission as $premission) {
+            $text = $text . "<p>" . $premission->getPremissionInfo() . "</p>";
+        }
+        return $text;
     }
 }

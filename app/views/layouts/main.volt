@@ -1,5 +1,5 @@
 <nav id="top_navbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid" style = "z-index:999;">
+    <div id = "nav_container" class="container-fluid" style = "z-index:999;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#oj-nav-collapse-main" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -20,6 +20,7 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div id="flashcontainer">
         {{ flash.output() }}
@@ -28,9 +29,14 @@
     {{ content() }}
     <hr>
     <footer>
-        <p>Powered by {{ link_to('about', 'CloudOJ') }}, an Online Judge under Apache License.</p>
+        <ul class="list-inline">
+            <li><small>Powered by CloudOJ, an Online Judge under Apache License.</small></li>
+            <li><small>{{ link_to('about', 'About') }}</small></li>
+            <li><small><a href="mailto:iSkyZH@163.com">Feedback</a></small></li>
+        </ul>
     </footer>
 </div>
+
 <head>
     {{ get_title() }}
 </head>

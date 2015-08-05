@@ -86,7 +86,7 @@ class Elements extends Component
         if ($auth) {
             $this->_headerMenu['navbar-right'] = array(
                 '.dropdown' => array(
-                    '.text' => "<img class='avatar' width='17px' height='17px' src='".$auth["avatar"]."'></img> ",
+                    '.text' => "<img class='img-rounded' width='17px' height='17px' src='".$auth["avatar"]."'></img> ",
                     '.0' => array(
                         'class' => 'disabled',
                         'caption' => "Signed in as <strong>". $auth["name"] ."</strong>"

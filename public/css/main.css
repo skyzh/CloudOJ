@@ -19,7 +19,7 @@ body {
     clear: both;
 }
 .prob_desc {}
-#editor {
+#main-layout {
     margin: 0;
     position: relative;
     width: 100%;
@@ -38,13 +38,6 @@ body {
 }
 .langselect {
 
-}
-.avatar {
-    display: inline-block;
-    overflow: hidden;
-    line-height: 1;
-    vertical-align: middle;
-    border-radius: 3px;
 }
 .navpinned {
     top: 0px;

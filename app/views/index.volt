@@ -10,6 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="description" content="SNGOJ">
         <meta name="author" content="SkyZH, CloudOJ">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="renderer" content="webkit">
     </head>
 
     <body>
@@ -29,11 +31,11 @@
         {{ javascript_include('//cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS_HTML') }}
         {{ javascript_include('//cdn.bootcss.com/ace/1.1.9/ace.js') }}
         {{ javascript_include('//cdn.bootcss.com/highlight.js/8.6/highlight.min.js') }}
+        {{ javascript_include('js/utils.js') }}
 
         <div id="pjax-container">
             {{ content() }}
         </div>
-        {{ javascript_include('js/utils.js') }}
     </body>
 
 

@@ -28,8 +28,15 @@ class ProbDataForm extends Form {
             0 => "Test Data",
             1 => "Sample",
         ));
+        $isFile = new Select("isFile", array(
+            0 => "Plain Text",
+            1 => "Path",
+        ));
+
         $isSample->setLabel("Is Sample");
         $this->add($isSample);
+        $isFile->setLabel("Is File");
+        $this->add($isFile);
 
         $dat_name = new Text('dat_name', array(
             'placeholder' => 'Data Name'

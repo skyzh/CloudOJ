@@ -19,14 +19,14 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="list-group">
-                    <p value="0" class="list-group-item active langselect lang_c" href="javascript:">GNU C++</li>
-                    <p value="1" class="list-group-item langselect lang_c" href="javascript:">GNU C</li>
-                    <p value="2" class="list-group-item langselect lang_c" href="javascript:">GNU C++11</li>
+                    <p value="0" class="list-group-item active langselect lang_c" href="javascript:">GNU C++</p>
+                    <p value="1" class="list-group-item langselect lang_c" href="javascript:">GNU C</p>
+                    <p value="2" class="list-group-item langselect lang_c" href="javascript:">GNU C++11</p>
                     <!--<option value="3" class="list-group-item langselect lang_py" href="javascript:">Python2</option>
                     <option value="4" class="list-group-item langselect lang_py" href="javascript:">Python3</option>
-                    <option value="5" class="list-group-item langselect lang_ja" href="javascript:">Java</option>
-                    <option value="6" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</option>
-                    <option value="7" class="list-group-item langselect lang_ruby" href="javascript:">Ruby</option>
+                    <option value="5" class="list-group-item langselect lang_ja" href="javascript:">Java</option>-->
+                    <p value="6" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</p>
+                    <!--<option value="7" class="list-group-item langselect lang_ruby" href="javascript:">Ruby</option>
                     <option value="8" class="list-group-item langselect lang_perl" href="javascript:">Perl</option>
                     <option value="9" class="list-group-item langselect lang_go" href="javascript:">Go</option>
                     <option value="10" class="list-group-item langselect lang_lua" href="javascript:">Lua</option>
@@ -62,7 +62,7 @@
     </div>
     <div class="col-sm-9" style="height: 600px;">
         <div id="editor-container">
-            <p><pre id="editor">//Put your code here!</pre></p>
+            <p><pre id="editor" style="height: 600px">//Put your code here!</pre></p>
         </div>
     </div>
 </div>
