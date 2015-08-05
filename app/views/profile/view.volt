@@ -8,7 +8,7 @@
         <h5>{{user.email}}</h5>
         <p>
         {% if user.groupid == 1 %}
-            Administer
+            Administrator
         {% elseif user.groupid == 2 %}
             User
         {% endif %}

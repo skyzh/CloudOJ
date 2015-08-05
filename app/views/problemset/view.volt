@@ -42,7 +42,11 @@
         <h6>Type {{ problem.type }}</h6>
     </div>
     <div class="col-md-2">
-        <h6>Memory Limit {{ problem.memlimit/1024 }} MB</h6>
+        <h6>Memory Limit {% if problem.memlimit <= 10240 %}
+            {{ problem.memlimit }} KB
+        {% else %}
+            {{ "%d" | format(problem.memlimit/1024) }} MB
+        {% endif %}</h6>
     </div>
     <div class="col-md-2">
         <h6>Time Limit {{ problem.timelimit }} ms</h6>
