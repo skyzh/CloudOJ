@@ -16,7 +16,7 @@
 </nav>
 <div id="pjax-loading" style="position: fixed; top: 0px; width: 100%; z-index:1200;">
     <div class="progress" style="height:10px">
-        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width: 100%;">
+        <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar" style="width: 100%;">
         </div>
     </div>
 </div>
