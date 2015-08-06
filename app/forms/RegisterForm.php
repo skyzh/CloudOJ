@@ -16,7 +16,7 @@ class RegisterForm extends Form
             'placeholder' => 'Username'
         ));
         $username->setLabel('Username');
-        $username->setFilters(array('alphanum'));
+        $username->setFilters(array('striptags', 'string'));
         $username->addValidators(array(
             new PresenceOf(array(
                 'message' => 'Please enter your desired username'
