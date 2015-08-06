@@ -10,14 +10,25 @@ class ProblemsetController extends ControllerBase {
     }
 
     public function indexAction() {
+        $lucky = $this->request->getQuery("lucky");
+
         $currentPage = (int) $this->request->getQuery('page');
         if($currentPage == 0) $currentPage = 1;
 
-        $paginator = new PaginatorQueryBuilder(array(
-            "builder" => $this->modelsManager->createBuilder()->from("Problemset"),
-            "limit"=> 20,
-            "page" => $currentPage
-        ));
+        if($lucky) {
+            $paginator = new PaginatorQueryBuilder(array(
+                "builder" => $this->modelsManager->createBuilder()->from("Problemset")
+                ->orderBy("rand()"),
+                "limit"=> 20,
+                "page" => 1));
+            $this->view->pageElement = false;
+        } else {
+            $paginator = new PaginatorQueryBuilder(array(
+                "builder" => $this->modelsManager->createBuilder()->from("Problemset"),
+                "limit"=> 20,
+                "page" => $currentPage));
+            $this->view->pageElement = true;
+        }
         $problems = $paginator->getPaginate();
         $this->view->problems = $problems;
     }
@@ -118,6 +129,14 @@ class ProblemsetController extends ControllerBase {
 
         $problem->delete();
         $this->flash->success("Problem was deleted successfully");
+        return $this->forward("problemset/index");
+    }
+
+    public function searchAction() {
+        $pid = $this->request->getQuery("pid");
+        $lucky = $this->request->getQuery("lucky");
+        if($pid) return $this->redirect("problemset/view/" . strval($pid));
+        if($lucky) return $this->forward("problemset/index/?lucky=true");
         return $this->forward("problemset/index");
     }
 }
