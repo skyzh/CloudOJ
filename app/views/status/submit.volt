@@ -70,7 +70,7 @@
 
 <script>
     var editor;
-    $(document).on('pjax:end' ,function() {
+    $(document).one('pjax:end' ,function() {
         editor = ace.edit("editor");
         editor.setTheme("ace/theme/xcode");
         editor.getSession().setMode("ace/mode/c_cpp");
