@@ -12,6 +12,7 @@
         <meta name="author" content="SkyZH, CloudOJ">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="renderer" content="webkit">
+        <meta name="keywords" content="SNGOJ, OI, NOI, NOIP, OJ, Online Judge" />
     </head>
 
     <body>
