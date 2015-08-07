@@ -1,19 +1,19 @@
 {{ content() }}
 
 
-{{ form('data/save/' ~ problem.pid ~ '/' ~ probdata.pdid, "class": "aceeditor")}}
+{{ form( this.view.getControllerName() ~ '/edit/' ~ baseObj.pid ~ '/' ~ childObj.pdid, "class": "aceeditor")}}
     <div class="row">
         <div class="col-md-6" align="left">
-            <p>{{ link_to('data/index/' ~ problem.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Data") }}
+            <p>{{ link_to( this.view.getControllerName() ~ '/index/' ~ baseObj.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Data") }}
             </p>
         </div>
         <div class="col-md-6" align="right">
-            <p>{{ link_to('data/edit/' ~ problem.pid ~ '/' ~ probdata.pdid, "class": "btn btn-default", "Reset") }}
-            {{ submit_button("Save", "class": "btn btn-primary") }}</p>
+            <p>{{ link_to( this.view.getControllerName() ~ '/edit/' ~ baseObj.pid ~ '/' ~ childObj.pdid, "class": "btn btn-default", "<span class='glyphicon glyphicon-repeat'></span> Reset") }}
+                <button type="submit" class="btn btn-primary"><span class='glyphicon glyphicon-ok'></span> Save</button>
         </div>
     </div>
     <div class="page-header">
-    {% if probdata.pdid == 0 %}
+    {% if isNew %}
         <h2>Create Data</h2>
     {% else %}
         <h2>Edit Data</h2>

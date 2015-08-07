@@ -13,8 +13,8 @@ class CRUDController extends ControllerBase {
     protected $baseName = "CRUD";
     protected $childName = "CRUD";
     protected $baseURI = "CRUD";
-    protected $baseFailURI = "problemset/view"
-    
+    protected $baseFailURI = "problemset/view";
+
     protected function getBaseObject($baseID) {
         return null;
     }
@@ -30,7 +30,7 @@ class CRUDController extends ControllerBase {
     protected function getForm($entity, $options) {
         return null;
     }
-    private function forwardIndex() {
+    private function forwardIndex($baseID) {
         return $this->forward("{$this->baseURI}/index/{$baseID}");
     }
     public function indexAction($baseID) {
@@ -39,8 +39,9 @@ class CRUDController extends ControllerBase {
             $this->flash->error("{$this->baseName} does not exist");
             return $this->forward("{$this->baseFailURI}/{$baseID}");
         }
+        $this->view->baseID = $baseID;
         $this->view->baseObj = $baseObj;
-        $this->view->childObj = $baseObj->getAllChildObject();
+        $this->view->childObj = $this->getAllChildObject($baseObj);
     }
 
     public function newAction($baseID) {
@@ -59,10 +60,14 @@ class CRUDController extends ControllerBase {
             $childObj = $this->findChildObject($childID);
             if(!$childObj) {
                 $this->flash->error("{$this->childName} not found");
-                return $this->forwardIndex();
+                return $this->forwardIndex($baseID);
             }
         }
         $form = $this->getForm($childObj, null);
+
+        $this->view->baseID = $baseID;
+        $this->view->childID = $childID;
+        $this->view->isNew = ($childID == 0);
         $this->view->childObj = $childObj;
         $this->view->baseObj = $baseObj;
         $this->view->form = $form;
@@ -75,27 +80,28 @@ class CRUDController extends ControllerBase {
                     $this->flash->error($message);
                 }
             } else {
-                if ($probprem->save() == false) {
-                    foreach ($probdata->getMessages() as $message) {
+                if ($childObj->save() == false) {
+                    foreach ($childObj->getMessages() as $message) {
                         $this->flash->error($message);
                     }
                 } else {
                     $form->clear();
 
                     $this->flash->success("{$this->childName} was updated successfully");
-                    return $this->forwardIndex();
+                    return $this->forwardIndex($baseID);
                 }
             }
+        }
     }
 
     public function removeAction($baseID, $childID) {
         $childObj = $this->findChildObject($childID);
         if(!$childObj) {
             $this->flash->error("{$this->childName} not found");
-            return $this->forwardIndex();
+            return $this->forwardIndex($baseID);
         }
         $childObj->delete();
         $this->flash->success("{$this->childName} was deleted successfully");
-        return $this->forwardIndex();
+        return $this->forwardIndex($baseID);
     }
 }
