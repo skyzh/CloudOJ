@@ -27,4 +27,9 @@ class Problempremission extends Model {
             return "At least ". strval($this->data) . " points of EXP are required.";
         }
     }
+    public static function findProblemPremissionByPID($ppid) {
+        $probprem = Problempremission::findFirst(array(
+            "ppid = :ppid:", 'bind' => array('ppid' => $ppid)));
+        return $probprem;
+    }
 }

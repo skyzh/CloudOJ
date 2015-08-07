@@ -44,4 +44,7 @@ class ControllerBase extends Controller {
             )
         );
     }
+    protected function redirect($uri) {
+        return $this->response->redirect($uri);
+    }
 }

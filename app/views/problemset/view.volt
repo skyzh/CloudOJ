@@ -23,6 +23,7 @@
     <div class="col-xs-12" align="right">
         <p>
         {{ link_to('data/index/' ~ problem.pid, '<span class="glyphicon glyphicon-tasks"></span> Data', 'class': 'btn btn-default btn-large')}}
+        {{ link_to('premission/index/' ~ problem.pid, '<span class="glyphicon glyphicon-console"></span> Premission', 'class': 'btn btn-default btn-large')}}
         {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-edit"></span> Edit', 'class': 'btn btn-default btn-large')}}
         {{ link_to('problemset/remove/' ~ problem.pid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-large')}}
         </p>

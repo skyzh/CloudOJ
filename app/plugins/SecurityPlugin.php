@@ -29,11 +29,13 @@ class SecurityPlugin extends Plugin
             $aclResources = array(
                 'admin' => array(
                     'problemset'    => array("new", "edit", "data", "save", "remove"),
-                    'data'          => array("index", "new", "edit", "save")
+                    'data'          => array("index", "new", "edit", "save", "remove"),
+                    'premission'    => array("index", "new", "edit", "save", "remove")
                 ),
                 'user' => array(
                     'notification'  => array("index", "send"),
-                    'status'        => array("submit")
+                    'status'        => array("submit"),
+                    'profile'       => array("password", "avatar", "edit")
                 ),
                 'public' => array(
                     'about'      => array("index"),
