@@ -1,22 +1,24 @@
 {{ content() }}
 
+{{ content() }}
 
-{{ form('premission/save/' ~ problem.pid ~ '/' ~ probprem.ppid)}}
+
+{{ form( this.view.getControllerName() ~ '/edit/' ~ baseObj.pid ~ '/' ~ childObj.ppid) }}
     <div class="row">
         <div class="col-md-6" align="left">
-            <p>{{ link_to('premission/index/' ~ problem.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Data") }}
+            <p>{{ link_to( this.view.getControllerName() ~ '/index/' ~ baseObj.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Data") }}
             </p>
         </div>
         <div class="col-md-6" align="right">
             <p>
-                {{ link_to('premission/remove/' ~ problem.pid ~ '/' ~ probprem.ppid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-large')}}
-                {{ link_to('premission/edit/' ~ problem.pid ~ '/' ~ probprem.ppid, "class": "btn btn-default", "Reset") }}
-                {{ submit_button("Save", "class": "btn btn-primary") }}
+                {{ link_to( this.view.getControllerName() ~ '/remove/' ~ baseObj.pid ~ '/' ~ childObj.ppid, "class": "btn btn-danger", "<span class='glyphicon glyphicon-trash'></span> Remove")}}
+                {{ link_to( this.view.getControllerName() ~ '/edit/' ~ baseObj.pid ~ '/' ~ childObj.ppid, "class": "btn btn-default", "<span class='glyphicon glyphicon-repeat'></span> Reset") }}
+                <button type="submit" class="btn btn-primary"><span class='glyphicon glyphicon-ok'></span> Save</button>
             </p>
         </div>
     </div>
     <div class="page-header">
-    {% if probprem.ppid == 0 %}
+    {% if isNew %}
         <h2>Create Premission</h2>
     {% else %}
         <h2>Edit Premission</h2>
@@ -35,5 +37,3 @@
         </div>
     </fieldset>
 {{ endform() }}
-
-{{ partial("partials/aceall") }}
