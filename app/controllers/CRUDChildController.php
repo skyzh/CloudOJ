@@ -3,7 +3,7 @@ use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 use Phalcon\Paginator\Adapter\NativeArray as PaginatorArray;
 use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 
-class CRUDController extends ControllerBase {
+class CRUDChildController extends ControllerBase {
     public function initialize() {
         $this->tag->setTitle($this->title);
         parent::initialize();

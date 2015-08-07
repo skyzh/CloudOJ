@@ -3,7 +3,7 @@ use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 use Phalcon\Paginator\Adapter\NativeArray as PaginatorArray;
 use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 
-class DataController extends CRUDController {
+class DataController extends CRUDChildController {
     protected $title = "Data";
     protected $baseName = "Problem";
     protected $childName = "Problem Data";

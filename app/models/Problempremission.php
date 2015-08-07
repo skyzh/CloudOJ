@@ -19,12 +19,18 @@ class Problempremission extends Model {
         if($this->type == 0) {
             return $user->userprofile->score >= $this->data;
         }
+        if($this->type == 1) {
+            return false;
+        }
         return false;
     }
 
     public function getPremissionInfo() {
         if($this->type == 0) {
-            return "At least ". strval($this->data) . " points of EXP are required.";
+            return "At least {$this->data} points of EXP are required.";
+        }
+        if($this->type == 1) {
+            return "This problem is hidden.";
         }
     }
     public static function findProblemPremissionByPID($ppid) {

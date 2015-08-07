@@ -12,7 +12,8 @@ use Phalcon\Validation\Validator\Numericality;
 class ProbPremForm extends Form {
     public function initialize($entity = null, $options = array()) {
         $type = new Select("type", array(
-            0 => "Experience"
+            0 => "Experience",
+            1 => "Hidden"
         ));
 
         $type->setLabel("Type");
