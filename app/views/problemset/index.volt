@@ -16,7 +16,7 @@
 
 <div class="row">
     {{ form('problemset/search/', 'method': 'get') }}
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <div class="input-group">
             <p><input type="text" class="form-control" placeholder="Problem ID" name="pid"/></p>
             <span class="input-group-btn">
@@ -27,8 +27,20 @@
         </div>
     </div>
     {{ endform() }}
+    {{ form('problemset/search/', 'method': 'get') }}
+    <div class="col-sm-4">
+        <div class="input-group">
+            <p><input type="text" class="form-control" placeholder="Unavailable" name="title"/></p>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    {{ endform() }}
     {{ form('problemset/search/?lucky=true', 'method': 'get') }}
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <button class="btn btn-default btn-block" type="submit">
             <span class="glyphicon glyphicon-gift" aria-hidden="true"></span> I'm Feeling Lucky
         </button>

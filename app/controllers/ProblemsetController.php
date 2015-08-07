@@ -11,6 +11,7 @@ class ProblemsetController extends ControllerBase {
 
     public function indexAction() {
         $lucky = $this->request->getQuery("lucky");
+        $lucky = $this->request->getQuery("title");
 
         $currentPage = (int) $this->request->getQuery('page');
         if($currentPage == 0) $currentPage = 1;
@@ -135,7 +136,7 @@ class ProblemsetController extends ControllerBase {
     public function searchAction() {
         $pid = $this->request->getQuery("pid");
         $lucky = $this->request->getQuery("lucky");
-        if($pid) return $this->redirect("problemset/view/" . strval($pid));
+        if($pid) return $this->redirect("problemset/view/{$pid}");
         if($lucky) return $this->forward("problemset/index/?lucky=true");
         return $this->forward("problemset/index");
     }
