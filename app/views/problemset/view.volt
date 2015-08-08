@@ -110,5 +110,6 @@
     </div>
 {% else %}
     <h3>Requirements</h3>
+    <p>The following conditions are required:</p>
     {{ premissioninfo }}
 {% endif %}

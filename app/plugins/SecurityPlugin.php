@@ -32,10 +32,11 @@ class SecurityPlugin extends Plugin
                     'data'          => array("index", "new", "edit", "remove"),
                     'premission'    => array("index", "new", "edit", "remove"),
                     'group'    => array("index", "new", "edit", "remove"),
-                    'assets'    => array("index", "new", "edit", "remove")
+                    'assets'    => array("index", "new", "edit", "remove"),
+                    'notification' => array("sendall")
                 ),
                 'user' => array(
-                    'notification'  => array("index", "send"),
+                    'notification'  => array("index", "send", "remove"),
                     'status'        => array("submit"),
                     'profile'       => array("password", "avatar", "edit")
                 ),

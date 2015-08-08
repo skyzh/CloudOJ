@@ -39,7 +39,7 @@ glyphicon glyphicon-refresh"></span> Reload</a>
         {% if code.ret != " " %}
         <pre>{{ code.ret | e }}</pre>
         {% else %}
-        <pre>No Data</samp>
+        <pre>No Data</pre>
         {% endif %}
     </div>
 </div>

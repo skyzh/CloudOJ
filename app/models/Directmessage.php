@@ -25,8 +25,16 @@ class Directmessage extends Model {
         ));
     }
 
-    public function beforeValidationOnCreate()
-    {
+    public function beforeValidationOnCreate() {
         $this->sendtime = new RawValue('now()');
+    }
+
+    public static function getLatestNotice() {
+        $data = Directmessage::find(array(
+            "(ruid = 0)",
+            "order" => "dmid DESC",
+            "limit" => 4
+        ));
+        return $data;
     }
 }

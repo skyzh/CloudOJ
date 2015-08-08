@@ -3,7 +3,7 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <h3>CloudOJ Beta</h3>
+        <h3>CloudOJ Beta <small>HEAD Version</small></h3>
         <p>
         <strong>CloudOJ</strong> is an Online Judge under Apache License, which enables you to practise programming online.
         </p>
@@ -24,11 +24,13 @@
         <a href="https://github.com/twitter/twemoji">twemoji</a>,
         <a href="https://github.com/mathjax/MathJax">MathJax</a>,
         <a href="https://github.com/ajaxorg/ace-builds">ACE</a>,
-        <a href="https://github.com/isagalaev/highlight.js">highlight.js</a> and
+        <a href="https://github.com/isagalaev/highlight.js">highlight.js</a>,
+        <a href="http://www.chartjs.org/">Chart.js</a> and
         <a href="https://github.com/defunkt/jquery-pjax">jquery.Pjax</a> on frontend.
         </p>
-        <p>This website is made with PHP C-Extension <a href="https://phalconphp.com">PhalconPHP</a></p>
-        <p>All static data are from <a href="http://www.bootcdn.cn">bootcdn.cn</a></p>
+        <p>This website is made with PHP C-Extension <a href="https://phalconphp.com">PhalconPHP</a>,</p>
+        <p>And our judger is made with Python3.</p>
+        <p>All static data are from <a href="http://www.bootcdn.cn">bootcdn.cn</a>.</p>
     </div>
     <div class="col-md-6">
         <h3>Hosting</h3>
@@ -36,8 +38,10 @@
         <p><strong>CloudOJ Judger</strong> is running on the same server as CloudOJ Frontend, but in a virtual machine with Ubuntu Desktop.</p>
         <p>Supported Programming Language: GNU C++, GNU C, GNU C++11 and Pascal</p>
         <p>
-        This is a test version of <strong>CloudOJ</strong>, named SNGOJ, which is hosted on the server of <a href="http://www.kids.org.cn">CCCCWI</a>.
+        This is a test version of <strong>CloudOJ</strong>, named SNGOJ, which is hosted on the server of <a href="http://www.kids.org.cn">CCCCWI</a> Computer Center on the 13th Floor.
         </p>
+        <p>You may face trouble browsering this site when someone cuts off power supply of our server...
+            If so, be patient, please. We will resume service soon.
         <h3>Author</h3>
         <p><a href="https://about.me/SkyZH">SkyZH</a>, a programmer unknown about code.</p>
     </div>

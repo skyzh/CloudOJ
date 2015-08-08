@@ -14,7 +14,7 @@ class NotificationController extends ControllerBase {
         if( $currentPage == 0) $currentPage = 1;
 
         $data = Directmessage::find(array(
-            "(ruid = :ruid: OR suid = :ruid:)",
+            "(ruid = :ruid: OR suid = :ruid: OR ruid = 0)",
             'bind' => array('ruid' => $this->auth["id"]),
             "order" => "dmid DESC"
         ));
@@ -26,6 +26,7 @@ class NotificationController extends ControllerBase {
                 "page"  => $currentPage
             )
         );
+        
         $dms = $paginator->getPaginate();
 
         $this->view->dms = $dms;
@@ -53,7 +54,6 @@ class NotificationController extends ControllerBase {
                 else {
                     $dm->ruid = $user->uid;
                     $dm->suid = $this->auth["id"];
-                    $dm->message = $data["message"];
 
                     if($dm->save() == false) {
                         foreach ($dm->getMessages() as $message) {
@@ -68,5 +68,56 @@ class NotificationController extends ControllerBase {
             }
         }
         $this->view->form = $form;
+    }
+
+    public function sendallAction() {
+        $dm = new Directmessage;
+        $dm->ruser = "All";
+        $form = new DirectMessageForm($dm);
+
+        if ($this->request->isPost()) {
+
+            $data = $this->request->getPost();
+
+            if (!$form->isValid($data, $dm)) {
+                foreach ($form->getMessages() as $message) {
+                    $this->flash->error($message);
+                }
+            } else {
+                $dm->ruid = 0;
+                $dm->suid = $this->auth["id"];
+
+                if($dm->save() == false) {
+                    foreach ($dm->getMessages() as $message) {
+                        $this->flash->error($message);
+                    }
+                }
+                else {
+                    $this->flash->success("Notice Published!");
+                    return $this->forward("notification/index");
+                }
+            }
+        }
+        $this->view->form = $form;
+    }
+
+    public function removeAction($dmid) {
+        $dm = Directmessage::findFirst(array(
+            "(dmid = :dmid:)",
+            'bind' => array('dmid' => $dmid)
+        ));
+        if(!$dm) {
+            $this->flash->error("Direct Message Not Found!");
+            return $this->forward("notification/index");
+        } else {
+            if($dm->suid == $this->auth["id"] || $dm->ruid == $this->auth["id"]) {
+                $dm->delete();
+                $this->flash->success("Direct Message Deleted!");
+                return $this->forward("notification/index");
+            } else {
+                $this->flash->error("Premission Denied");
+                return $this->forward("notification/index");
+            }
+        }
     }
 }

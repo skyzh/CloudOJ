@@ -3,6 +3,6 @@
 
 <div class="jumbotron">
     <h1>401 - Unauthorized</h1>
-    <p>You don't have access to this option. Contact an administrator.</p>
+    <p>Contact an administrator if you want to access this page.</p>
     <p>{{ link_to('index', '<span class="glyphicon glyphicon-home"></span> Home', 'class': 'btn btn-primary') }}</p>
 </div>

@@ -4,11 +4,11 @@
     <h2>Rank</h2>
 </div>
 <div class="row">
-    <div class="col-xs-12" align="middle">
-        <h3>TOP CODER</h3>
-        <p><img class="img-circle" src="{{ usertop.user.avatar }}"></img></p>
-        <p>{{ usertop.user.username }}</p>
-    </div>
+    <h3>Top Coders</h3>
+</div>
+{{ partial("partials/rank_top", ["ranklist" : toprankers])}}
+<div class="row">
+    <h3>Ranklist</h3>
 </div>
 {% for profile in userprofile.items %}
     {% if loop.first %}
