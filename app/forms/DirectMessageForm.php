@@ -8,18 +8,9 @@ use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Numericality;
+use Phalcon\Validation\Validator\StringLength;
 
 class DirectMessageForm extends Form {
-    private function addStringArea($objName, $objLabel) {
-        $obj= new TextArea($objName);
-        $obj->setLabel($objLabel);
-        $obj->addValidators(array(
-            new PresenceOf(array(
-                'message' => $objLabel.' is required'
-            )),
-        ));
-        $this->add($obj);
-    }
     public function initialize($entity = null, $options = array()) {
         $friend = new Text("ruser");
         $friend->setLabel("Friend");
@@ -32,6 +23,21 @@ class DirectMessageForm extends Form {
         $this->add($friend);
 
 
-        $this->addStringArea("message", "Message");
+        $message= new TextArea("message", array(
+            'placeholder' => "Message"
+        ));
+        $message->setLabel("message");
+        $message->addValidators(array(
+            new PresenceOf(array(
+                'message' => 'message is required'
+            )),
+            new StringLength(array(
+                'max' => 140,
+                'min' => 3,
+                'messageMaximum' => 'message must have at most 140 characters',
+                'messageMinimum' => 'message must have at least 3 characters'
+            ))
+        ));
+        $this->add($message);
     }
 }

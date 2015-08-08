@@ -21,10 +21,16 @@ class ControllerBase extends Controller {
         }
     }
 
+    private function prepareDebug() {
+        $this->view->isLocal = $this->__debug["local"];
+    }
+
     protected function initialize() {
         $this->getAuth();
         $this->tag->prependTitle('SNGOJ::');
         $this->view->setTemplateAfter('main');
+
+        $this->prepareDebug();
 
         if($this->request->isAjax()) {
             $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);

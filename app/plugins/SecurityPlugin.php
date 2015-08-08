@@ -29,8 +29,10 @@ class SecurityPlugin extends Plugin
             $aclResources = array(
                 'admin' => array(
                     'problemset'    => array("new", "edit", "data", "save", "remove"),
-                    'data'          => array("index", "new", "edit", "save", "remove"),
-                    'premission'    => array("index", "new", "edit", "save", "remove")
+                    'data'          => array("index", "new", "edit", "remove"),
+                    'premission'    => array("index", "new", "edit", "remove"),
+                    'group'    => array("index", "new", "edit", "remove"),
+                    'assets'    => array("index", "new", "edit", "remove")
                 ),
                 'user' => array(
                     'notification'  => array("index", "send"),

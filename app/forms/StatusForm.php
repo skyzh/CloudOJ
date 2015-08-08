@@ -8,20 +8,9 @@ use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Numericality;
+use Phalcon\Validation\Validator\StringLength;
 
 class StatusForm extends Form {
-    private function addStringArea($objName, $objLabel) {
-        $obj= new TextArea($objName, array(
-            'placeholder' => $objLabel
-        ));
-        $obj->setLabel($objLabel);
-        $obj->addValidators(array(
-            new PresenceOf(array(
-                'message' => $objLabel.' is required'
-            )),
-        ));
-        $this->add($obj);
-    }
     public function initialize($entity = null, $options = array()) {
         $lang = new Select("lang", array(
             0 => "GNU C++",
@@ -40,6 +29,21 @@ class StatusForm extends Form {
         $lang->setLabel("Language");
         $this->add($lang);
 
-        $this->addStringArea("code", "Code");
+        $code= new TextArea("code", array(
+            'placeholder' => "Code"
+        ));
+        $code->setLabel("Code");
+        $code->addValidators(array(
+            new PresenceOf(array(
+                'message' => 'Code is required'
+            )),
+            new StringLength(array(
+                'max' => 65536,
+                'min' => 10,
+                'messageMaximum' => 'Code must have at most 65536 B',
+                'messageMinimum' => 'Code must have at least 10 B'
+            ))
+        ));
+        $this->add($code);
     }
 }

@@ -12,6 +12,12 @@ use Phalcon\Events\Manager as EventsManager;
 
 $di = new FactoryDefault();
 
+$di->set('__debug', function() use ($config) {
+    return array(
+        "local" => $config->debug->local
+    );
+});
+
 $di->set('__watcherapi', function() use ($config) {
     return array(
         "apikey" => $config->watcher->apikey

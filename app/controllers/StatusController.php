@@ -74,7 +74,6 @@ class StatusController extends ControllerBase {
                 foreach ($form->getMessages() as $message) {
                     $this->flash->error($message);
                 }
-                return $this->forward('status/submit/' . strval($pid));
             } else {
                 $status->pid = $pid;
                 $status->uid = $this->auth["id"];

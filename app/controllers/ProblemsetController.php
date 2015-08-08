@@ -11,25 +11,32 @@ class ProblemsetController extends ControllerBase {
 
     public function indexAction() {
         $lucky = $this->request->getQuery("lucky");
-        $lucky = $this->request->getQuery("title");
+        $title = $this->request->getQuery("title");
 
         $currentPage = (int) $this->request->getQuery('page');
         if($currentPage == 0) $currentPage = 1;
 
+        $dataBuilder = $this->modelsManager->createBuilder()->from("Problemset");
+
+        if($title || $lucky) $this->view->isSearch = true;
+        else $this->view->isSearch = false;
         if($lucky) {
-            $paginator = new PaginatorQueryBuilder(array(
-                "builder" => $this->modelsManager->createBuilder()->from("Problemset")
-                ->orderBy("rand()"),
-                "limit"=> 20,
-                "page" => 1));
+            $dataBuilder = $dataBuilder->orderBy("rand()");
             $this->view->pageElement = false;
         } else {
-            $paginator = new PaginatorQueryBuilder(array(
-                "builder" => $this->modelsManager->createBuilder()->from("Problemset"),
-                "limit"=> 20,
-                "page" => $currentPage));
             $this->view->pageElement = true;
         }
+
+        if($title) {
+            $dataBuilder = $dataBuilder->where("title like :title:", array("title" => "%{$title}%"));
+        }
+        $this->view->title = $title;
+
+        $paginator = new PaginatorQueryBuilder(array(
+            "builder" => $dataBuilder,
+            "limit"=> 20,
+            "page" => $currentPage));
+
         $problems = $paginator->getPaginate();
         $this->view->problems = $problems;
     }
@@ -136,8 +143,8 @@ class ProblemsetController extends ControllerBase {
     public function searchAction() {
         $pid = $this->request->getQuery("pid");
         $lucky = $this->request->getQuery("lucky");
-        if($pid) return $this->redirect("problemset/view/{$pid}");
-        if($lucky) return $this->forward("problemset/index/?lucky=true");
+        if($pid) return $this->forward("problemset/view/{$pid}");
+        if($lucky) return $this->forward("problemset/index/?lucky={$lucky}");
         return $this->forward("problemset/index");
     }
 }

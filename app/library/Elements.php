@@ -20,6 +20,14 @@ class Elements extends Component
                 'caption' => '<span class="glyphicon glyphicon-question-sign"></span> Problems',
                 'action' => 'index'
             ),
+            '.dropdown' => array(
+                '.text' => "<span class='
+glyphicon glyphicon-dashboard'></span> Dashboard",
+                'group' => array(
+                    'caption' => '<span class="glyphicon glyphicon-signal"></span> Group',
+                    'action' => 'index'
+                ),
+            ),
             /*'contest' => array(
                 'caption' => '<span class="glyphicon glyphicon-list-alt"></span> Contest',
                 'action' => 'index'
