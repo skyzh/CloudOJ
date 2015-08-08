@@ -20,14 +20,6 @@ class Elements extends Component
                 'caption' => '<span class="glyphicon glyphicon-question-sign"></span> Problems',
                 'action' => 'index'
             ),
-            '.dropdown' => array(
-                '.text' => "<span class='
-glyphicon glyphicon-dashboard'></span> Dashboard",
-                'group' => array(
-                    'caption' => '<span class="glyphicon glyphicon-signal"></span> Group',
-                    'action' => 'index'
-                ),
-            ),
             /*'contest' => array(
                 'caption' => '<span class="glyphicon glyphicon-list-alt"></span> Contest',
                 'action' => 'index'
@@ -121,8 +113,20 @@ glyphicon glyphicon-dashboard'></span> Dashboard",
                     )
                 )
             );
+            if($auth["groupid"] == 1) {
+                $this->_headerMenu["navbar-left"][".dropdown"] = array(
+                    '.text' => "<span class='glyphicon glyphicon-dashboard'></span> Dashboard",
+                    'group' => array(
+                        'caption' => '<span class="glyphicon glyphicon-signal"></span> Group',
+                        'action' => 'index'
+                    ),
+                    'assets' => array(
+                        'caption' => '<span class="glyphicon glyphicon-cloud"></span> Assets',
+                        'action' => 'index'
+                    )
+                );
+            }
         }
-
         $controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
             echo '<ul class="nav navbar-nav ', $position, '">';

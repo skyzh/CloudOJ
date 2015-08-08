@@ -33,7 +33,7 @@
 
 
 <div class="page-header">
-    <h2>{{ problem.pid }} {{ problem.title }} {% if !premission %}<small>Premission Denied{% endif %}</h2>
+    <h2>{{ problem.pid }} {{ problem.title }} {% if !premission %}<small>Premission Denied</small>{% endif %}</h2>
 </div>
 
 {% if premission %}
