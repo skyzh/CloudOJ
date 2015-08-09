@@ -59,6 +59,6 @@ glyphicon glyphicon-refresh"></span> Reload</a>
 
 <script>
 function reload_stat() {
-    $.pjax.reload('#pjax-container', {});
+    $.pjax.reload('#pjax-container', { url: "{{ url("status/view/" ~ st.sid)}}" });
 }
 </script>

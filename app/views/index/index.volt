@@ -19,7 +19,7 @@
     <hr/>
     <div class="row" style="margin-bottom: 10px; margin-top: 10px;">
         <div class="col-xs-12">
-            <h1 class="text-center"><p>NOTICE</p><small><p>Something Important</p></small></h1>
+            <h1 class="text-center"><p>ACTIVITIES</p><small><p>Something Important</p></small></h1>
         </div>
     </div>
     {{ partial("partials/notice", ["notification" : notification])}}
@@ -66,12 +66,13 @@
 </section>
 
 <script>
-__json_stat_dat = "{{ statArray | json_encode }}";
-__json_stat_ac_dat = "{{ statArray_ac | json_encode }}"
+__json_stat_dat = "{{ statArray | json_encode | escape_js}}";
+__json_stat_ac_dat = "{{ statArray_ac | json_encode | escape_js}}";
+__json_stat_labels = "{{statArray_labels | json_encode | escape_js}}";
 $(document).one("pjax:end", function() {
     var ctx = $("#statusChart").get(0).getContext("2d");
     var data = {
-        labels : ["72 hrs", "60 hrs", "48 hrs", "36 hrs", "24 hrs", "12 hrs", "0 hrs"],
+        labels : JSON.parse(__json_stat_labels),
         datasets : [{
                 label: "Submissions",
                 fillColor : "rgba(91, 192, 222, 0.21)",

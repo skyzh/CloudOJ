@@ -29,6 +29,6 @@ glyphicon glyphicon-refresh"></span> Reload</a>
 
 <script>
 function reload_stat() {
-    $.pjax.reload('#pjax-container', { url: "{{ this.url.get("status/index")}}" });
+    $.pjax.reload('#pjax-container');
 }
 </script>

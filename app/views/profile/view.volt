@@ -4,7 +4,7 @@
         <p>
             <div class="btn-group">
                 {{ link_to('profile/group/' ~ user.uid ~ '/1', '<span class="glyphicon glyphicon-edit"></span> Mark as Admin', 'class': 'btn btn-default')}}
-                {{ link_to('profile/group/' ~ user.uid ~ '/2', '<span class="glyphicon glyphicon-edit"></span> Mark as User', 'class': 'btn btn-default')}}
+                {{ link_to('profile/group/' ~ user.uid ~ '/2', '<span class="glyphicon glyphicon-edit"></span> Mark as Usern', 'class': 'btn btn-default')}}
             </div>
         </p>
     </div>

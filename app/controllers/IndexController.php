@@ -28,15 +28,20 @@ class IndexController extends ControllerBase {
         //echo $builder->getPhql();
         $result = $query->execute();
 
-        $statArray = array(0, 0, 0, 0, 0, 0, 0);
-        $statArray_ac = array(0, 0, 0, 0, 0, 0, 0);
+        $statArray = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $statArray_ac = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        $statArray_labels = array("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
         foreach ($result as $row) {
             $__time = strtotime($row->submittime);
             $__delta = $__now - $__time;
-            $statArray[ceil(6 - $__delta / 43200)]++;
-            if($row->status == 2) $statArray_ac[ceil(6 - $__delta / 43200)]++;
+            $statArray[ceil(18 - $__delta / 43200 * 3)]++;
+            if($row->status == 2) $statArray_ac[ceil(18 - $__delta / 43200 * 3)]++;
+        }
+        for($i = 0; $i <= 18; $i++) {
+            $statArray_labels[18 - $i] = strval($i * 4) . " hrs";
         }
         $this->view->statArray = $statArray;
         $this->view->statArray_ac = $statArray_ac;
+        $this->view->statArray_labels = $statArray_labels;
     }
 }
