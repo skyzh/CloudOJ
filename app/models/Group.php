@@ -8,4 +8,10 @@ class Group extends Model {
     public $gid;
     public $scorerequired;
     public $name;
+
+    public static function findGroupByID($gid) {
+        $group = Group::findFirst(array(
+            "gid = :gid:", 'bind' => array('gid' => $gid)));
+        return $group;
+    }
 }

@@ -23,4 +23,17 @@ class ProfileController extends ControllerBase {
         $this->view->usergroup = $user->userprofile->getGroup();
         $this->view->nusergroup = $user->userprofile->getNextGroup();
     }
+
+    public function groupAction($uid, $gid) {
+        $user = User::findUserByID($uid);
+        if(!$user) {
+            $this->flash->error("User not found");
+            return $this->forward("index/index");
+        }
+
+        $user->groupid = $gid;
+        $user->save();
+        $this->flash->success("User group updated");
+        return $this->forward("profile/view/{$uid}");
+    }
 }

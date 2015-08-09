@@ -41,7 +41,7 @@
         This is a test version of <strong>CloudOJ</strong>, named SNGOJ, which is hosted on the server of <a href="http://www.kids.org.cn">CCCCWI</a> Computer Center on the 13th Floor.
         </p>
         <p>You may face trouble browsering this site when someone cuts off power supply of our server...
-            If so, be patient, please. We will resume service soon.
+            If so, be patient, please. Service will come back soon.
         <h3>Author</h3>
         <p><a href="https://about.me/SkyZH">SkyZH</a>, a programmer unknown about code.</p>
     </div>

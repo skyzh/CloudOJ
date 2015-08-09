@@ -1,3 +1,15 @@
+{% if isAdmin %}
+<div class="row">
+    <div class="col-xs-12" align="right">
+        <p>
+            <div class="btn-group">
+                {{ link_to('profile/group/' ~ user.uid ~ '/1', '<span class="glyphicon glyphicon-edit"></span> Mark as Admin', 'class': 'btn btn-default')}}
+                {{ link_to('profile/group/' ~ user.uid ~ '/2', '<span class="glyphicon glyphicon-edit"></span> Mark as User', 'class': 'btn btn-default')}}
+            </div>
+        </p>
+    </div>
+</div>
+{% endif %}
 <div class="page-header">
     <h2>Profile</h2>
 </div>

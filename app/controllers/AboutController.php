@@ -10,4 +10,7 @@ class AboutController extends ControllerBase
 
     public function indexAction() {
     }
+
+    public function helpAction() {
+    }
 }

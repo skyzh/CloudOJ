@@ -107,6 +107,14 @@ class Elements extends Component
                         'class' => 'divider',
                         'caption' => ''
                     ),
+                    'about' => array(
+                        'caption' => '<span class="glyphicon glyphicon-question-sign"></span> Help',
+                        'action'  => 'help'
+                    ),
+                    '.3' => array(
+                        'class' => 'divider',
+                        'caption' => ''
+                    ),
                     'session' => array(
                         'caption' => '<span class="glyphicon glyphicon-log-out"></span> Log Out',
                         'action' => 'end'

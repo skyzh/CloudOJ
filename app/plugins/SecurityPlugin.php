@@ -33,7 +33,8 @@ class SecurityPlugin extends Plugin
                     'premission'    => array("index", "new", "edit", "remove"),
                     'group'    => array("index", "new", "edit", "remove"),
                     'assets'    => array("index", "new", "edit", "remove"),
-                    'notification' => array("sendall")
+                    'notification' => array("sendall"),
+                    'profile'      => array("group")
                 ),
                 'user' => array(
                     'notification'  => array("index", "send", "remove"),
@@ -41,9 +42,9 @@ class SecurityPlugin extends Plugin
                     'profile'       => array("password", "avatar", "edit")
                 ),
                 'public' => array(
-                    'about'      => array("index"),
+                    'about'      => array("index", "help"),
                     'profile'    => array("index", "view"),
-                    'index'      => array('index', 'welcome'),
+                    'index'      => array('index'),
                     'about'      => array('index'),
                     'register'   => array('index'),
                     'errors'     => array('show401', 'show404', 'show500'),
