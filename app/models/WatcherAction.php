@@ -13,7 +13,7 @@ class WatcherAction {
     public static function AcceptProblem($uid, $pid) {
         $user = User::findUserByID($uid);
         $user->userprofile->accepted++;
-        $user->userprofile->score += 5;
+        $user->userprofile->score += 4;
         $user->save();
 
         $prob = Problemset::findProblemByID($pid);
@@ -22,7 +22,7 @@ class WatcherAction {
     }
     public static function ContributeProblem($uid, $pid) {
         $user = User::findUserByID($uid);
-        $user->userprofile->score += 10;
+        $user->userprofile->score += 5;
         $user->save();
 
         $prob = Problemset::findProblemByID($pid);

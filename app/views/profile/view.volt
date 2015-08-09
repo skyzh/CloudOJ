@@ -3,8 +3,8 @@
     <div class="col-xs-12" align="right">
         <p>
             <div class="btn-group">
-                {{ link_to('profile/group/' ~ user.uid ~ '/1', '<span class="glyphicon glyphicon-edit"></span> Mark as Admin', 'class': 'btn btn-default')}}
-                {{ link_to('profile/group/' ~ user.uid ~ '/2', '<span class="glyphicon glyphicon-edit"></span> Mark as Usern', 'class': 'btn btn-default')}}
+                {{ link_to('profile/group/' ~ user.uid ~ '/1', '<span class="glyphicon glyphicon-edit"></span> Add to Admin', 'class': 'btn btn-default')}}
+                {{ link_to('profile/group/' ~ user.uid ~ '/2', '<span class="glyphicon glyphicon-edit"></span> Add to User', 'class': 'btn btn-default')}}
             </div>
         </p>
     </div>
