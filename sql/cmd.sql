@@ -45,7 +45,8 @@ CREATE TABLE `problemdetail` (
     description mediumtext NOT null,
     input mediumtext NOT null,
     output mediumtext NOT null,
-    hint mediumtext NOT null
+    hint mediumtext,
+    contributors mediumtext
 );
 
 CREATE TABLE `problemdata` (

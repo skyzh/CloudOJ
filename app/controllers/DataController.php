@@ -28,4 +28,7 @@ class DataController extends CRUDChildController {
     protected function getForm($entity, $options) {
         return new ProbDataForm($entity, $options);
     }
+    protected function afterSave($baseObj, $childObj) {
+        WatcherAction::ContributeProblem($this->auth["id"], $baseObj->pid);
+    }
 }

@@ -109,6 +109,7 @@ class ProblemsetController extends ControllerBase {
 
         $form->clear();
 
+        WatcherAction::ContributeProblem($this->auth["id"], $pid);
         $this->flash->success("Problem was updated successfully");
         return $this->forward('problemset/view/' . $problem->pid);
     }
@@ -124,6 +125,15 @@ class ProblemsetController extends ControllerBase {
         $this->view->problem = $_problem;
         $this->view->premission = $problem->checkPremission($this->auth["id"]);
         if(!$this->view->premission) $this->view->premissioninfo = $problem->getPremissionInfo();
+        $contributors = explode(',', $problem->problemdetail->contributors);
+        $view_contributors = array();
+        foreach($contributors as $contributor) {
+            $__user = User::findUserByID($contributor);
+            if($__user) {
+                array_push($view_contributors, $__user);
+            }
+        }
+        $this->view->contributors = $view_contributors;
     }
 
     public function removeAction($pid) {

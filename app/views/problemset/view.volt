@@ -112,6 +112,19 @@
             <p><span class="markdown_desc">{{ problem.hint | e }}</span></p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Contributors</h3>
+        </div>
+    </div>
+    <div class="row">
+        {% for contributor in contributors %}
+            <div class="col-sm-6 col-md-4 col-lg-2" style="margin-bottom: 10px; margin-top: 10px;">
+                <p class="text-center">{{ link_to("profile/view/" ~ contributor.uid, "<img class='img-circle' src='" ~ contributor.avatar ~ "'></img>") }}</p>
+                <p class="text-center">{{ contributor.username }}</p>
+            </div>
+        {% endfor %}
+    </div>
 {% else %}
     <h3>Requirements</h3>
     <p>The following conditions are required:</p>

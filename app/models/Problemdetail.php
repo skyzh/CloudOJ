@@ -10,6 +10,7 @@ class Problemdetail extends Model {
     public $input;
     public $output;
     public $hint;
+    public $contributors;
 
     public function initialize() {
         $this->belongsTo("pid", "Problemset", "pid", array(

@@ -33,6 +33,9 @@ class CRUDChildController extends ControllerBase {
     private function forwardIndex($baseID) {
         return $this->forward("{$this->baseURI}/index/{$baseID}");
     }
+    protected function afterSave($baseObj, $childObj) {
+        return null;
+    }
     public function indexAction($baseID) {
         $baseObj = $this->getBaseObject($baseID);
         if(!$baseObj) {
@@ -86,7 +89,7 @@ class CRUDChildController extends ControllerBase {
                     }
                 } else {
                     $form->clear();
-
+                    $this->afterSave($baseObj, $childObj);
                     $this->flash->success("{$this->childName} was updated successfully");
                     return $this->forwardIndex($baseID);
                 }
