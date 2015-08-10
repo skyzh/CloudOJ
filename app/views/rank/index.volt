@@ -6,7 +6,7 @@
 <div class="row">
     <h3>Top Coders</h3>
 </div>
-{{ partial("partials/rank_top", ["ranklist" : toprankers])}}
+{{ partial("partials/rank_top")}}
 <div class="row">
     <h3>Ranklist</h3>
 </div>

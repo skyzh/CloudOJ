@@ -5,7 +5,9 @@
         <div class = "col-xs-12">
             <p style="font-size: 5em" class="text-center">SNGOJ</p>
             <p style="font-size: 3em" class="text-center text-muted">The Whole New</p>
-            <p style="font-size: 10em" class="text-center"><strong>ADVENTURE</strong></p>
+            <p style="font-size: 10em" class="text-center hidden-xs"><strong>ADVENTURE</strong></p>
+            <p style="font-size: 4em" class="text-center visible-xs"><strong>ADVENTURE</strong></p>
+
         </div>
 </div>
 <section>
@@ -15,7 +17,7 @@
             <h1 class="text-center"><p>TOP CODERS</p><small><p>We Love Coding</p></small></h1>
         </div>
     </div>
-    {{ partial("partials/rank_top", ["ranklist" : toprankers])}}
+    {{ partial("partials/rank_top")}}
     <hr/>
     <div class="row" style="margin-bottom: 10px; margin-top: 10px;">
         <div class="col-xs-12">

@@ -12,10 +12,6 @@ class IndexController extends ControllerBase {
     }
 
     public function indexAction() {
-        $this->view->toprankers = Userprofile::find(array(
-            "order" => "score DESC",
-            "limit" => 6
-        ));
         $this->view->notification = Directmessage::getLatestNotice();
 
         date_default_timezone_set("Asia/Shanghai");

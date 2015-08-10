@@ -40,4 +40,10 @@ class Userprofile extends Model {
             "bind"       => array("score" => $this->score)
         ));
     }
+    public static function getTopRankers() {
+        return Userprofile::find(array(
+            "order" => "score DESC",
+            "limit" => 6
+        ));
+    }
 }

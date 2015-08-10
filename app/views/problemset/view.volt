@@ -125,6 +125,9 @@
             </div>
         {% endfor %}
     </div>
+    <div class="row">
+        <p>Last edited at {{ problem.changetime }}</p>
+    </div>
 {% else %}
     <h3>Requirements</h3>
     <p>The following conditions are required:</p>

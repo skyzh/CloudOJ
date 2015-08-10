@@ -22,7 +22,7 @@ class WatcherAction {
     }
     public static function ContributeProblem($uid, $pid) {
         $user = User::findUserByID($uid);
-        $user->userprofile->score += 5;
+        $user->userprofile->score += 2;
         $user->save();
 
         $prob = Problemset::findProblemByID($pid);

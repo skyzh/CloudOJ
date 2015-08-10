@@ -21,9 +21,5 @@ class RankController extends ControllerBase {
         ));
         $users = $paginator->getPaginate();
         $this->view->userprofile = $users;
-        $this->view->toprankers = Userprofile::find(array(
-            "order" => "score DESC",
-            "limit" => 6
-        ));
     }
 }

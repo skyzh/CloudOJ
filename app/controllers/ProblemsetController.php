@@ -121,6 +121,7 @@ class ProblemsetController extends ControllerBase {
             $this->flash->error("Problem does not exist");
             return $this->forward("problemset/index");
         }
+
         $_problem = new ProblemRef($problem, $problem->problemdetail);
         $this->view->problem = $_problem;
         $this->view->premission = $problem->checkPremission($this->auth["id"]);

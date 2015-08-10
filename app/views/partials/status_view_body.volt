@@ -1,34 +1,6 @@
 <div class="row">
         <div class="col-md-2 col-xs-4"><p>{{ link_to('problemset/view/' ~ st.pid, st.__title)}}</p></div>
         <div class="col-md-2 col-xs-4"><p>{{ link_to("profile/view/" ~ st.uid, st.__username)}} </p></div>
-        <div class="col-md-1 hidden-sm hidden-xs"><p>
-            {% if st.lang == 0 %}
-            C++
-            {% elseif st.lang == 1 %}
-            C
-            {% elseif st.lang == 2 %}
-            C++11
-            {% elseif st.lang == 3 %}
-            Python2
-            {% elseif st.lang == 4 %}
-            Python3
-            {% elseif st.lang == 5 %}
-            Java
-            {% elseif st.lang == 6 %}
-            Pascal
-            {% elseif st.lang == 7 %}
-            Ruby
-            {% elseif st.lang == 8 %}
-            Perl
-            {% elseif st.lang == 9 %}
-            Go
-            {% elseif st.lang == 10 %}
-            Lua
-            {% elseif st.lang == 11 %}
-            Haskell
-            {% endif %}
-        </div>
-        <div class="col-md-1 hidden-sm hidden-xs">{{ link_to('status/view/' ~ st.sid, st.codelength ~ "B") }}</div>
         <div class="col-md-2 col-xs-4">
             {% if st.status == 0 %}
             <label class='label label-default'>Pending</label>
@@ -58,6 +30,34 @@
             <label class='label label-warning'>System Error</label>
             {% endif %}
         </p></div>
+        <div class="col-md-1 hidden-sm hidden-xs"><p>
+            {% if st.lang == 0 %}
+            C++
+            {% elseif st.lang == 1 %}
+            C
+            {% elseif st.lang == 2 %}
+            C++11
+            {% elseif st.lang == 3 %}
+            Python2
+            {% elseif st.lang == 4 %}
+            Python3
+            {% elseif st.lang == 5 %}
+            Java
+            {% elseif st.lang == 6 %}
+            Pascal
+            {% elseif st.lang == 7 %}
+            Ruby
+            {% elseif st.lang == 8 %}
+            Perl
+            {% elseif st.lang == 9 %}
+            Go
+            {% elseif st.lang == 10 %}
+            Lua
+            {% elseif st.lang == 11 %}
+            Haskell
+            {% endif %}
+        </div>
+        <div class="col-md-1 hidden-sm hidden-xs">{{ link_to('status/view/' ~ st.sid, st.codelength ~ "B") }}</div>
         <div class="col-md-2 hidden-sm hidden-xs"><p>{{ st.submittime }}</p></div>
         <div class="col-md-1 hidden-sm hidden-xs"><p>{{ st.timelimit }} <small>ms</small></p></div>
         <div class="col-md-1 hidden-sm hidden-xs">
