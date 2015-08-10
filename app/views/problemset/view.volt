@@ -119,7 +119,7 @@
     </div>
     <div class="row">
         {% for contributor in contributors %}
-            <div class="col-sm-6 col-md-4 col-lg-2" style="margin-bottom: 10px; margin-top: 10px;">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1" style="margin-bottom: 10px; margin-top: 10px;">
                 <p class="text-center">{{ link_to("profile/view/" ~ contributor.uid, "<img class='img-circle' src='" ~ contributor.avatar ~ "'></img>") }}</p>
                 <p class="text-center">{{ contributor.username }}</p>
             </div>
