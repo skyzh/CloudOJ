@@ -50,7 +50,7 @@ class SecurityPlugin extends Plugin
                     'errors'     => array('show401', 'show404', 'show500'),
                     'session'    => array('index', 'start', 'end'),
                     'problemset' => array("index", "view", "search"),
-                    'status'     => array("index", "view"),
+                    'status'     => array("index", "view", "search"),
                     'rank'       => array("index"),
                     'watcherapi' => array("task", "data", "code", "verify", "status", "post"),
                     'help'       => array("index", "view")

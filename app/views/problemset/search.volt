@@ -3,14 +3,14 @@
 
 <div class = "row">
 
-    <div class="col-xs-6">
+    <div class="col-sm-6">
         {% if isSearch %}
         <p>{{ link_to('problemset/index', '<span class="glyphicon glyphicon-chevron-left"></span> Problems', 'class': 'btn btn-default')}}</p>
         {% endif %}
     </div>
 
 {% if isAdmin %}
-    <div class="col-xs-6">
+    <div class="col-sm-6">
         <div align="right">
             <p>{{ link_to('problemset/new', '<span class="glyphicon glyphicon-plus"></span> Create', 'class': 'btn btn-default')}}</p>
         </div>
@@ -21,7 +21,7 @@
 
 <div class="page-header">
 {% if isSearch %}
-    <h1>Search Problems</h1>
+    <h1>Search Problems::{{ searchInfo }}</h1>
 {% else %}
     <h1>Problems</h1>
 {% endif %}
@@ -79,7 +79,7 @@
     {% if loop.last %}
     {% if pageElement %}
     {{ partial("partials/paginator", ["paginator" : problems,
-        "targetURL" : "problemset/index?title=" ~ (title | url_encode) ~ "&page="]) }}
+        "targetURL" : "problemset/search?title=" ~ (title | url_encode) ~ "&page="]) }}
     {% endif %}
     {% endif %}
 {% else %}

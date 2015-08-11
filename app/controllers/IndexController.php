@@ -10,7 +10,7 @@ class IndexController extends ControllerBase {
         $this->tag->setTitle('Welcome');
         parent::initialize();
     }
-
     public function indexAction() {
+        $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
     }
 }

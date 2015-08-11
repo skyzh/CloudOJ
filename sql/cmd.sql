@@ -36,7 +36,8 @@ CREATE TABLE `problemset` (
     changetime DATETIME NOT null,
     memlimit int(11) not null,
     timelimit int(11) not null,
-    isDeleted BOOLEAN not null
+    isDeleted BOOLEAN not null,
+    FULLTEXT (title)
 );
 
 CREATE TABLE `problemdetail` (
@@ -81,6 +82,8 @@ CREATE TABLE `status` (
     UNIQUE sid(sid),
     pid int(11) not null,
     uid int(11) not null,
+    INDEX uid(uid),
+    INDEX pid(pid),
     lang int(11) not null,
     submittime DATETIME not null,
     status int(11) not null,

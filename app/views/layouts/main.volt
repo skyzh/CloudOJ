@@ -1,19 +1,4 @@
-<nav id="top_navbar" class="navbar navbar-default navbar-fixed-top">
-    <div id = "nav_container" class="container-fluid" style = "z-index:999;">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#oj-nav-collapse-main" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ url('index/index') }}">SNGOJ</a>
-        </div>
-        <div class="collapse navbar-collapse" id="oj-nav-collapse-main">
-            {{ elements.getMenu() }}
-        </div>
-    </div>
-</nav>
+{{ partial("partials/nav_bar_top") }}
 <div id="pjax-loading" style="position: fixed; top: 0px; width: 100%; z-index:1200;">
     <div class="progress" style="height:10px">
         <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar" style="width: 100%;">
@@ -40,3 +25,5 @@
 <head>
     {{ get_title() }}
 </head>
+
+{{ partial("partials/stat_plugin") }}

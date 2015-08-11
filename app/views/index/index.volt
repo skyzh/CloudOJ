@@ -1,12 +1,13 @@
-
 {{ content() }}
+
+<script>
+    $("#top_navbar").removeClass("navbar-fixed-top");
+</script>
 
 <div class="row">
         <div class = "col-xs-12">
-            <p style="font-size: 4em">SNGOJ, The Whole New</p>
-            <p style="font-size: 8em" class="hidden-xs"><strong>ADVENTURE</strong></p>
-            <p style="font-size: 3em" class="visible-xs"><strong>ADVENTURE</strong></p>
-
+            <p style="font-size: 5em" class="hidden-xs">SNGOJ</p>
+            <h1> = ADVENTURE</p>
         </div>
 </div>
 <section>

@@ -8,9 +8,7 @@ class StatusController extends ControllerBase {
         $this->tag->setTitle('Status');
         parent::initialize();
     }
-
-    public function indexAction() {
-
+    public function searchAction() {
         $currentPage = (int) $this->request->getQuery('page');
         if( $currentPage == 0) $currentPage = 1;
 
@@ -20,11 +18,44 @@ class StatusController extends ControllerBase {
         $bindArr = array("pid" => 1, "uid"=> 1);
 
         $para = $this->modelsManager->createBuilder()->from("Status");
-        if($this->request->hasQuery("pid")) {
+        $this->view->isSearch = false;
+
+        $uid = $this->request->getQuery("uid");
+        $pid = $this->request->getQuery("pid");
+        $uname = $this->request->getQuery("uname");
+
+        if($pid) {
             $para = $para->where("Status.pid = :pid:", array(
-                "pid" => $this->request->getQuery("pid", "int")
+                "pid" => $pid
             ));
+            $this->view->isSearch = true;
+            $this->view->searchInfo = Problemset::findProblemByID($pid)->title;
         }
+        if($uid || $uname) {
+            if(!$uid) {
+                $user = User::findUserByName($uname);
+            } else {
+                $user = User::findUserByID($uid);
+            }
+            if(!$user) {
+                $this->flash->error("User not found!");
+                $uid = null;
+                $uname = null;
+            } else {
+                if($user) {
+                    $uid = $user->uid;
+                }
+                $para = $para->where("Status.uid = :uid:", array(
+                    "uid" => $uid
+                ));
+                $this->view->isSearch = true;
+                $this->view->searchInfo = $user->username;
+            }
+        }
+
+        $this->view->uid = $uid;
+        $this->view->pid = $pid;
+
         $para = $para->orderBy("Status.sid DESC");
 
         $currentPage = (int) $this->request->getQuery('page');
@@ -45,6 +76,10 @@ class StatusController extends ControllerBase {
             return $item;
         });
         $this->view->status = $status;
+    }
+
+    public function indexAction() {
+        return $this->forward("status/search");
     }
     public function submitAction($pid) {
         $problem = Problemset::findFirst(array(

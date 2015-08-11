@@ -10,35 +10,7 @@ class ProblemsetController extends ControllerBase {
     }
 
     public function indexAction() {
-        $lucky = $this->request->getQuery("lucky");
-        $title = $this->request->getQuery("title");
-
-        $currentPage = (int) $this->request->getQuery('page');
-        if($currentPage == 0) $currentPage = 1;
-
-        $dataBuilder = $this->modelsManager->createBuilder()->from("Problemset");
-
-        if($title || $lucky) $this->view->isSearch = true;
-        else $this->view->isSearch = false;
-        if($lucky) {
-            $dataBuilder = $dataBuilder->orderBy("rand()");
-            $this->view->pageElement = false;
-        } else {
-            $this->view->pageElement = true;
-        }
-
-        if($title) {
-            $dataBuilder = $dataBuilder->where("title like :title:", array("title" => "%{$title}%"));
-        }
-        $this->view->title = $title;
-
-        $paginator = new PaginatorQueryBuilder(array(
-            "builder" => $dataBuilder,
-            "limit"=> 20,
-            "page" => $currentPage));
-
-        $problems = $paginator->getPaginate();
-        $this->view->problems = $problems;
+        return $this->forward("problemset/search");
     }
 
     public function newAction() {
@@ -153,9 +125,38 @@ class ProblemsetController extends ControllerBase {
 
     public function searchAction() {
         $pid = $this->request->getQuery("pid");
-        $lucky = $this->request->getQuery("lucky");
         if($pid) return $this->forward("problemset/view/{$pid}");
-        if($lucky) return $this->forward("problemset/index/?lucky={$lucky}");
-        return $this->forward("problemset/index");
+
+        $lucky = $this->request->getQuery("lucky");
+        $title = $this->request->getQuery("title");
+
+        $currentPage = (int) $this->request->getQuery('page');
+        if($currentPage == 0) $currentPage = 1;
+
+        $dataBuilder = $this->modelsManager->createBuilder()->from("Problemset");
+
+        if($title || $lucky) $this->view->isSearch = true;
+        else $this->view->isSearch = false;
+        if($lucky) {
+            $dataBuilder = $dataBuilder->orderBy("rand()");
+            $this->view->pageElement = false;
+            $this->view->searchInfo = "Random";
+        } else {
+            $this->view->pageElement = true;
+        }
+
+        if($title) {
+            $dataBuilder = $dataBuilder->where("title like :title:", array("title" => "%{$title}%"));
+            $this->view->searchInfo = $title;
+        }
+        $this->view->title = $title;
+
+        $paginator = new PaginatorQueryBuilder(array(
+            "builder" => $dataBuilder,
+            "limit"=> 20,
+            "page" => $currentPage));
+
+        $problems = $paginator->getPaginate();
+        $this->view->problems = $problems;
     }
 }
