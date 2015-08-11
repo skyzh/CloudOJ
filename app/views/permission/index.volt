@@ -15,7 +15,6 @@
 
 {% for obj in childObj %}
     {{ link_to( this.view.getControllerName() ~ '/edit/' ~ baseID ~ '/' ~ obj.ppid, '<span class="glyphicon glyphicon-edit"></span> ' ~ obj.ppid, 'class': 'btn btn-default btn-large')}}
-
 {% else %}
     <p>No permission is recorded</p>
 {% endfor %}

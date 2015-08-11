@@ -3,7 +3,9 @@
 
 <div class = "row">
     <div class="col-sm-6" align="left"><p>
-        {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Problems") }}
+        <p>
+            {{ link_to("problemset", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Problems") }}
+        </p>
     </p></div>
 
     <div class="col-sm-6" align="right">

@@ -54,10 +54,10 @@ class StatusController extends ControllerBase {
             return $this->forward("status/index");
         }
 
-        $premission = $problem->checkPremission($this->auth["id"]);
+        $permission = $problem->checkPermission($this->auth["id"]);
 
-        if(!$premission) {
-            $this->flash->error("Premission Denied!");
+        if(!$permission) {
+            $this->flash->error("Permission Denied!");
             return $this->forward("problemset/view/" . $pid);
         }
 

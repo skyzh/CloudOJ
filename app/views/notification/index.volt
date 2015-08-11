@@ -4,10 +4,14 @@
 <div class = "row">
     <div align="right">
         <div class="col-xs-12">
-            {% if isAdmin %}
-            {{ link_to('notification/sendall', '<span class="glyphicon glyphicon-send"></span> Publish Notice', 'class': 'btn btn-primary btn-large')}}
-            {% endif %}
-            {{ link_to('notification/send', '<span class="glyphicon glyphicon-send"></span> Send Message', 'class': 'btn btn-primary btn-large')}}
+            <p>
+                <div class="btn-group">
+                    {% if isAdmin %}
+                    {{ link_to('notification/sendall', '<span class="glyphicon glyphicon-send"></span> Publish Notice', 'class': 'btn btn-success btn-large')}}
+                    {% endif %}
+                    {{ link_to('notification/send', '<span class="glyphicon glyphicon-send"></span> Send Message', 'class': 'btn btn-primary btn-large')}}
+                </div>
+            </p>
         </div>
     </div>
 </div>
@@ -36,7 +40,9 @@
                     <p>{{ dm.message | e }}</p>
                     <p>
                         {{ link_to('notification/send/?ruser=' ~ dm.sendUser.username, '<span class="glyphicon glyphicon-share-alt"></span> Reply', 'class': 'btn btn-default btn-sm')}}
-                        {% if dm.ruid != 0 %}{{ link_to('notification/remove/' ~ dm.dmid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-sm')}}{% endif %}
+                        {% if dm.suid == no_muid or dm.ruid == no_muid %}
+                            {{ link_to('notification/remove/' ~ dm.dmid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger btn-sm')}}
+                        {% endif %}
                     </p>
                 </div>
             </div>

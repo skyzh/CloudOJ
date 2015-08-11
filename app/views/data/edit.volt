@@ -2,19 +2,7 @@
 
 
 {{ form( this.view.getControllerName() ~ '/edit/' ~ baseObj.pid ~ '/' ~ childObj.pdid, "class": "aceeditor")}}
-    <div class="row">
-        <div class="col-md-6" align="left">
-            <p>{{ link_to( this.view.getControllerName() ~ '/index/' ~ baseObj.pid, "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Data") }}
-            </p>
-        </div>
-        <div class="col-md-6" align="right">
-            <p>
-                {{ link_to( this.view.getControllerName() ~ '/remove/' ~ baseObj.pid ~ '/' ~ childObj.pdid, "class": "btn btn-danger", "<span class='glyphicon glyphicon-trash'></span> Remove")}}
-                {{ link_to( this.view.getControllerName() ~ '/edit/' ~ baseObj.pid ~ '/' ~ childObj.pdid, "class": "btn btn-default", "<span class='glyphicon glyphicon-repeat'></span> Reset") }}
-                <button type="submit" class="btn btn-primary"><span class='glyphicon glyphicon-ok'></span> Save</button>
-            </p>
-        </div>
-    </div>
+    {{ partial("partials/CURDChild_top", ["baseObjID" : baseObj.pid, "childObjID" : childObj.pdid]) }}
     <div class="page-header">
     {% if isNew %}
         <h1>Create Data</h1>

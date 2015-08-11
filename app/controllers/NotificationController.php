@@ -26,10 +26,11 @@ class NotificationController extends ControllerBase {
                 "page"  => $currentPage
             )
         );
-        
+
         $dms = $paginator->getPaginate();
 
         $this->view->dms = $dms;
+        $this->view->no_muid = $this->auth["id"];
     }
 
     public function sendAction() {

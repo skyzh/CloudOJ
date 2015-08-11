@@ -19,13 +19,13 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="list-group">
-                    <p value="0" class="list-group-item active langselect lang_c" href="javascript:">GNU C++</p>
-                    <p value="1" class="list-group-item langselect lang_c" href="javascript:">GNU C</p>
-                    <p value="2" class="list-group-item langselect lang_c" href="javascript:">GNU C++11</p>
+                    <a value="0" class="list-group-item active langselect lang_c" href="javascript:">GNU C++</a>
+                    <a value="1" class="list-group-item langselect lang_c" href="javascript:">GNU C</a>
+                    <a value="2" class="list-group-item langselect lang_c" href="javascript:">GNU C++11</a>
                     <!--<option value="3" class="list-group-item langselect lang_py" href="javascript:">Python2</option>
                     <option value="4" class="list-group-item langselect lang_py" href="javascript:">Python3</option>
                     <option value="5" class="list-group-item langselect lang_ja" href="javascript:">Java</option>-->
-                    <p value="6" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</p>
+                    <a value="6" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</a>
                     <!--<option value="7" class="list-group-item langselect lang_ruby" href="javascript:">Ruby</option>
                     <option value="8" class="list-group-item langselect lang_perl" href="javascript:">Perl</option>
                     <option value="9" class="list-group-item langselect lang_go" href="javascript:">Go</option>
@@ -37,8 +37,12 @@
         {{ form('status/submit/' ~ problem.pid, 'id': 'submitForm', 'onsubmit': "return __processSubmit()") }}
         <div class="row">
             <div class="col-xs-12">
-                <p>{{ submit_button("Submit", "class": "btn btn-primary btn-block") }}</p>
-                <p>{{ link_to('status/submit/' ~ problem.pid, 'Reset', 'class': 'btn btn-default btn-block')}}</p>
+                <p>
+                    <button type="submit" class="btn btn-primary btn-block"><span class='glyphicon glyphicon-upload'></span> Submit</button>
+                </p>
+                <p>
+                    {{ link_to('status/submit/' ~ problem.pid, "<span class='glyphicon glyphicon-repeat'></span> Reset", 'class': 'btn btn-default btn-block')}}
+                </p>
             </div>
             <div style="display:none">
                 <textarea name = "code"></textarea>

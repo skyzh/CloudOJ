@@ -35,7 +35,8 @@ CREATE TABLE `problemset` (
     accepted int (11) NOT null,
     changetime DATETIME NOT null,
     memlimit int(11) not null,
-    timelimit int(11) not null
+    timelimit int(11) not null,
+    isDeleted BOOLEAN not null
 );
 
 CREATE TABLE `problemdetail` (
@@ -59,7 +60,8 @@ CREATE TABLE `problemdata` (
     dat_in mediumtext NOT null,
     dat_out mediumtext NOT null,
     dat_name varchar(20) NOT null,
-    isFile BOOLEAN not null
+    isFile BOOLEAN not null,
+    isDeleted BOOLEAN not null
 );
 
 CREATE TABLE `problempermission` (

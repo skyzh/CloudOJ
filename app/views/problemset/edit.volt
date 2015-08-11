@@ -11,8 +11,12 @@
             {% endif %}</p>
         </div>
         <div class="col-md-6" align="right">
-            <p>{{ link_to("problemset/edit/" ~ problem.pid , "class": "btn btn-default", "Reset") }}
-            {{ submit_button("Save", "class": "btn btn-primary") }}</p>
+            <p>
+                <div class="btn-group">
+                    {{ link_to("problemset/edit/" ~ problem.pid , "class": "btn btn-default", "<span class='glyphicon glyphicon-repeat'></span> Reset") }}
+                    <button type="submit" class="btn btn-primary"><span class='glyphicon glyphicon-ok'></span> Save</button>
+                </div>
+            </p>
         </div>
     </div>
     <div class="page-header">
