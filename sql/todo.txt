@@ -1,0 +1,45 @@
+立刻要做的事情：
+
+1. Fix Status View details & summary
+2. 数据替换换行符错了……
+3. 帮助文档……
+4. 开源项目说明
+5. 状态页面搜索功能
+
+下次 Major Update 需要干的事情：
+
+1. 增加缓存功能，给 SNG 服务器装 Ubuntu，编译 Memcached，使用 Memcached
+2. 增加统计功能，每个用户做过题目的统计，每道题的每日统计（需要数据库 & Cache）
+3. Ranklist 的筛选功能
+4. 更改密码 更换头像
+5. 上传数据 上传图片 图床
+6. Judger 按照 pdid 顺序评测
+7. 问题加标签，加来源
+8. CC 协议，HTTPS
+9. 数据分值，不评测 Sample
+10. Score -> Rating （需要更新加分策略）
+11. Direct Message 未读提醒
+12. 问题来源 问题分类 问题标签
+13. 自动扫描数据
+14. Submit 时间限制
+15. Status Detail 对齐
+16. 跳转 操蛋
+
+再下次 Major Update
+
+1. CAPTCHA & 邮箱验证
+2. 试题设置，得分点设置，显示输入、输出和用户输出
+3. 支持 Status 高亮
+4. 在线跑，输入 -> Ajax 输出
+5. OAuth
+6. 习题集
+7. 隐藏某些代码
+8. 比赛
+9. 简化操作
+10. 自定义验证器
+11. 问题历史
+
+遥遥无期的 Major Update
+
+1. Docker 部署评测机
+2. i18n

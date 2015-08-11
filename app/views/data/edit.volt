@@ -17,9 +17,9 @@
     </div>
     <div class="page-header">
     {% if isNew %}
-        <h2>Create Data</h2>
+        <h1>Create Data</h1>
     {% else %}
-        <h2>Edit Data</h2>
+        <h1>Edit Data</h1>
     {% endif %}
     </div>
     <fieldset>

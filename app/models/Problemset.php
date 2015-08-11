@@ -21,7 +21,7 @@ class Problemset extends Model {
         $this->hasMany("pid", "Problemdata", "pid", array(
             'reusable' => true
         ));
-        $this->hasMany("pid", "Problempremission", "pid", array(
+        $this->hasMany("pid", "Problempermission", "pid", array(
             'reusable' => true
         ));
     }
@@ -42,21 +42,21 @@ class Problemset extends Model {
         return $problem;
     }
 
-    public function checkPremission($uid) {
+    public function checkPermission($uid) {
         $user = User::findUserByID($uid);
-        foreach($this->problempremission as $premission) {
+        foreach($this->problempermission as $permission) {
             if(!$user) return false;
-            if(!$premission->checkPremission($user)) {
+            if(!$permission->checkPermission($user)) {
                 return false;
             }
         }
         return true;
     }
 
-    public function getPremissionInfo() {
+    public function getPermissionInfo() {
         $text = "";
-        foreach($this->problempremission as $premission) {
-            $text = $text . "<p>" . $premission->getPremissionInfo() . "</p>";
+        foreach($this->problempermission as $permission) {
+            $text = $text . "<p>" . $permission->getPermissionInfo() . "</p>";
         }
         return $text;
     }

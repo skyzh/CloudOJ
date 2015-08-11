@@ -21,9 +21,9 @@
 
 <div class="page-header">
 {% if isSearch %}
-    <h2>Search Problems</h2>
+    <h1>Search Problems</h1>
 {% else %}
-    <h2>Problems</h2>
+    <h1>Problems</h1>
 {% endif %}
 </div>
 

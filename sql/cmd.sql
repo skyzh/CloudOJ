@@ -62,7 +62,7 @@ CREATE TABLE `problemdata` (
     isFile BOOLEAN not null
 );
 
-CREATE TABLE `problempremission` (
+CREATE TABLE `problempermission` (
     ppid int(11) NOT null AUTO_INCREMENT,
     PRIMARY KEY(ppid),
     UNIQUE ppid(ppid),

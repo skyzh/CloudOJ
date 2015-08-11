@@ -91,9 +91,10 @@ Chart.defaults.global = {
     tooltipXPadding: 6,
     tooltipCaretSize: 8,
     tooltipCornerRadius: 6,
+    tooltipXOffset: 10,
     tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
     multiTooltipTemplate: "<%= value %>",
+
     onAnimationProgress: function(){},
     onAnimationComplete: function(){}
 };
-var _stat_template = "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>";

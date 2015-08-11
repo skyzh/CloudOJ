@@ -107,9 +107,9 @@ class Elements extends Component
                         'class' => 'divider',
                         'caption' => ''
                     ),
-                    'about' => array(
+                    'help' => array(
                         'caption' => '<span class="glyphicon glyphicon-question-sign"></span> Help',
-                        'action'  => 'help'
+                        'action'  => 'index'
                     ),
                     '.3' => array(
                         'class' => 'divider',

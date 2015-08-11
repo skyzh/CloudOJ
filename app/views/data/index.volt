@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="page-header">
-    <h2>View Data</h2>
+    <h1>View Data</h1>
 </div>
 
 {% for obj in childObj %}

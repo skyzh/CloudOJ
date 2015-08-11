@@ -1,3 +1,5 @@
+<?php $notification = Directmessage::getLatestNotice(); ?>
+
 <div class="row">
 {% for notice in notification %}
     <div class="col-xs-12 col-md-8 col-md-offset-2">

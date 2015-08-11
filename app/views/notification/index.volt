@@ -13,7 +13,7 @@
 </div>
 
 <div class="page-header">
-    <h2>Notification</h2>
+    <h1>Notification</h1>
 </div>
 
 

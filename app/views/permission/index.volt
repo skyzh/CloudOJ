@@ -10,12 +10,12 @@
     </div>
 </div>
 <div class="page-header">
-    <h2>View Premissions</h2>
+    <h1>View Permissions</h1>
 </div>
 
 {% for obj in childObj %}
     {{ link_to( this.view.getControllerName() ~ '/edit/' ~ baseID ~ '/' ~ obj.ppid, '<span class="glyphicon glyphicon-edit"></span> ' ~ obj.ppid, 'class': 'btn btn-default btn-large')}}
 
 {% else %}
-    <p>No premission is recorded</p>
+    <p>No permission is recorded</p>
 {% endfor %}

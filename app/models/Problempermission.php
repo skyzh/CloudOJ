@@ -4,7 +4,7 @@ use Phalcon\Mvc\Model\Validator\Email as EmailValidator;
 use Phalcon\Mvc\Model\Validator\Uniqueness as UniquenessValidator;
 use Phalcon\Db\RawValue;
 
-class Problempremission extends Model {
+class Problempermission extends Model {
     public $ppid;
     public $data;
     public $pid;
@@ -15,7 +15,7 @@ class Problempremission extends Model {
         ));
     }
 
-    public function checkPremission($user) {
+    public function checkPermission($user) {
         if($this->type == 0) {
             return $user->userprofile->score >= $this->data;
         }
@@ -25,7 +25,7 @@ class Problempremission extends Model {
         return false;
     }
 
-    public function getPremissionInfo() {
+    public function getPermissionInfo() {
         if($this->type == 0) {
             return "At least {$this->data} points of EXP are required.";
         }
@@ -33,9 +33,9 @@ class Problempremission extends Model {
             return "This problem is hidden.";
         }
     }
-    public static function findProblemPremissionByPID($ppid) {
-        $probprem = Problempremission::findFirst(array(
+    public static function findProblemPermissionByPID($ppid) {
+        $probperm = Problempermission::findFirst(array(
             "ppid = :ppid:", 'bind' => array('ppid' => $ppid)));
-        return $probprem;
+        return $probperm;
     }
 }

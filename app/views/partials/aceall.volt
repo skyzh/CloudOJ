@@ -4,16 +4,21 @@ var aeditors;
 
 function doAce(obj, mode) {
     __p = document.createElement("p");
-    aceelememt = document.createElement("pre");
-    $(__p).append($(aceelememt));
-    $(obj).after(__p);
-    $(aceelememt).text($(obj).val());
+    __h3 = document.createElement("h3");
+    aceelement = document.createElement("pre");
+    $(__h3).text($(obj).attr("placeholder"));
+    $(__p).append($(aceelement));
 
-    editor = ace.edit(aceelememt);
+    $(obj).before(__h3);
+    $(obj).after(__p);
+
+    $(aceelement).text($(obj).val());
+
+    editor = ace.edit(aceelement);
     editor.setTheme("ace/theme/github");
     editor.getSession().setMode(mode);
 
-    $(aceelememt).css("height", $(obj).css("height"));
+    $(aceelement).css("height", $(obj).css("height"));
     aeditors[$(obj).attr("name")] = editor;
     $(obj).hide();
 }

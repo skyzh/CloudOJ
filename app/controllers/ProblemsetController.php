@@ -109,7 +109,7 @@ class ProblemsetController extends ControllerBase {
 
         $form->clear();
 
-        WatcherAction::ContributeProblem($this->auth["id"], $pid);
+        WatcherAction::ContributeProblem($this->auth["id"], $problem->pid);
         $this->flash->success("Problem was updated successfully");
         return $this->forward('problemset/view/' . $problem->pid);
     }
@@ -124,8 +124,8 @@ class ProblemsetController extends ControllerBase {
 
         $_problem = new ProblemRef($problem, $problem->problemdetail);
         $this->view->problem = $_problem;
-        $this->view->premission = $problem->checkPremission($this->auth["id"]);
-        if(!$this->view->premission) $this->view->premissioninfo = $problem->getPremissionInfo();
+        $this->view->permission = $problem->checkPermission($this->auth["id"]);
+        if(!$this->view->permission) $this->view->permissioninfo = $problem->getPermissionInfo();
         $contributors = explode(',', $problem->problemdetail->contributors);
         $view_contributors = array();
         foreach($contributors as $contributor) {

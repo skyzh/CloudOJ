@@ -29,7 +29,6 @@
         </script>
         {% if isLocal %}
         {% else %}
-
         {{ javascript_include('//cdn.bootcss.com/json2/20150503/json2.min.js') }}
         {{ javascript_include('//cdn.bootcss.com/jquery/2.1.4/jquery.min.js') }}
         {{ javascript_include('//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js') }}

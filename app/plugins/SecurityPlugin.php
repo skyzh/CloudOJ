@@ -30,7 +30,7 @@ class SecurityPlugin extends Plugin
                 'admin' => array(
                     'problemset'    => array("new", "edit", "data", "save", "remove"),
                     'data'          => array("index", "new", "edit", "remove"),
-                    'premission'    => array("index", "new", "edit", "remove"),
+                    'permission'    => array("index", "new", "edit", "remove"),
                     'group'    => array("index", "new", "edit", "remove"),
                     'assets'    => array("index", "new", "edit", "remove"),
                     'notification' => array("sendall"),
@@ -42,7 +42,7 @@ class SecurityPlugin extends Plugin
                     'profile'       => array("password", "avatar", "edit")
                 ),
                 'public' => array(
-                    'about'      => array("index", "help"),
+                    'about'      => array("index"),
                     'profile'    => array("index", "view"),
                     'index'      => array('index'),
                     'about'      => array('index'),
@@ -52,7 +52,8 @@ class SecurityPlugin extends Plugin
                     'problemset' => array("index", "view", "search"),
                     'status'     => array("index", "view"),
                     'rank'       => array("index"),
-                    'watcherapi' => array("task", "data", "code", "verify", "status", "post")
+                    'watcherapi' => array("task", "data", "code", "verify", "status", "post"),
+                    'help'       => array("index", "view")
                 )
             );
 

@@ -4,8 +4,8 @@
 <div class="row">
     <div class="col-md-6">
         <div class="page-header">
-            <h2>Log In</h2>
-            <h5>Practice and Improve.</h5>
+            <h1>Log In</h1>
+            <h4>Practice and Improve.</h4>
         </div>
         {{ form('session/start', 'role': 'form') }}
             <fieldset>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ submit_button('Login', 'class': 'btn btn-primary btn-large') }}
+                    {{ submit_button('Login', 'class': 'btn btn-primary btn-block') }}
                 </div>
             </fieldset>
         {{ endform() }}
@@ -31,10 +31,10 @@
     <div class="col-md-6">
 
         <div class="page-header">
-            <h2>Don't have an account yet?</h2>
+            <h1>Don't have an account yet?</h1>
         </div>
 
-        <h5>Create an account now</h5>
+        <h5>Sign up now!</h5>
         <p>SNGOJ enables you:</p>
         <ul>
             <li>To submit your code</li>
@@ -42,8 +42,8 @@
             <li>And to keep in touch with your friends</li>
         </ul>
 
-        <div class="clearfix center">
-            {{ link_to('register', 'Sign Up', 'class': 'btn btn-primary btn-large btn-success') }}
+        <div class="clearfix">
+            {{ link_to('register', 'Sign Up', 'class': 'btn btn-primary btn-block btn-success') }}
         </div>
     </div>
 </div>

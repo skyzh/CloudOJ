@@ -1,14 +1,14 @@
 {{ content() }}
 
 <div class="page-header">
-    <h2>Rank</h2>
+    <h1>Rank</h1>
 </div>
 <div class="row">
-    <h3>Top Coders</h3>
+    <h2>Top Coders</h2>
 </div>
 {{ partial("partials/rank_top")}}
 <div class="row">
-    <h3>Ranklist</h3>
+    <h2>Ranklist</h2>
 </div>
 {% for profile in userprofile.items %}
     {% if loop.first %}

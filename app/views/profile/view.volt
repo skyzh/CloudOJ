@@ -11,7 +11,7 @@
 </div>
 {% endif %}
 <div class="page-header">
-    <h2>Profile</h2>
+    <h1>Profile</h1>
 </div>
 <div class="row">
     <div class="col-sm-4">

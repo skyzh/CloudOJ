@@ -3,29 +3,29 @@ use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 use Phalcon\Paginator\Adapter\NativeArray as PaginatorArray;
 use Phalcon\Paginator\Adapter\QueryBuilder as PaginatorQueryBuilder;
 
-class PremissionController extends CRUDChildController {
-    protected $title = "Premission";
+class PermissionController extends CRUDChildController {
+    protected $title = "Permission";
     protected $baseName = "Problem";
-    protected $childName = "Problem Premission";
-    protected $baseURI = "premission";
+    protected $childName = "Problem Permission";
+    protected $baseURI = "permission";
     protected $baseFailURI = "problemset/view";
 
     protected function getBaseObject($baseID) {
         return Problemset::findProblemByID($baseID);
     }
     protected function getAllChildObject($baseObj) {
-        return $baseObj->problempremission;
+        return $baseObj->problempermission;
     }
     protected function getNewChildObject($baseObj) {
-        $probprem = new problempremission;
-        $probprem->ppid = 0;
-        $probprem->pid = $baseObj->pid;
-        return $probprem;
+        $probperm = new Problempermission;
+        $probperm->ppid = 0;
+        $probperm->pid = $baseObj->pid;
+        return $probperm;
     }
     protected function findChildObject($childID) {
-        return Problempremission::findProblemPremissionByPID($childID);
+        return Problempermission::findProblemPermissionByPID($childID);
     }
     protected function getForm($entity, $options) {
-        return new ProbPremForm($entity, $options);
+        return new ProbPermForm($entity, $options);
     }
 }

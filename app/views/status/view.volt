@@ -14,14 +14,14 @@ glyphicon glyphicon-refresh"></span> Reload</a>
 </div>
 
 <div class="page-header">
-    <h2>View Status</h2>
+    <h1>View Status</h1>
 </div>
 {% if st.hidden == true %}
     <h3>Hidden</h3>
 {% else %}
 <div class="row">
     <div class="col-xs-12">
-        <h3>Basic</h3>
+        <h3>Summary</h3>
     </div>
 </div>
 
@@ -31,7 +31,7 @@ glyphicon glyphicon-refresh"></span> Reload</a>
 
 <div class="row">
     <div class="col-xs-12">
-        <h3>Detail</h3>
+        <h3>Details</h3>
     </div>
 </div>
 <div class="row">

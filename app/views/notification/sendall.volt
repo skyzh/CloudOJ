@@ -13,7 +13,7 @@
     </div>
 
     <div class="page-header">
-        <h2>Publish Notice</h2>
+        <h1>Publish</h1>
     </div>
     <fieldset>
         <div class="row">

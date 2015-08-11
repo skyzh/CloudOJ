@@ -26,7 +26,7 @@
         <p>
             <div class="btn-group">
             {{ link_to('data/index/' ~ problem.pid, '<span class="glyphicon glyphicon-tasks"></span> Data', 'class': 'btn btn-default')}}
-            {{ link_to('premission/index/' ~ problem.pid, '<span class="glyphicon glyphicon-console"></span> Premission', 'class': 'btn btn-default')}}
+            {{ link_to('permission/index/' ~ problem.pid, '<span class="glyphicon glyphicon-console"></span> Permission', 'class': 'btn btn-default')}}
             {{ link_to('problemset/edit/' ~ problem.pid, '<span class="glyphicon glyphicon-edit"></span> Edit', 'class': 'btn btn-default')}}
             {{ link_to('problemset/remove/' ~ problem.pid, '<span class="glyphicon glyphicon-trash"></span> Remove', 'class': 'btn btn-danger')}}
         </div>
@@ -37,10 +37,9 @@
 
 
 <div class="page-header">
-    <h2>{{ problem.pid }} {{ problem.title }} {% if !premission %}<small>Premission Denied</small>{% endif %}</h2>
+    <h1>{{ problem.pid }} {{ problem.title }} {% if !permission %}<small>Permission Denied</small>{% endif %}</h1>
 </div>
-
-{% if premission %}
+{% if permission %}
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-2">
@@ -64,25 +63,25 @@
 <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
     <div class="row">
         <div class="col-xs-12">
-            <h3 id="_description">Description</h3>
+            <h2>Description</h2>
             <p><span class="markdown_desc">{{ problem.description | e }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h3 id="_input">Input</h3>
+            <h2>Input</h2>
             <p><span class="markdown_desc">{{ problem.input | e }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h3 id="_output">Output</h3>
+            <h2>Output</h2>
             <p><span class="markdown_desc">{{ problem.output | e }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h3 id="_sample">Sample</h3>
+            <h2>Sample</h2>
         </div>
     </div>
     {% for data in problem.problemdata %}
@@ -108,13 +107,13 @@
     {% endfor %}
     <div class="row">
         <div class="col-xs-12">
-            <h3 id="_hint">Hint</h3>
+            <h2 id="_hint">Hint</h2>
             <p><span class="markdown_desc">{{ problem.hint | e }}</span></p>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h3>Contributors</h3>
+            <h2>Contributors</h2>
         </div>
     </div>
     <div class="row">
@@ -129,7 +128,7 @@
         <p>Last edited at {{ problem.changetime }}</p>
     </div>
 {% else %}
-    <h3>Requirements</h3>
+    <h2>Requirements</h2>
     <p>The following conditions are required:</p>
-    {{ premissioninfo }}
+    {{ permissioninfo }}
 {% endif %}

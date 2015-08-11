@@ -11,7 +11,7 @@
 
 
 <div class="page-header">
-    <h2>Submit - {{ problem.title }}</h2>
+    <h1>Submit::{{ problem.title }}</h1>
 </div>
 
 <div class="row">

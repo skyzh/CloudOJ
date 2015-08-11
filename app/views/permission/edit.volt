@@ -19,14 +19,14 @@
     </div>
     <div class="page-header">
     {% if isNew %}
-        <h2>Create Premission</h2>
+        <h1>Create Permission</h1>
     {% else %}
-        <h2>Edit Premission</h2>
+        <h1>Edit Permission</h1>
     {% endif %}
     </div>
     <fieldset>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-xs-12">
                 <p>{{ form.render('type', ['class': 'form-control']) }}</p>
             </div>
         </div>

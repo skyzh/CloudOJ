@@ -10,7 +10,7 @@ glyphicon glyphicon-refresh"></span> Reload</a>
 </div>
 
 <div class="page-header">
-    <h2>Status</h2>
+    <h1>Status</h1>
 </div>
 
 {% for st in status.items %}

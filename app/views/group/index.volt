@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="page-header">
-    <h2>View Group</h2>
+    <h1>View Group</h1>
 </div>
 
 {% for _obj in obj %}

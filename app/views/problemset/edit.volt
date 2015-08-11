@@ -16,11 +16,11 @@
         </div>
     </div>
     <div class="page-header">
-        <h2>{% if problem.pid == 0 %}
+        <h1>{% if problem.pid == 0 %}
             Create Problem
         {% else %}
             Edit Problem
-        {% endif %}</h2>
+        {% endif %}</h1>
     </div>
     <fieldset>
         <div class="row">

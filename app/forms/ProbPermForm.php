@@ -9,7 +9,7 @@ use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Numericality;
 
-class ProbPremForm extends Form {
+class ProbPermForm extends Form {
     public function initialize($entity = null, $options = array()) {
         $type = new Select("type", array(
             0 => "Experience",

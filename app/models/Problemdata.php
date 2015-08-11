@@ -31,12 +31,12 @@ class Problemdata extends Model {
             $fp = fopen(APP_PATH. "ojdata/" . $this->dat_in, "r");
             while(!feof($fp))
             {
-                $dat .= str_replace(array("\n"), "", fgets($fp));
+                $dat .= str_replace(array("\r"), "", fgets($fp));
             }
             fclose($fp);
             return $dat;
         } else {
-            return $this->dat_in;
+            return str_replace(array("\r"), "", $this->dat_in);
         }
     }
 
@@ -46,12 +46,12 @@ class Problemdata extends Model {
             $fp = fopen(APP_PATH. "ojdata/" . $this->dat_out, "r");
             while(!feof($fp))
             {
-                $dat .= str_replace(array("\n"), "", fgets($fp));
+                $dat .= str_replace(array("\r"), "", fgets($fp));
             }
             fclose($fp);
             return $dat;
         } else {
-            return $this->dat_out;
+            return str_replace(array("\r"), "", $this->dat_out);
         }
     }
 }
