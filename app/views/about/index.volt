@@ -62,15 +62,16 @@
     </div>
     <div class="col-md-6">
         <h2>Hosting</h2>
-        <p><strong>CloudOJ Frontend</strong> is running on a Windows PC with Windows Server 2012.</p>
-        <p><strong>CloudOJ Judger</strong> is running on the same server as CloudOJ Frontend, but in a virtual machine with Ubuntu Desktop.</p>
+        <p>CloudOJ Frontend is running on a Windows PC with Windows Server 2012.</p>
+        <p>CloudOJ Judger is running on the same server as CloudOJ Frontend, but in a virtual machine with Ubuntu Desktop.</p>
         <p>Supported Programming Language: GNU C++, GNU C, GNU C++11 and Pascal</p>
         <p>
-        This is a test version of <strong>CloudOJ</strong>, named SNGOJ, which is hosted on the server of <a href="http://www.kids.org.cn">CCCCWI</a> Computer Center on the 13th Floor.
+        This is a test version of CloudOJ, named SNGOJ, which is hosted on the server of <a href="http://www.cwikids.org">CCCCWI</a> Computer Center on the 13th Floor.
         </p>
         <p>You may face trouble browsering this site when someone cuts off power supply of our server...
             If so, be patient, please. Service will come back soon.
         <h2>Author</h2>
         <p><a href="https://about.me/SkyZH">SkyZH</a>, a programmer unknown about code.</p>
+        <p>We are grateful to those who help improve this site. You can find them in Contributors at the end of each problem.</p>
     </div>
 </div>

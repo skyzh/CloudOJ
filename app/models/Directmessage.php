@@ -33,7 +33,7 @@ class Directmessage extends Model {
         $data = Directmessage::find(array(
             "(ruid = 0)",
             "order" => "dmid DESC",
-            "limit" => 4
+            "limit" => 6
         ));
         return $data;
     }

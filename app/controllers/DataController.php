@@ -31,4 +31,41 @@ class DataController extends CRUDChildController {
     protected function afterSave($baseObj, $childObj) {
         WatcherAction::ContributeProblem($this->auth["id"], $baseObj->pid);
     }
+
+    public function scanAction($baseID) {
+        $__count = 0;
+        $baseObj = $this->getBaseObject($baseID);
+        if(!$baseObj) {
+            $this->flash->error("{$this->baseName} does not exist");
+            return $this->forward("{$this->baseFailURI}/{$baseID}");
+        }
+        $__datbaseDir = "{$baseID}/";
+        $__baseDir = APP_PATH . "ojdata/" . $__datbaseDir;
+        $files = scandir($__baseDir);
+        if($files) {
+            foreach ($files as $name) {
+                if($name != '.' && $name != '..') {
+                    $file_arr = explode('.', $name);
+                    if(count($file_arr) >= 2) {
+                        $file_ext = $file_arr[count($file_arr) - 1];
+                        unset($file_arr[count($file_arr) - 1]);
+                        $file_name = join('.', $file_arr);
+                        if($file_ext == "out" || $file_ext == "ans") {
+                            $childObj = $this->getNewChildObject($baseObj);
+                            $childObj->isSample = 0;
+                            $childObj->dat_in = $__datbaseDir . $file_name . ".in";
+                            $childObj->dat_out = $__datbaseDir . $name;
+                            $childObj->dat_name = $file_name;
+                            $childObj->isFile = 1;
+                            $childObj->save();
+                            $__count++;
+                        }
+                    }
+                }
+            }
+        }
+
+        $this->flash->success("Found {$__count} Data in {$__baseDir}");
+        return $this->forwardIndex($baseID);
+    }
 }

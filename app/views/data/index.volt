@@ -8,7 +8,10 @@
     </div>
     <div class="col-md-6" align="right">
         <p>
-            {{ link_to( this.view.getControllerName() ~ '/new/' ~ baseObj.pid, '<span class="glyphicon glyphicon-plus"></span> Create', 'class': 'btn btn-default btn-large')}}
+            <div class="btn-group">
+                {{ link_to( this.view.getControllerName() ~ '/scan/' ~ baseObj.pid, '<span class="glyphicon glyphicon-search"></span> Scan', 'class': 'btn btn-default btn-large')}}
+                {{ link_to( this.view.getControllerName() ~ '/new/' ~ baseObj.pid, '<span class="glyphicon glyphicon-plus"></span> Create', 'class': 'btn btn-default btn-large')}}
+            </div>
         </p>
     </div>
 </div>

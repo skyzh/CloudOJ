@@ -8,7 +8,7 @@
                 <img class="media-object img-circle center-block" src="{{ notice.sendUser.avatar }}">
             </div>
             <hr/>
-            <p>{{ notice.message | e }}</p>
+            <p><span class="markdown_desc">{{ notice.message | e }}</span></p>
             <br/>
             <p class="text-right">{{ notice.sendUser.username }}
             {% if notice.ruid == 0 %}

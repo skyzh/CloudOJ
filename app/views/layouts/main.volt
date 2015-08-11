@@ -8,9 +8,14 @@
         </div>
     </div>
 </div>
+
 <div class="container" id="flash_container">
-    <div id="flashcontainer">
-        {{ flash.output() }}
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="flashcontainer">
+                {{ flash.output() }}
+            </div>
+        </div>
     </div>
     <br/>
 </div>

@@ -29,7 +29,7 @@ class SecurityPlugin extends Plugin
             $aclResources = array(
                 'admin' => array(
                     'problemset'    => array("new", "edit", "data", "save", "remove"),
-                    'data'          => array("index", "new", "edit", "remove"),
+                    'data'          => array("index", "new", "edit", "remove", 'scan'),
                     'permission'    => array("index", "new", "edit", "remove"),
                     'group'    => array("index", "new", "edit", "remove"),
                     'assets'    => array("index", "new", "edit", "remove"),

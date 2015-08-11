@@ -59,10 +59,10 @@ section h1 p{
         </div>
     </div>
 </section>
-<section class="index_section shadow_text" style="color: #FFFFFF; background-color: #913cd4">
+<section class="index_section" style="color: #FFFFFF; background-color: #383b43">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 shadow_text">
                 <h1 class="text-center">JOIN US</h1>
                 <h3 class="text-center">Just see kids.org.cn</h3>
             </div>

@@ -8,7 +8,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id = "top_navbar_brand" class="navbar-brand" href="{{ url('index/index') }}">SNGOJ</a>
+                <a id = "top_navbar_brand" class="navbar-brand" href="{{ url('index/index') }}">
+                    <img src="{{url("images/60x60.png")}}" width="28px" style="margin-top: -5px;"></img>
+                </a>
             </div>
             <div class="collapse navbar-collapse" id="oj-nav-collapse-main">
                 {{ elements.getMenu() }}

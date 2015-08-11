@@ -37,7 +37,7 @@
                         <small>&raquo {{ dm.recvUser.username }}
                     {% endif %}
                         at {{ dm.sendtime }}</small></h4>
-                    <p>{{ dm.message | e }}</p>
+                    <p><span class="markdown_desc">{{ dm.message | e }}</span></p>
                     <p>
                         {{ link_to('notification/send/?ruser=' ~ dm.sendUser.username, '<span class="glyphicon glyphicon-share-alt"></span> Reply', 'class': 'btn btn-default btn-sm')}}
                         {% if dm.suid == no_muid or dm.ruid == no_muid %}

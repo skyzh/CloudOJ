@@ -32,9 +32,9 @@ class DirectMessageForm extends Form {
                 'message' => 'message is required'
             )),
             new StringLength(array(
-                'max' => 140,
+                'max' => 800,
                 'min' => 3,
-                'messageMaximum' => 'message must have at most 140 characters',
+                'messageMaximum' => 'message must have at most 800 characters',
                 'messageMinimum' => 'message must have at least 3 characters'
             ))
         ));

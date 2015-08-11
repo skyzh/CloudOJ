@@ -30,7 +30,7 @@ class CRUDChildController extends ControllerBase {
     protected function getForm($entity, $options) {
         return null;
     }
-    private function forwardIndex($baseID) {
+    protected function forwardIndex($baseID) {
         return $this->forward("{$this->baseURI}/index/{$baseID}");
     }
     protected function afterSave($baseObj, $childObj) {
