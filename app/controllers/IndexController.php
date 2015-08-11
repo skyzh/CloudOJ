@@ -11,6 +11,8 @@ class IndexController extends ControllerBase {
         parent::initialize();
     }
     public function indexAction() {
-        $this->view->setRenderLevel(View::LEVEL_AFTER_TEMPLATE);
+        $this->view->beforeNavbar = "before_index";
+        $this->view->afterNavbar = "after_index";
+
     }
 }

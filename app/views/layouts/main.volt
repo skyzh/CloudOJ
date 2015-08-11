@@ -1,3 +1,6 @@
+{% if beforeNavbar is defined %}
+    {{ partial("partials/" ~ beforeNavbar) }}
+{% endif %}
 {{ partial("partials/nav_bar_top") }}
 <div id="pjax-loading" style="position: fixed; top: 0px; width: 100%; z-index:1200;">
     <div class="progress" style="height:10px">
@@ -5,12 +8,18 @@
         </div>
     </div>
 </div>
-
-<div class="container">
+<div class="container" id="flash_container">
     <div id="flashcontainer">
         {{ flash.output() }}
     </div>
     <br/>
+</div>
+
+{% if afterNavbar is defined %}
+    {{ partial("partials/" ~ afterNavbar) }}
+{% endif %}
+
+<div class="container" id="main_container">
     {{ content() }}
     <hr>
     <footer>
