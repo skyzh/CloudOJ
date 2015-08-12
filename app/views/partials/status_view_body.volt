@@ -11,9 +11,9 @@
             {% elseif st.status == 3 %}
             <label class='label label-danger'>Wrong Answer</label>
             {% elseif st.status == 4 %}
-            <label class='label label-danger'>Memory Limit Excceed</label>
+            <label class='label label-danger'>Memory Limit Exceed</label>
             {% elseif st.status == 5 %}
-            <label class='label label-danger'>Time Limit Excceed</label>
+            <label class='label label-danger'>Time Limit Exceed</label>
             {% elseif st.status == 6 %}
             <label class='label label-danger'>Runtime Error</label>
             {% elseif st.status == 7 %}
@@ -25,7 +25,7 @@
             {% elseif st.status == 10 %}
             <label class='label label-warning'>Presentation Error</label>
             {% elseif st.status == 11 %}
-            <label class='label label-warning'>Output Limit Excceed</label>
+            <label class='label label-warning'>Output Limit Exceed</label>
             {% elseif st.status == 12 %}
             <label class='label label-warning'>System Error</label>
             {% endif %}
