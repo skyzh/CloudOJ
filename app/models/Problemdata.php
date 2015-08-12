@@ -31,7 +31,9 @@ class Problemdata extends Model {
     public function getIn() {
         if($this->isFile == 1) {
             $dat = "";
-            $fp = fopen(APP_PATH. "ojdata/" . $this->dat_in, "r");
+            $__dat_path = APP_PATH. "ojdata/" . $this->dat_in;
+            if(!file_exists($__dat_path)) return "Not Found";
+            $fp = fopen($__dat_path, "r");
             while(!feof($fp))
             {
                 $dat .= str_replace(array("\r"), "", fgets($fp));
@@ -46,7 +48,9 @@ class Problemdata extends Model {
     public function getOut() {
         if($this->isFile == 1) {
             $dat = "";
-            $fp = fopen(APP_PATH. "ojdata/" . $this->dat_out, "r");
+            $__dat_path = APP_PATH. "ojdata/" . $this->dat_out;
+            if(!file_exists($__dat_path)) return "Not Found";
+            $fp = fopen($__dat_path, "r");
             while(!feof($fp))
             {
                 $dat .= str_replace(array("\r"), "", fgets($fp));
