@@ -11,8 +11,8 @@
 #index_top_banner {
     height: 200px;
     background-position: center;
-    background-image: url({{url("images/60x60.png")}}), url({{url("images/dark.png")}}), url({{url("images/index_banner.jpg")}});
-    background-size: 60px 60px,cover, cover;
+    background-image: url({{url("images/60x60banner.png")}}), url({{url("images/dark.png")}}), url({{url("images/index_banner.jpg")}});
+    background-size: 80px 80px,cover, cover;
     background-repeat: no-repeat, no-repeat;
     color: #FFF;
     text-shadow: 0 1px 3px rgba(0,0,0,.4),0 0 30px rgba(0,0,0,.075);
