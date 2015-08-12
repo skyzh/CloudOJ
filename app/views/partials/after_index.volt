@@ -71,8 +71,7 @@ section h1 p{
                 <h3 class="text-center">Just see kids.org.cn</h3>
             </div>
         </div>
-        <hr style="margin: 5em 0 5em" class="hidden-xs"/>
-        <div class="row">
+        <div class="row" style="margin: 3em 0 3em">
             <div class="col-xs-12 col-md-10 col-md-offset-1">
                 <div class="col-xs-12">
                     <p>
