@@ -55,7 +55,11 @@ section h1 p{
         </div>
         <hr/>
         <div class="row">
-                {{ partial("partials/stat_home")}}
+            <div class="col-xs-12">
+                <div>
+                    {{ partial("partials/stat_home")}}
+                </div>
+            </div>
         </div>
     </div>
 </section>

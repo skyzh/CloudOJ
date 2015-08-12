@@ -12,6 +12,7 @@ class Problemdata extends Model {
     public $dat_out;
     public $dat_name;
     public $isFile;
+    public $isDeleted;
 
     public function initialize() {
         $this->belongsTo("pid", "Problemset", "pid", array(
@@ -24,7 +25,9 @@ class Problemdata extends Model {
             "pdid = :pdid:", 'bind' => array('pdid' => $pdid)));
         return $probdata;
     }
-
+    public function beforeValidationOnCreate() {
+        $this->isDeleted = false;
+    }
     public function getIn() {
         if($this->isFile == 1) {
             $dat = "";

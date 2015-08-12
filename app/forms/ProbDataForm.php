@@ -8,6 +8,7 @@ use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Numericality;
+use Phalcon\Validation\Validator\StringLength;
 
 class ProbDataForm extends Form {
 
@@ -46,6 +47,12 @@ class ProbDataForm extends Form {
         $dat_name->addValidators(array(
             new PresenceOf(array(
                 'message' => 'Please enter Data Name'
+            )),
+            new StringLength(array(
+                'max' => 20,
+                'min' => 1,
+                'messageMaximum' => 'Data Name must have at most 20 characters',
+                'messageMinimum' => 'Data Name must have at least 1 characters'
             ))
         ));
         $this->add($dat_name);

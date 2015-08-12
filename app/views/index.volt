@@ -10,12 +10,13 @@
         {% endif %}
         {{ stylesheet_link('css/main.css') }}
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="description" content="SNGOJ">
-        <meta name="author" content="SkyZH, CloudOJ">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+        <meta name="description" content="SNGOJ, a simple online judge"/>
+        <meta name="author" content="SkyZH, CloudOJ"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="renderer" content="webkit"/>
         <meta name="keywords" content="SNGOJ, OI, NOI, NOIP, OJ, Online Judge" />
+        <meta name="robots" content="index,follow"/>
     </head>
 
     <body>

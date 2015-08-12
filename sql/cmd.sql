@@ -36,8 +36,7 @@ CREATE TABLE `problemset` (
     changetime DATETIME NOT null,
     memlimit int(11) not null,
     timelimit int(11) not null,
-    isDeleted BOOLEAN not null,
-    FULLTEXT (title)
+    isDeleted BOOLEAN not null
 );
 
 CREATE TABLE `problemdetail` (

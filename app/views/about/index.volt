@@ -73,5 +73,9 @@
         <h2>Author</h2>
         <p><a href="https://about.me/SkyZH">SkyZH</a>, a programmer unknown about code.</p>
         <p>We are grateful to those who help improve this site. You can find them in Contributors at the end of each problem.</p>
+        <h2>LOGO</h2>
+        <p>This is the logo for CCCCWI Computer Center.</p>
+        {{ image("images/original.png", ["class" : "img-responsive"] )}}
+        <p>Modified by KaitoHH, who made this icon dark.</p>
     </div>
 </div>

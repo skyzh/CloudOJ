@@ -22,7 +22,7 @@
     }
 ?>
 
-<canvas id="statusChart" width="100%" height="400"></canvas>
+<canvas id="statusChart" width="250" height="400"></canvas>
 
 <script>
 __json_stat_dat = "{{ statArray | json_encode | escape_js}}";

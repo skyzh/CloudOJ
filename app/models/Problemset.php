@@ -13,6 +13,7 @@ class Problemset extends Model {
     public $changetime;
     public $memlimit;
     public $timelimit;
+    public $isDeleted;
 
     public function initialize() {
         $this->hasOne("pid", "Problemdetail", "pid", array(
@@ -30,6 +31,7 @@ class Problemset extends Model {
         $this->submit = 0;
         $this->accepted = 0;
         $this->changetime = new RawValue('now()');
+        $this->isDeleted = false;
     }
 
     public function beforeSave() {

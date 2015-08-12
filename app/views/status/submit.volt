@@ -22,9 +22,9 @@
                     <a value="0" class="list-group-item active langselect lang_c" href="javascript:">GNU C++</a>
                     <a value="1" class="list-group-item langselect lang_c" href="javascript:">GNU C</a>
                     <a value="2" class="list-group-item langselect lang_c" href="javascript:">GNU C++11</a>
-                    <!--<option value="3" class="list-group-item langselect lang_py" href="javascript:">Python2</option>
-                    <option value="4" class="list-group-item langselect lang_py" href="javascript:">Python3</option>
-                    <option value="5" class="list-group-item langselect lang_ja" href="javascript:">Java</option>-->
+                    <a value="3" class="list-group-item langselect lang_py" href="javascript:">Python2</a>
+                    <a value="4" class="list-group-item langselect lang_py" href="javascript:">Python3</a>
+                    <!--<option value="5" class="list-group-item langselect lang_ja" href="javascript:">Java</option>-->
                     <a value="6" class="list-group-item langselect lang_pascal" href="javascript:">Pascal</a>
                     <!--<option value="7" class="list-group-item langselect lang_ruby" href="javascript:">Ruby</option>
                     <option value="8" class="list-group-item langselect lang_perl" href="javascript:">Perl</option>

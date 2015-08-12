@@ -7,8 +7,12 @@
             {{ link_to("notification", "class": "btn btn-default", "<span class='glyphicon glyphicon-chevron-left'></span> Notification") }}
         </div>
         <div class="col-md-6" align="right">
-            {{ link_to("notification/sendall", "class": "btn btn-default", "Reset") }}
-            {{ submit_button("Publish", "class": "btn btn-primary") }}
+            <p>
+                <div class="btn-group">
+                    {{ link_to("notification/sendall", "class": "btn btn-default", "<span class='glyphicon glyphicon-repeat'></span> Reset") }}
+                    <button type="submit" class="btn btn-primary"><span class='glyphicon glyphicon-send'></span> Publish</button>
+                </div>
+            </p>
         </div>
     </div>
 

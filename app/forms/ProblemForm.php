@@ -8,6 +8,7 @@ use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\Numericality;
+use Phalcon\Validation\Validator\StringLength;
 
 class ProblemForm extends Form {
     private function addNumber($objName, $objLabel) {
