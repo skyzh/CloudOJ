@@ -133,7 +133,8 @@ class ProblemsetController extends ControllerBase {
         $currentPage = (int) $this->request->getQuery('page');
         if($currentPage == 0) $currentPage = 1;
 
-        $dataBuilder = $this->modelsManager->createBuilder()->from("Problemset");
+        $dataBuilder = $this->modelsManager->createBuilder()->from("Problemset")
+        ->orderBy("Problemset.pid DESC");
 
         if($title || $lucky) $this->view->isSearch = true;
         else $this->view->isSearch = false;

@@ -77,5 +77,6 @@
         <p>This is the logo for CCCCWI Computer Center.</p>
         {{ image("images/original.png", ["class" : "img-responsive"] )}}
         <p>Modified by KaitoHH, who made this icon dark.</p>
+        <p>Modified by Epicc, who lightened this icon.</p>
     </div>
 </div>
