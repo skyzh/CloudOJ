@@ -76,6 +76,9 @@ You must have a group whose score is 0, as well as a group whose score is LARGE 
 
     [watcher]
     apikey = abcdefghijklmnopqrstuvwxyz
+    
+    [crypt]
+    key = 23333333333333
 
 
 ## Todo
