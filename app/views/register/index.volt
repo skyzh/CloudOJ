@@ -3,7 +3,7 @@
 
 <div class="page-header">
     <h1>Sign Up</h1>
-    <h4>The whole new Advanture.</h4>
+    <h4>The whole new Adventure.</h4>
 </div>
 
     {{ form('register', 'id': 'registerForm') }}

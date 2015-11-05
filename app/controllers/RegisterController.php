@@ -34,7 +34,7 @@ class RegisterController extends ControllerBase {
                         $this->tag->setDefault('email', '');
                         $this->tag->setDefault('password', '');
 
-                        $this->flash->success('Thanks for sign-up! Log in to start Advanture</h6>');
+                        $this->flash->success('Thanks for sign-up! Log in to start Adventure</h6>');
                         return $this->forward('session/index');
                     }
                 }
