@@ -1,4 +1,5 @@
 # CloudOJ
+## this project is deprecated due to low efficiency and security issues.
 New MVC Version of SNGOJ, built for CCCCWI.
 Build based on INVO example of phalconphp
 
